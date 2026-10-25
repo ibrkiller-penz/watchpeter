@@ -1,4 +1,4 @@
-import{s as i}from"./pwa-CxqqUTio.js";/* empty css                */i();const r="powershell -ExecutionPolicy Bypass -File .\\wrist-shortcuts.ps1",n=t=>t.replace(/[&<>"']/g,e=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[e]);try{const t=localStorage.getItem("wrist-sim.theme");(t==="light"||t==="dark")&&(document.documentElement.dataset.theme=t)}catch{}const p=(t,e)=>`
+import{s as i}from"./pwa-CC5vbYkQ.js";/* empty css                */i();const r="powershell -ExecutionPolicy Bypass -File .\\wrist-shortcuts.ps1",n=t=>t.replace(/[&<>"']/g,e=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[e]);try{const t=localStorage.getItem("wrist-sim.theme");(t==="light"||t==="dark")&&(document.documentElement.dataset.theme=t)}catch{}const p=(t,e)=>`
   <div class="inst-code">
     <pre><code>${n(t)}</code></pre>
     <button type="button" class="inst-btn inst-copy" data-copy="${n(t)}" aria-label="${n(e)} 명령 복사">복사</button>
