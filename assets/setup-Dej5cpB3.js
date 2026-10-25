@@ -12,7 +12,7 @@ import{s as i}from"./pwa-CxqqUTio.js";/* empty css                */i();const r=
 
     <section class="inst-card" aria-labelledby="setup-s1">
       <h2 id="setup-s1"><span class="inst-n">1</span>스크립트 내려받기</h2>
-      <p><a href="./pc-setup/wrist-shortcuts.ps1" download="wrist-shortcuts.ps1">wrist-shortcuts.ps1 내려받기</a> — PowerShell 스크립트입니다. 관리자 권한은 필요 없고, 내 시작 메뉴 <code>손목 컨트롤러</code> 폴더에 바로 가기 6개를 만듭니다.</p>
+      <p><a href="./pc-setup/wrist-shortcuts.ps1" download="wrist-shortcuts.ps1">wrist-shortcuts.ps1 내려받기</a> — PowerShell 스크립트입니다. 관리자 권한은 필요 없고, 내 시작 메뉴 <code>손목 컨트롤러</code> 폴더에 바로 가기 4개(1·2·6·7)를 만듭니다.</p>
     </section>
 
     <section class="inst-card" aria-labelledby="setup-s2">

@@ -94,9 +94,17 @@
         <div class="gd-modes">
           <div class="gd-mode" data-m="clock"><b>시계</b>시각·날짜를 봅니다. 키를 보내지 않으니 실수로 눌러도 안전합니다. 켜면 여기서 시작합니다.</div>
           <div class="gd-mode" data-m="present"><b>발표</b>오른쪽 탭 = 다음, 왼쪽 탭 = 이전, 가운데 길게 = 화면 암전. 손목 튕김은 시계 설정에서 켜면 다음 장.</div>
-          <div class="gd-mode" data-m="launch"><b>실행</b>아이콘 9개(Claude·나이스·유튜브·쿨메신저·카카오톡·한글·탐색기·바탕 화면·창 닫기)를 한 번 눌러 엽니다.</div>
+          <div class="gd-mode" data-m="launch"><b>실행</b>아이콘 9개(Claude·나이스·유튜브·쿨메신저·카카오톡·한글·탐색기·바탕 화면·창 닫기)를 한 번 눌러 엽니다. 들어온 직후 1.5초(쇼 진행 중이면 5초)는 '창 닫기'·'바탕 화면'이 실수 방지로 잠시 막히고 이름 자리에 '실수 방지 중'·'쇼 중 · 잠시 뒤'가 보입니다.</div>
           <div class="gd-mode" data-m="meeting"><b>회의</b>Zoom·Teams·Meet 의 마이크·카메라 끄기/켜기, 손 들기.</div>
         </div>
+        <h3>화면 표시 읽는 법</h3>
+        <ul>
+          <li><b>회의 타일에 ? 가 보이면</b> — 타일을 <span data-g="touch.meetingSyncHoldMs" data-v="1200">1.2초</span> 길게 눌러 PC 와 표시를 맞춥니다(키는 보내지 않음, 0.6초부터 '계속 누르면 표시만'). ? = 'PC 상태 모름'.</li>
+          <li><b>'켜짐 · 추정'·'꺼짐 · 추정'이 보이면</b> — 시계가 보낸 키로 짐작한 표시입니다. PC 화면과 다르면 위처럼 길게 눌러 맞춥니다.</li>
+          <li><b>다시 ? 로 돌아갔으면</b> — 연결이 끊긴 지 <span data-g="timing.meetingEstimateResetMs" data-v="30000">30초</span>가 지났거나, 회의 화면을 떠난 지 <span data-g="timing.meetingEstimateIdleResetMs" data-v="600000">600초</span>(10분) 뒤 돌아온 경우입니다(그사이 PC 에서 바뀌었을 수 있음). 길게 눌러 다시 맞춥니다.</li>
+          <li><b>실행 화면의 '창 닫기'·'바탕 화면'이 흐리고 '실수 방지 중'이면</b> — 잠깐 기다렸다 누릅니다. 실행 화면에 들어온 직후 1.5초(쇼 진행 중이면 5초, 이름 자리 '쇼 중 · 잠시 뒤')는 실수 방지로 막혀 있다가 이름이 돌아오면 눌립니다.</li>
+          <li><b>위 상태줄 블루투스 색을 보면</b> — 초록 = 연결됨(키가 감), 빨강 깜빡임 = 끊김, 회색 = 연결 대기, 밝은 회색 = 연결 중, 노랑 = 다시 추가 필요(PC 에서 이 장치 제거 후 다시 추가), 어두운 회색 = 연결 모드 꺼짐.</li>
+        </ul>
         <p class="gd-sub">PowerPoint·Google Slides·Zoom·Teams·Google Meet 에서 시험했습니다. Windows 기준으로 설명하고, macOS 도 대부분 동작합니다(실행 모드는 Spotlight 로 엽니다).</p>
       </section>
 
@@ -168,14 +176,27 @@
       <section class="gd-card" id="s3" aria-labelledby="s3-h">
         <h2 id="s3-h"><span class="gd-n">3</span>블루투스 연결(페어링)</h2>
         <ol>
-          <li>시계는 평소 <strong>시계로만</strong> 쓰도록 블루투스가 꺼진 채 켜집니다(상태줄 '연결 꺼짐', 시계 아래 'BT OFF'). 화면 맨 위에서 아래로 당겨 <strong>설정 → 연결 모드</strong> 를 켜면 PC 를 찾기 시작하고 발표 화면으로 바뀝니다. 발표 화면 가운데의 <strong>'블루투스 꺼짐 · 눌러서 연결 켜기'</strong> 카드를 눌러도 됩니다. 전원을 껐다 켜면 연결 모드는 다시 꺼지므로, 쓸 때마다 켭니다. 연결 대기 화면은 1분 동안 꺼지지 않고, 아래 도움말이 20초·40초마다 바뀝니다.</li>
-          <li>PC: <strong>설정 → 블루투스 및 장치 → 장치 추가 → 블루투스</strong>.</li>
+          <li>시계는 평소 <strong>시계로만</strong> 쓰도록 블루투스가 꺼진 채 켜집니다(상태줄 '연결 꺼짐', 시계 아래 'BT OFF'). 화면 맨 위에서 아래로 당겨 <strong>설정 → 연결 모드</strong> 를 켜면 PC 를 찾기 시작하고 발표 화면으로 바뀝니다. 발표 화면 가운데의 <strong>'블루투스 꺼짐 · 눌러서 연결 켜기'</strong> 카드를 눌러도 됩니다. 전원을 껐다 켜면 연결 모드는 다시 꺼지므로, 쓸 때마다 켭니다. 연결 대기 화면은 1분 동안 꺼지지 않고, 아래 도움말이 20초·30·40초에 바뀝니다(PC 블루투스 껐다 켜기 → PC 의 다른 BT 기기 잠시 끄기 → 옛 기기 제거). 그만하려면 <strong>위에서 당겨</strong> 연결 모드를 끕니다.</li>
+          <li>PC: 시작 버튼을 누르고 <strong>"Bluetooth"</strong> 를 검색해 Bluetooth 설정을 연 뒤 <strong>장치 추가 → Bluetooth</strong>(시계 화면의 단계 글자와 같습니다). Windows 11 은 <em>설정 → Bluetooth 및 장치 → 디바이스 추가 → Bluetooth</em>, Windows 10 은 <em>설정 → 장치 → Bluetooth 및 기타 디바이스 → Bluetooth 또는 기타 장치 추가 → Bluetooth</em> 입니다.</li>
           <li>목록에서 <strong>손목 컨트롤러 XXXX</strong> 를 누릅니다. <code>XXXX</code> 는 시계마다 다른 네 글자(예: <code>2D3A</code>)라 여러 대를 구분할 수 있습니다. 비밀번호(PIN)는 묻지 않습니다.</li>
-          <li>'연결됨' 이 뜨고 시계 위쪽 상태줄의 블루투스 표시가 켜지면 끝입니다. 다음부터는 연결 모드만 켜면 자동으로 다시 연결됩니다.</li>
+          <li>'연결됨' 이 뜨고 시계 위쪽 상태줄의 블루투스 표시가 <strong>초록</strong>으로 바뀌면 끝입니다(아래 표). 다음부터는 연결 모드만 켜면 자동으로 다시 연결됩니다.</li>
         </ol>
-        <p class="gd-tip"><strong>첫 5분 — 넘김이 안 먹을 때</strong>: 연결된 직후 발표 화면에 <strong>'PC에서 PPT 창을 한 번 누르세요'</strong> 가 뜹니다(첫 넘김을 보낼 때까지, 최대 15초). 시계가 보내는 키는 PC 에서 <em>지금 앞에 있는 창</em>으로 갑니다. 마우스로 PowerPoint 창(또는 슬라이드 쇼 화면)을 한 번 클릭해 앞으로 가져온 뒤 시계를 누르세요.</p>
+        <div class="gd-tablewrap">
+          <table class="gd-table">
+            <thead><tr><th>연결 상태</th><th>상태줄 블루투스</th><th>시계 화면 아래 글자</th></tr></thead>
+            <tbody>
+              <tr><td>연결 모드 꺼짐(평소)</td><td>회색(흐림) · '연결 꺼짐'</td><td>'위에서 당겨 › 연결 모드' · BT OFF</td></tr>
+              <tr><td>PC 를 기다리는 중</td><td>회색(대기색)</td><td>'연결 대기' · READY</td></tr>
+              <tr><td>PC 가 붙는 중</td><td>밝은 회색</td><td>'PC와 연결하는 중…' · PAIRING</td></tr>
+              <tr><td>연결됨</td><td><strong>초록</strong></td><td>'연결됨'(초록) · LINKED</td></tr>
+              <tr><td>끊김(연결 모드 켜짐)</td><td><strong>빨강 깜빡임</strong></td><td>'연결 끊김'(빨강) · LOST</td></tr>
+              <tr><td>PC 에서 다시 추가 필요</td><td><strong>노랑</strong></td><td>'다시 추가 필요'(노랑) · RE-ADD</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="gd-tip"><strong>첫 5분 — 넘김이 안 먹을 때</strong>: 연결된 직후 발표 화면에 <strong>'PC에서 PPT 창을 한 번 누르세요'</strong> 가 뜹니다(이전/다음을 두 번 보내면 곧 사라지고, 길어도 '연결됨' 표시 뒤 15초). 연결 모드를 다시 켤 때(새 수업)와 실행 타일로 다른 앱을 연 뒤 발표 화면으로 돌아왔을 때도 다시 뜹니다 — PC 앞 창이 바뀌었을 수 있기 때문입니다. 시계가 보내는 키는 PC 에서 <em>지금 앞에 있는 창</em>으로 갑니다. 마우스로 PowerPoint 창(또는 슬라이드 쇼 화면)을 한 번 클릭해 앞으로 가져온 뒤 시계를 누르세요.</p>
         <p class="gd-tip">PC 목록에 시계가 보이는데 <strong>'장치를 다시 연결해 보세요'</strong> 만 나오면 PC 쪽 블루투스 동글 문제일 가능성이 큽니다. <a href="#faq-dongle">문제 해결 → 블루투스 동글</a>을 보세요.</p>
-        <p class="gd-warn"><strong>다시 연결이 안 될 때</strong>(시계에 <strong>'PC에서 이 장치 삭제 후 다시 추가'</strong> 가 뜨거나 상태줄 블루투스가 노란색): PC 설정의 장치 목록에서 <strong>손목 컨트롤러 XXXX → 장치 제거</strong> 를 누른 뒤, 위 2~3번을 다시 합니다. 이 PC 와의 열쇠가 서로 맞지 않을 때만 이 안내가 뜨고, 시계는 <em>이 PC</em> 기록만 지웁니다 — 다른 PC(교실·교무실)와의 연결은 그대로입니다. 멀어서 끊긴 경우에는 뜨지 않으니 가까이 가서 연결 모드를 다시 켜 보세요. 펌웨어를 지우고(Erase) 설치했을 때도 PC 에서 장치를 제거하고 다시 추가해야 합니다.</p>
+        <p class="gd-warn"><strong>다시 연결이 안 될 때</strong>(시계에 <strong>'PC에서 이 장치 제거 후 다시 추가'</strong> 가 뜨거나 상태줄 블루투스가 노란색 — 위 표): PC 의 Bluetooth 설정(시작 → "Bluetooth" 검색) 목록에서 <strong>손목 컨트롤러 XXXX</strong> 를 골라 <strong>장치 제거</strong>(Windows 11: 오른쪽 ⋯ → 디바이스 제거, Windows 10: 장치 제거)를 누른 뒤, 위 2~3번을 다시 합니다. 이 PC 와의 열쇠가 서로 맞지 않을 때만 이 안내가 뜨고, 시계는 <em>이 PC</em> 기록만 지웁니다 — 다른 PC(교실·교무실)와의 연결은 그대로입니다. 멀어서 끊긴 경우에는 뜨지 않으니 가까이 가서 연결 모드를 다시 켜 보세요. 펌웨어를 지우고(Erase) 설치했을 때도 PC 에서 디바이스를 제거하고 다시 추가해야 합니다.</p>
       </section>
 
       <!-- ───────────── 4단계 ───────────── -->
@@ -224,10 +245,10 @@
           <table class="gd-table">
             <thead><tr><th>버튼</th><th>누르는 법</th><th>하는 일</th></tr></thead>
             <tbody>
-              <tr><td>위 BOOT</td><td>짧게(<span data-g="button.shortMaxMs" data-v="1000">1초</span> 안에 뗌)</td><td>다음 화면으로: 시계 → 발표 → 실행 → 회의 → 시계(키는 보내지 않음). 화면을 보지 않고도 버튼으로 모드를 돌릴 수 있음. 잠금 중에도 됨. 1초 넘게 누르다 2초 전에 떼면 <strong>아무 일도 하지 않음</strong>(망설인 누름은 취소)</td></tr>
-              <tr><td>위 BOOT</td><td><span data-g="button.longPressMs" data-v="2000">2초</span> 누름</td><td>잠금 켜기/끄기 — 누르고 있으면 1초부터 남은 초와 '계속 누르면 잠겨요'(잠금 중이면 '풀려요')가 보임. 잠금 중에는 <strong>발표 화면의 왼쪽·오른쪽 탭(이전·다음)만</strong> 되고, 타일·암전·밀기(모드 바꾸기)·위에서 당기기(쇼 시트·설정)·손목 튕김·에어마우스는 막힘(막힌 터치를 하면 '잠금 · BOOT 2초 = 풀기' 가 3초에 한 번 뜸). BOOT 짧게(다음 화면)·PWR 는 그대로 됨. 켤 때 '잠금 · 발표 좌우만 동작', 풀 때 '잠금 풀림' 이 잠깐 뜸. 에어마우스를 쓰는 중이면 겨누다 잠기지 않게 3초 눌러야 잠김</td></tr>
+              <tr><td>위 BOOT</td><td>짧게(<span data-g="button.shortMaxMs" data-v="1000">1초</span> 안에 뗌)</td><td>다음 화면으로: 시계 → 발표 → 실행 → 회의 → 시계(키는 보내지 않음). 화면을 보지 않고도 버튼으로 모드를 돌릴 수 있음. 잠금 중에는 막힘(풀기 = BOOT 2초). 연결 대기 화면에서는 화면을 바꾸지 않고 '그만하려면 위에서 당겨 연결 끄기' 줄이 잠깐 강조됨. 1초 넘게 누르다 2초 전에 떼면 <strong>아무 일도 하지 않음</strong>(망설인 누름은 취소)</td></tr>
+              <tr><td>위 BOOT</td><td><span data-g="button.longPressMs" data-v="2000">2초</span> 누름</td><td>잠금 켜기/끄기 — 누르고 있으면 1초부터 남은 초와 '계속 누르면 잠겨요'(잠금 중이면 '풀려요')가 보임. 잠금 중에는 <strong>발표 화면의 왼쪽·오른쪽 탭(이전·다음)만</strong> 되고, 타일·암전·밀기(모드 바꾸기)·위에서 당기기(쇼 시트·설정)·손목 튕김·에어마우스는 막힘(막힌 터치를 하면 '잠금 · BOOT 2초 = 풀기' 가 3초에 한 번 뜸). BOOT 짧게(다음 모드)도 막힘 — 발표 좌우 넘김만 됨(가운데 암전도 막힘), 풀기 = BOOT 2초. PWR(화면 켜기/끄기·전원 끄기)는 평소대로. 켤 때 '잠금 · 발표 좌우만 동작', 풀 때 '잠금 풀림' 이 잠깐 뜸. 에어마우스를 쓰는 중이면 겨누다 잠기지 않게 3초 눌러야 잠김</td></tr>
               <tr><td>아래 PWR</td><td>짧게(1초 안에 뗌)</td><td>화면 켜기/끄기. 꺼진 화면은 조금 길게 눌렀다 떼도 켜짐</td></tr>
-              <tr><td>아래 PWR</td><td><span data-g="button.powerOffHoldMs" data-v="3000">3초</span> 누름</td><td><strong>전원 끄기</strong> — 누르고 있으면 1초부터 남은 초와 막대가 보이고, 3초가 되면 상어 로고가 뜨고 꺼짐(따로 확인 버튼을 누르지 않아도 됨). 설정 화면에서 눌러도 설정을 닫고 꺼짐. 1초 넘게 누르다 3초 전에 떼면 아무것도 하지 않고 '전원은 3초' 가 잠깐 뜸('전원을 끌까요?' 화면에서는 조금 길게 눌렀다 떼도 끄기). <strong>USB 가 꽂혀 있으면</strong> 꺼지지 않고 'USB를 빼 주세요' 가 뜸 — USB 를 빼고 다시 3초 누름</td></tr>
+              <tr><td>아래 PWR</td><td><span data-g="button.powerOffHoldMs" data-v="3000">3초</span> 누름</td><td><strong>전원 끄기</strong> — 누르고 있으면 1초부터 남은 초와 막대가 보이고, 3초가 되면 상어 로고가 뜨고 꺼짐(따로 확인 버튼을 누르지 않아도 됨). 설정 화면에서 눌러도 설정을 닫고 꺼짐. 1초 넘게 누르다 3초 전에 떼면 아무것도 하지 않고 '전원은 3초' 가 잠깐 뜸.<strong>USB 가 꽂혀 있으면</strong> 꺼지지 않고 'USB 연결 · 화면만 꺼요'·'USB 빼고 PWR 3초 = 끄기' 가 4초 뜹니다. 안내 중 입력이 없으면 화면만 꺼지고 연결 모드도 꺼짐(쇼·암전도 처음으로). 화면·버튼을 만지면 그대로 계속 사용 — 정말 끄려면 USB 를 빼고 다시 3초 누름</td></tr>
               <tr><td>아래 PWR</td><td>4초 넘게</td><td>시계가 멈췄을 때도 전원 회로가 강제로 끔(펌웨어가 이 시간을 4초로 맞춰 둠)</td></tr>
               <tr><td>아래 PWR</td><td>꺼진 상태에서 짧게</td><td>켜기 — 상어 로고가 뜬 뒤 시계 화면. 켜질 때 <strong>연결 모드는 꺼져</strong> 있음(<a href="#s3">3단계</a>)</td></tr>
             </tbody>
@@ -240,7 +261,7 @@
             <tbody>
               <tr><td>탭</td><td>살짝 눌렀다 뗌(<span data-g="touch.holdMs" data-v="600">0.6초</span> 안에, 손가락을 거의 움직이지 않고)</td><td>타일·영역의 키를 보냄. <strong>손을 뗄 때</strong> 보내므로, 잘못 눌렀으면 손가락을 밀어서 떼면 취소</td></tr>
               <tr><td>암전</td><td>발표 화면 가운데를 <span data-g="touch.blackoutHoldMs" data-v="360">0.36초</span> 누름</td><td>슬라이드 쇼 화면을 검게(마침표 <kbd>.</kbd>). 한 번 더 하면 다시 보임</td></tr>
-              <tr><td>길게</td><td>회의 타일을 <span data-g="touch.holdMs" data-v="600">0.6초</span> 누름</td><td>키를 보내지 않고 시계 표시만 PC 상태에 맞춤(실제로는 이미 꺼져 있을 때)</td></tr>
+              <tr><td>길게</td><td>회의 타일을 <span data-g="touch.meetingSyncHoldMs" data-v="1200">1.2초</span> 누름</td><td>키를 보내지 않고 시계 표시만 PC 상태에 맞춤(실제로는 이미 꺼져 있을 때). 0.6초부터 '계속 누르면 표시만' 과 타일 아래 진행 막대가 차오르고, 1.2초가 되면 손을 떼기 전에 새 표시가 바로 보임. 그 전에 떼면 보통 탭(키 전송)</td></tr>
               <tr><td>옆으로 밀기</td><td>좌우로 쓱 밂</td><td>화면 바꾸기: 시계 → 발표 → 실행 → 회의. 슬라이드 쇼 중에는 실수 방지로 더 길게 밀어야 함</td></tr>
               <tr><td>위에서 당기기</td><td>화면 맨 위 가장자리에서 아래로 당김</td><td>발표: 쇼 시작/종료 시트. 다른 화면: 시계 설정(연결·에어마우스·컴퓨터 등, 2쪽)</td></tr>
             </tbody>
@@ -257,11 +278,13 @@
         </ul>
         <h3>그 밖에</h3>
         <ul>
-          <li>아무것도 하지 않으면 <span data-g="power.screenOffMs" data-v="20000">20초</span> 뒤 화면이 꺼집니다. 화면 터치·BOOT·손목 들기로 다시 켜집니다.</li>
-          <li>꺼진 화면을 터치하거나 BOOT 를 누르면 <strong>화면만 켜지고</strong> 누른 동작은 보내지 않습니다(주머니 속·화면을 안 보고 누른 오작동 방지 — BOOT 를 길게 눌러도 잠금·에어마우스가 되지 않음). 단 <strong>발표 화면 + PC 연결됨</strong>이면 꺼진 지 <span data-g="timing.presentWakePassMs" data-v="300000">300초</span>(5분) 안에는 <b>왼쪽·오른쪽 탭</b>이 화면을 켜면서 바로 이전·다음 장으로 넘깁니다(가운데·위쪽·밀기는 켜기만).</li>
-          <li>시계 설정은 <strong>2쪽</strong>입니다. 자주 쓰는 것이 1쪽: 연결 모드·컴퓨터 종류·이 컴퓨터 세팅·에어마우스·감도. 왼쪽 아래 <b>더 보기 ›</b>(또는 왼쪽으로 밀기)로 2쪽: 손목 들면 시계로·손목 튕김·눈 모양·정보(블루투스 이름·버전, 보기만). 2쪽 왼쪽 아래 <b>‹ 이전</b>(또는 오른쪽으로 밀기)으로 1쪽. <b>닫기</b>는 두 쪽 모두 오른쪽 아래 같은 자리입니다. 연결 모드 줄은 지금 연결 상태(꺼짐·연결 대기·연결됨·다시 추가 필요)를 보여 줍니다. 에어마우스·손목 튕김을 켜면 쓰는 법이 1.5초 뜹니다. 연결된 상태에서 연결 모드 끄기와 컴퓨터(OS) 바꾸기는 실수 방지로 <b>2초 안에 두 번</b> 누릅니다.</li>
+          <li><strong>시계 화면(눈)</strong>은 저절로 꺼지지 않고, 눈이 뜬 뒤 <span data-g="power.faceDimAfterMs" data-v="60000">60초</span>(1분) 지나면 <span data-g="power.faceBrightnessPercent" data-v="30">30%</span> 로 어두워지기만 합니다(충전 케이블을 꽂고 있어도 같음 — 끄려면 PWR 짧게). 그 밖의 화면은 아무것도 하지 않으면 <span data-g="power.screenOffMs" data-v="20000">20초</span> 뒤 꺼집니다(연결 대기 화면은 <span data-g="timing.pairScreenOffMs" data-v="60000">60초</span>, 연결 끊김 중은 30초 이상). <strong>시계가 스스로 켠 화면</strong>(손목 들기·배터리 알림)은 그 뒤 손대지 않으면 눈 화면이어도 <span data-g="power.screenOffMs" data-v="20000">20초</span> 뒤 다시 꺼집니다. 꺼진 화면은 PWR 짧게·화면 터치·BOOT·손목 들기로 다시 켜집니다. 눈이나 꺼진 화면에서 깨운 시계는 <span data-g="timing.faceWakeHoldMs" data-v="8000">8초</span> 동안 시계로 보이고, 기기가 켠 화면은 <span data-g="power.screenOffMs" data-v="20000">20초</span>에 꺼집니다.</li>
+          <li><b>손목 들면 시계로</b>(설정 2쪽)는 <strong>기본 꺼짐</strong>입니다 — 꺼져 있으면 손목을 들어도 화면만 켜지고 보던 화면 그대로입니다. 켜면 손목을 들 때 시계 화면부터 보이는데, <strong>연결 모드 중 발표·회의 화면</strong>이면 수업·회의를 방해하지 않게 그 화면을 그대로 둡니다(잠깐 끊겨 다시 붙는 중이어도).</li>
+          <li><strong>시계 화면</strong>에서 <span data-g="timing.faceIdleMs" data-v="5000">5초</span> 동안 아무것도 하지 않으면 표정(눈)이 뜹니다. 눈이 떠 있는 동안은 <strong>화면이 저절로 꺼지지 않습니다</strong> — 끄려면 PWR 를 짧게 누릅니다. 눈이 뜬 뒤 <span data-g="power.faceDimAfterMs" data-v="60000">60초</span> 더 지나면 배터리와 화면 보호를 위해 밝기가 <span data-g="power.faceBrightnessPercent" data-v="30">30%</span> 로 낮아집니다. 눈 화면을 터치하거나 손목을 들면 시계가 다시 보이고 밝기도 돌아옵니다(눈 화면의 <b>첫 터치는 시계만 보여 주고 버립니다</b> — 그 터치로 화면이 넘어가거나 설정이 열리지 않음). 이렇게 깨운 시계는 시각을 읽을 수 있게 <span data-g="timing.faceWakeHoldMs" data-v="8000">8초</span> 동안 눈으로 돌아가지 않습니다. 설정이 열려 있거나, 연결 대기·끊김 중이거나, 배터리 <span data-g="power.dangerBatteryPct" data-v="10">10%</span> 이하(충전 아님)이거나, 시계 시간이 맞춰지지 않았으면 눈이 뜨지 않고 평소처럼 꺼집니다.</li>
+          <li>꺼진 화면을 터치하거나 BOOT 를 누르면 <strong>화면만 켜지고</strong> 누른 동작은 보내지 않습니다(주머니 속·화면을 안 보고 누른 오작동 방지 — BOOT 를 길게 눌러도 잠금·에어마우스가 되지 않음). 단 <strong>발표 화면 + PC 연결됨</strong>이면 꺼진 지 <span data-g="timing.presentWakePassMs" data-v="3000000">3000초</span>(50분 — 수업 한 차시) 안에는 <b>왼쪽·오른쪽 짧은 탭</b>이 화면을 켜면서 바로 이전·다음 장으로 넘깁니다(가운데·위쪽·밀기·길게 누르기는 켜기만). 잠금 중에도 이 좌우 탭은 넘어갑니다(잠금은 발표 좌우만 남기므로). 시계·실행·회의 화면이나 연결 모드가 꺼져 있으면 언제나 켜기만 합니다.</li>
+          <li>시계 설정은 <strong>2쪽</strong>입니다. 자주 쓰는 것이 1쪽: 연결 모드·컴퓨터 종류·이 컴퓨터 세팅·에어마우스·감도. 왼쪽 아래 <b>더 보기 ›</b>(또는 왼쪽으로 밀기)로 2쪽: 손목 들면 시계로·손목 튕김·눈 모양·정보(블루투스 이름·버전, 보기만). 2쪽 왼쪽 아래 <b>‹ 이전</b>(또는 오른쪽으로 밀기)으로 1쪽. <b>닫기</b>는 두 쪽 모두 오른쪽 아래 같은 자리입니다. 연결 모드 줄은 지금 연결 상태(꺼짐·연결 대기·연결됨·다시 추가 필요)를 보여 줍니다. 에어마우스·손목 튕김을 켜면 쓰는 법이 아래 줄에 3초 뜹니다. 컴퓨터 종류가 macOS 면 '이 컴퓨터 세팅'은 <b>윈도우 전용</b>으로 보이고 눌러도 아무것도 보내지 않습니다. 연결된 상태에서 연결 모드 끄기와 컴퓨터(OS) 바꾸기는 실수 방지로 <b>2초 안에 두 번</b> 누릅니다.</li>
           <li>배터리가 <span data-g="power.lowBatteryPct" data-v="20">20%</span>, <span data-g="power.dangerBatteryPct" data-v="10">10%</span> 로 처음 내려가면 화면이 켜지며 '배터리 N% · 충전해 주세요' 알림이 3초 뜹니다(10% 는 빨강 테두리, 상태줄 배터리도 빨강). 충전하면 다시 처음부터 알립니다.</li>
-          <li>설정 닫기: 오른쪽 아래 '닫기'(두 쪽 같은 자리), 위로 밀기, 1쪽에서 오른쪽으로 밀기, BOOT·PWR 짧게(닫기만 — 보던 화면 그대로). 아무것도 하지 않으면 <span data-g="timing.settingsIdleCloseMs" data-v="30000">30초</span> 뒤 설정이 닫히면서 화면도 꺼집니다.</li>
+          <li>설정 닫기: 오른쪽 아래 '닫기'(두 쪽 같은 자리), 위로 밀기, 1쪽에서 오른쪽으로 밀기, BOOT·PWR 짧게(닫기만 — 보던 화면 그대로). 아무것도 하지 않으면 <span data-g="timing.settingsIdleCloseMs" data-v="30000">30초</span> 뒤 설정이 닫히면서 화면도 꺼집니다(시계 화면에서 연 설정은 닫기만 하고 화면은 켜 둡니다 — 시계가 보이다가 5초 뒤 눈).</li>
           <li>에어마우스(BOOT 를 누른 채 손목을 움직여 마우스 포인터 움직이기)는 기본으로 꺼져 있습니다. 쓰려면 시계 설정에서 '에어마우스' 를 켭니다.</li>
         </ul>
       </section>
@@ -282,8 +305,9 @@
           <ol>
             <li>시계 설정의 <strong>연결 모드</strong> 가 켜져 있는지 봅니다(상태줄에 '연결 꺼짐' 이면 꺼진 것).</li>
             <li>PC 블루투스가 켜져 있는지 봅니다.</li>
-            <li>PC 의 장치 목록에 '손목 컨트롤러 XXXX' 가 이미 있으면 <strong>장치 제거</strong> 후 다시 추가합니다(<a href="#s3">3단계</a>).</li>
+            <li>PC 의 장치 목록에 '손목 컨트롤러 XXXX' 가 이미 있으면 <strong>디바이스 제거</strong> 후 다시 추가합니다(<a href="#s3">3단계</a>).</li>
             <li>다른 PC 와 이미 연결되어 있으면 그 PC 의 블루투스를 끕니다. 시계는 한 번에 PC 한 대와 연결됩니다.</li>
+            <li>30초쯤 지나 시계에 <strong>'PC의 다른 BT 기기를 잠시 끄고 다시'</strong> 가 뜨면: PC 에 붙은 블루투스 마우스·키보드를 잠시 끄고 기다립니다. 값싼 동글은 BLE 연결을 1개만 받아 다른 기기가 자리를 차지하면 시계가 들어가지 못합니다(<a href="#faq-dongle">블루투스 동글</a>).</li>
             <li>시계를 껐다 켭니다: USB 를 빼고 PWR 를 3초 눌러 끈 뒤(화면이 멈췄으면 4초 넘게), PWR 를 짧게 눌러 켭니다. 켠 뒤 연결 모드를 다시 켭니다.</li>
           </ol>
         </details>
@@ -305,7 +329,7 @@
         <details>
           <summary>PWR 를 오래 눌렀더니 꺼졌어요 / 꺼지지 않아요</summary>
           <p>PWR 를 3초 누르면 상어 로고가 뜨고 꺼지는 것이 정상입니다(4초가 되면 전원 회로가 강제로도 끕니다). PWR 를 짧게 누르면 다시 켜집니다. 잠금은 <strong>BOOT(위 버튼)</strong> 2초입니다.</p>
-          <p><strong>안 꺼지고 'USB를 빼 주세요' 가 뜨면</strong> USB 전원이 들어오고 있는 것입니다. USB 전원이 있으면 꺼도 바로 다시 켜지므로 끄지 않습니다. USB 를 빼고 다시 3초 누릅니다.</p>
+          <p><strong>안 꺼지고 'USB 연결 · 화면만 꺼요' 가 뜨면</strong> USB 전원이 들어오고 있는 것입니다. USB 전원이 있으면 꺼도 바로 다시 켜지므로 전원은 끄지 않고, 4초 동안 입력이 없으면 화면만 끄고 연결 모드도 끕니다(쇼·암전도 처음으로, 충전은 계속). 안내 중에 화면·버튼을 만지면 그대로 계속 사용합니다. 정말 끄려면 USB 를 빼고 다시 3초 누릅니다.</p>
         </details>
         <details>
           <summary>손목 튕김이 안 먹거나 너무 잘 먹어요</summary>
@@ -318,7 +342,7 @@
             <li>시계를 USB 로 연결하고(안 되면 BOOT 를 누른 채 꽂기) 아래를 실행합니다. 쓰고 나서 자동으로 검사합니다.
               <pre class="gd-cmd"><code>esptool --chip esp32c6 -p COM7 -b 460800 write-flash 0x0 original_backup.bin</code></pre>
             </li>
-            <li>USB 를 빼고 PWR 로 껐다 켭니다. PC 의 '손목 컨트롤러 XXXX' 는 장치 제거합니다.</li>
+            <li>USB 를 빼고 PWR 로 껐다 켭니다. PC 의 '손목 컨트롤러 XXXX' 는 디바이스 제거합니다.</li>
           </ol>
           <p class="gd-sub">백업이 없으면 Waveshare 공식 저장소(<a href="https://github.com/waveshareteam/ESP32-C6-Touch-AMOLED-2.06" target="_blank" rel="noopener">ESP32-C6-Touch-AMOLED-2.06</a>)의 공장 펌웨어로 같은 명령을 씁니다(파일 이름만 바꿈).</p>
         </details>
