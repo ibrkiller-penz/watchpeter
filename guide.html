@@ -94,7 +94,7 @@
         <div class="gd-modes">
           <div class="gd-mode" data-m="clock"><b>시계</b>시각·날짜를 봅니다. 키를 보내지 않으니 실수로 눌러도 안전합니다. 켜면 여기서 시작합니다.</div>
           <div class="gd-mode" data-m="present"><b>발표</b>오른쪽 탭 = 다음, 왼쪽 탭 = 이전, 가운데 길게 = 화면 암전. 손목 튕김은 시계 설정에서 켜면 다음 장.</div>
-          <div class="gd-mode" data-m="launch"><b>실행</b>Claude·카카오톡·크롬·파워포인트·엑셀·한글을 타일 한 번으로 엽니다(<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>1</kbd>~<kbd>6</kbd>).</div>
+          <div class="gd-mode" data-m="launch"><b>실행</b>아이콘 9개(Claude·나이스·유튜브·쿨메신저·카카오톡·한글·탐색기·바탕 화면·창 닫기)를 한 번 눌러 엽니다.</div>
           <div class="gd-mode" data-m="meeting"><b>회의</b>Zoom·Teams·Meet 의 마이크·카메라 끄기/켜기, 손 들기.</div>
         </div>
         <p class="gd-sub">PowerPoint·Google Slides·Zoom·Teams·Google Meet 에서 시험했습니다. Windows 기준으로 설명하고, macOS 도 대부분 동작합니다(실행 모드는 Spotlight 로 엽니다).</p>
@@ -191,7 +191,7 @@
       <!-- ───────────── 5단계 ───────────── -->
       <section class="gd-card" id="s5" aria-labelledby="s5-h">
         <h2 id="s5-h"><span class="gd-n">5</span>PC 바로 가기 키 만들기(실행 모드용)</h2>
-        <p>실행 모드의 타일은 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>1</kbd>~<kbd>6</kbd> 키를 보냅니다. PC 가 이 키를 받고 앱을 열도록, <strong>PC 마다 한 번</strong> 바로 가기를 만듭니다. 관리자 권한은 필요 없습니다.</p>
+        <p>실행 모드의 앱 타일(Claude·카카오톡·한글·쿨메신저)은 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+숫자 키를 보냅니다. 나이스·유튜브는 시계가 실행 창(<kbd>Win</kbd>+<kbd>R</kbd>)에 주소를 넣어 열고, 탐색기(<kbd>Win</kbd>+<kbd>E</kbd>)·바탕 화면(<kbd>Win</kbd>+<kbd>D</kbd>)·창 닫기(<kbd>Alt</kbd>+<kbd>F4</kbd>)는 Windows 기본 키라 설정이 필요 없습니다. PC 가 이 키를 받고 앱을 열도록, <strong>PC 마다 한 번</strong> 바로 가기를 만듭니다. 관리자 권한은 필요 없습니다.</p>
         <ol>
           <li><a href="./pc-setup/wrist-shortcuts.ps1" download="wrist-shortcuts.ps1">wrist-shortcuts.ps1 내려받기</a></li>
           <li>내려받은 파일을 <strong>오른쪽 클릭 → PowerShell 에서 실행</strong>.</li>
@@ -207,14 +207,12 @@
             <tbody>
               <tr><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>1</kbd></td><td>Claude</td></tr>
               <tr><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>2</kbd></td><td>카카오톡</td></tr>
-              <tr><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>3</kbd></td><td>크롬</td></tr>
-              <tr><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>4</kbd></td><td>파워포인트</td></tr>
-              <tr><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>5</kbd></td><td>엑셀</td></tr>
               <tr><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>6</kbd></td><td>한글</td></tr>
+              <tr><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>7</kbd></td><td>쿨메신저</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="gd-sub">스크립트는 내 시작 메뉴에 <code>손목 컨트롤러</code> 폴더를 만들고 바로 가기 6개를 넣을 뿐입니다. 지우려면 그 폴더를 지우면 됩니다.</p>
+        <p class="gd-sub">스크립트는 내 시작 메뉴에 <code>손목 컨트롤러</code> 폴더를 만들고 바로 가기 4개를 넣을 뿐입니다(예전에 만든 크롬·파워포인트·엑셀 바로 가기는 지웁니다). 지우려면 그 폴더를 지우면 됩니다.</p>
       </section>
 
       <!-- ───────────── 사용법 표 ───────────── -->
@@ -225,7 +223,7 @@
           <table class="gd-table">
             <thead><tr><th>버튼</th><th>누르는 법</th><th>하는 일</th></tr></thead>
             <tbody>
-              <tr><td>위 BOOT</td><td>짧게</td><td>시계 화면으로. 이미 시계 화면이면 바로 전 화면으로 돌아감(키는 보내지 않음)</td></tr>
+              <tr><td>위 BOOT</td><td>짧게</td><td>다음 화면으로: 시계 → 발표 → 실행 → 회의 → 시계(키는 보내지 않음). 화면을 보지 않고도 버튼으로 모드를 돌릴 수 있음</td></tr>
               <tr><td>위 BOOT</td><td><span data-g="button.longPressMs" data-v="2000">2초</span> 누름</td><td>잠금 켜기/끄기 — 잠금 중에는 터치·손목 튕김이 키를 보내지 않음(주머니 속 오작동 방지)</td></tr>
               <tr><td>아래 PWR</td><td>짧게</td><td>화면 켜기/끄기</td></tr>
               <tr><td>아래 PWR</td><td><span data-g="button.powerOffHoldMs" data-v="3000">3초</span> 누름</td><td><strong>전원 끄기</strong> — 누르고 있으면 상어 로고가 뜨고 꺼짐(따로 확인 버튼을 누르지 않아도 됨). <strong>USB 가 꽂혀 있으면</strong> 꺼지지 않고 'USB 를 빼 주세요' 가 뜸 — USB 를 빼고 다시 3초 누름</td></tr>
@@ -244,7 +242,6 @@
               <tr><td>길게</td><td>회의 타일을 <span data-g="touch.holdMs" data-v="600">0.6초</span> 누름</td><td>키를 보내지 않고 시계 표시만 PC 상태에 맞춤(실제로는 이미 꺼져 있을 때)</td></tr>
               <tr><td>옆으로 밀기</td><td>좌우로 쓱 밂</td><td>화면 바꾸기: 시계 → 발표 → 실행 → 회의. 슬라이드 쇼 중에는 실수 방지로 더 길게 밀어야 함</td></tr>
               <tr><td>위에서 당기기</td><td>화면 맨 위 가장자리에서 아래로 당김</td><td>발표: 쇼 시작/종료 시트. 다른 화면: 시계 설정(감도·OS·이름 등)</td></tr>
-              <tr><td>위로 쓸기</td><td>실행 화면에서 위로</td><td>실행 2쪽(화면 캡처·잠금·바탕 화면·화면 전환·음소거)</td></tr>
             </tbody>
           </table>
         </div>

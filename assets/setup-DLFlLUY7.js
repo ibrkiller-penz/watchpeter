@@ -6,7 +6,7 @@ import{s as i}from"./pwa-CxqqUTio.js";/* empty css                */i();const r=
   <main class="inst-main">
     <p class="inst-back"><a href="./index.html">← 시뮬레이터로</a> · <a href="./install.html">시계에 펌웨어 설치</a> · <a href="./guide.html">따라 하기 안내서</a></p>
     <h1 class="inst-title">이 컴퓨터 세팅</h1>
-    <p class="inst-lead">시계 <strong>실행 모드</strong> 타일은 <code>Ctrl+Alt+1~6</code> 을 보냅니다(1 Claude · 2 카카오톡 · 3 크롬 · 4 파워포인트 · 5 엑셀 · 6 한글). 그 키로 앱이 열리도록 이 PC 에 바로 가기를 한 번 만듭니다. <strong>새 컴퓨터마다 한 번</strong>이면 됩니다. 작업표시줄 순서·한/영 상태와 상관없이 동작합니다.</p>
+    <p class="inst-lead">시계 <strong>실행 모드</strong> 앱 타일은 <code>Ctrl+Alt+숫자</code> 를 보냅니다(1 Claude · 2 카카오톡 · 6 한글 · 7 쿨메신저 — 나이스·유튜브·탐색기·바탕 화면·창 닫기는 설정 없이 됩니다). 그 키로 앱이 열리도록 이 PC 에 바로 가기를 한 번 만듭니다. <strong>새 컴퓨터마다 한 번</strong>이면 됩니다. 작업표시줄 순서·한/영 상태와 상관없이 동작합니다.</p>
 
     <p class="inst-ok">시계 설정 화면에서 <strong>이 컴퓨터 세팅</strong>을 누르면 이 PC 의 브라우저에 이 페이지가 열립니다(시계가 Win+R 로 주소를 칩니다). 한글 입력 상태면 주소가 깨질 수 있으니, 그때는 영문으로 바꾼 뒤 다시 누르세요.</p>
 
@@ -28,7 +28,7 @@ import{s as i}from"./pwa-CxqqUTio.js";/* empty css                */i();const r=
         <li>바로 가기 키가 바로 안 먹으면 <strong>로그아웃 후 다시 로그인</strong>합니다.</li>
         <li>시계 실행 모드에서 타일을 눌러 앱이 열리는지 확인합니다.</li>
       </ol>
-      <p class="inst-sub">타일을 길게 누르면 크롬·파워포인트·엑셀은 실행 창(Win+R)으로도 열 수 있습니다. macOS 는 이 설정 없이 Spotlight 로 엽니다.</p>
+      <p class="inst-sub">macOS 는 이 설정 없이 Spotlight 로 엽니다.</p>
     </section>
 
     <p class="inst-foot">이 페이지는 PC 에 바로 가기만 만듭니다. 시계 펌웨어 설치·백업은 <a href="./install.html">시계에 설치</a> 페이지에서 합니다.</p>

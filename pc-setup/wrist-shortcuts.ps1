@@ -1,9 +1,11 @@
 ﻿# 손목 컨트롤러 — PC 바로 가기 키 설정 (Windows 10/11, 관리자 권한 필요 없음)
 #
-# 시계 실행 모드 1쪽 타일은 Ctrl+Alt+1~6 을 보낸다. 이 스크립트는 사용자 시작 메뉴
+# 시계 실행 모드의 앱 타일은 Ctrl+Alt+숫자를 보낸다. 이 스크립트는 사용자 시작 메뉴
 #   %APPDATA%\Microsoft\Windows\Start Menu\Programs\손목 컨트롤러
-# 에 바로 가기(.lnk) 6개를 만들고 각각 바로 가기 키 Ctrl+Alt+1~6 을 준다.
-#   1 Claude · 2 카카오톡 · 3 크롬 · 4 파워포인트 · 5 엑셀 · 6 한글
+# 에 바로 가기(.lnk)를 만들고 각각 바로 가기 키를 준다(2026-10-25 실행 3×3 기준).
+#   1 Claude · 2 카카오톡 · 6 한글 · 7 쿨메신저
+# (나이스·유튜브는 시계가 주소를 직접 열고, 탐색기·바탕 화면·창 닫기는 Windows 기본 키라 바로 가기가 필요 없다.
+#  3·4·5 번(크롬·파워포인트·엑셀)은 타일에서 빠졌다 — 예전에 만든 것은 지운다)
 # 실행 파일 경로를 찾지 않고, 시작 메뉴 앱 목록(Get-StartApps)의 AppID 를
 #   explorer.exe "shell:AppsFolder\<AppID>"
 # 로 연다 — 스토어 앱(Claude 데스크톱)·카카오톡·한글 모두 같은 방식으로 된다.
@@ -19,11 +21,10 @@ $ErrorActionPreference = 'Stop'
 $apps = @(
   @{ n = 1; name = 'Claude';     match = '^Claude$';        prefer = 'Claude_' },  # Chrome PWA(Chrome._crx_…)보다 데스크톱 앱 우선
   @{ n = 2; name = '카카오톡';   match = '^(카카오톡|KakaoTalk)$' },
-  @{ n = 3; name = '크롬';       match = '^Google Chrome$' },
-  @{ n = 4; name = '파워포인트'; match = '^PowerPoint' },
-  @{ n = 5; name = '엑셀';       match = '^Excel' },
-  @{ n = 6; name = '한글';       match = '^(한글|Hwp|Hangul)' }
+  @{ n = 6; name = '한글';       match = '^(한글|Hwp|Hangul)' },
+  @{ n = 7; name = '쿨메신저';   match = '^(쿨메신저|CoolMessenger|Cool ?Messenger)' }
 )
+$retired = @(3, 4, 5)  # 타일에서 빠진 번호 — 남아 있으면 지운다
 
 $dir = Join-Path $env:APPDATA 'Microsoft\Windows\Start Menu\Programs\손목 컨트롤러'
 New-Item -ItemType Directory -Force $dir | Out-Null
@@ -35,6 +36,9 @@ $skipped = @()
 Write-Output '손목 컨트롤러 — 바로 가기 키 만들기'
 Write-Output "폴더: $dir"
 Write-Output ''
+foreach ($n in $retired) {
+  Get-ChildItem -Path $dir -Filter ("{0} *.lnk" -f $n) -ErrorAction SilentlyContinue | Remove-Item -Force
+}
 foreach ($a in $apps) {
   $cand = @($start | Where-Object { $_.Name -match $a.match })
   if ($a.prefer) {

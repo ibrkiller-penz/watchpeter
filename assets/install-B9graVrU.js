@@ -79,7 +79,7 @@ import{s as M}from"./pwa-CxqqUTio.js";/* empty css                */M();const B=
 
     <section class="inst-card" aria-labelledby="inst-s7">
       <h2 id="inst-s7"><span class="inst-n">7</span>PC 바로 가기 키 설정</h2>
-      <p>시계 <strong>실행 모드 1쪽</strong> 타일은 <code>Ctrl+Alt+1~6</code> 을 보냅니다(1 Claude · 2 카카오톡 · 3 크롬 · 4 파워포인트 · 5 엑셀 · 6 한글). 수업용 PC 마다 한 번, 이 키로 앱이 열리도록 바로 가기를 만듭니다. 작업표시줄 순서·한/영 상태와 상관없이 동작합니다.</p>
+      <p>시계 <strong>실행 모드 1쪽</strong> 앱 타일은 <code>Ctrl+Alt+숫자</code> 를 보냅니다(1 Claude · 2 카카오톡 · 6 한글 · 7 쿨메신저 — 나이스·유튜브·탐색기·바탕 화면·창 닫기는 설정 없이 됩니다). 수업용 PC 마다 한 번, 이 키로 앱이 열리도록 바로 가기를 만듭니다. 작업표시줄 순서·한/영 상태와 상관없이 동작합니다.</p>
       <p class="inst-sub">이 단계만 따로 보려면 <a href="./setup.html">이 컴퓨터 세팅</a> 페이지를 쓰세요. 시계가 PC 에 연결된 상태에서 <strong>설정 화면의 '이 컴퓨터 세팅'</strong> 버튼을 누르면 그 페이지가 이 PC 에 바로 열립니다.</p>
       <ol class="inst-steps">
         <li><a href="./pc-setup/wrist-shortcuts.ps1" download="wrist-shortcuts.ps1">wrist-shortcuts.ps1 내려받기</a> (PowerShell 스크립트, 관리자 권한 필요 없음 — 내 시작 메뉴 <code>손목 컨트롤러</code> 폴더에 바로 가기 6개를 만듭니다)</li>
@@ -87,7 +87,7 @@ import{s as M}from"./pwa-CxqqUTio.js";/* empty css                */M();const B=
         <li>창에 <code>만듦</code> / <code>건너뜀</code> 이 앱마다 표시됩니다. 건너뛴 앱은 시작 메뉴에서 찾지 못한 것입니다(설치 후 다시 실행하면 됩니다. 다시 실행하면 덮어씁니다).</li>
         <li>실행 후 바로 가기 키가 안 먹으면 <strong>로그아웃 후 다시 로그인</strong>합니다.</li>
       </ol>
-      <p class="inst-sub">타일을 길게 누르면 크롬·파워포인트·엑셀은 실행 창(Win+R)으로도 열 수 있습니다. macOS 는 이 설정 없이 Spotlight 로 엽니다.</p>
+      <p class="inst-sub">macOS 는 이 설정 없이 Spotlight 로 엽니다.</p>
     </section>
 
     <p class="inst-foot">이 페이지의 설치 버튼은 사용자가 직접 누릅니다. 개발 중 자동으로 시계에 올리지 않습니다.</p>
