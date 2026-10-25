@@ -168,11 +168,12 @@
       <section class="gd-card" id="s3" aria-labelledby="s3-h">
         <h2 id="s3-h"><span class="gd-n">3</span>블루투스 연결(페어링)</h2>
         <ol>
-          <li>시계가 켜져 있으면 PC 를 찾는 중입니다(연결 대기 화면).</li>
+          <li>시계는 평소 <strong>시계로만</strong> 쓰도록 블루투스가 꺼진 채 켜집니다(상태줄 '연결 꺼짐'). 화면 맨 위에서 아래로 당겨 <strong>설정 → 연결 모드</strong> 를 켜면 PC 를 찾기 시작하고 발표 화면으로 바뀝니다. 전원을 껐다 켜면 연결 모드는 다시 꺼지므로, 쓸 때마다 켭니다.</li>
           <li>PC: <strong>설정 → 블루투스 및 장치 → 장치 추가 → 블루투스</strong>.</li>
           <li>목록에서 <strong>손목 컨트롤러 XXXX</strong> 를 누릅니다. <code>XXXX</code> 는 시계마다 다른 네 글자(예: <code>2D3A</code>)라 여러 대를 구분할 수 있습니다. 비밀번호(PIN)는 묻지 않습니다.</li>
-          <li>'연결됨' 이 뜨고 시계 위쪽 상태줄의 블루투스 표시가 켜지면 끝입니다. 다음부터는 시계를 켜면 자동으로 다시 연결됩니다.</li>
+          <li>'연결됨' 이 뜨고 시계 위쪽 상태줄의 블루투스 표시가 켜지면 끝입니다. 다음부터는 연결 모드만 켜면 자동으로 다시 연결됩니다.</li>
         </ol>
+        <p class="gd-tip">PC 목록에 시계가 보이는데 <strong>'장치를 다시 연결해 보세요'</strong> 만 나오면 PC 쪽 블루투스 동글 문제일 가능성이 큽니다. <a href="#faq-dongle">문제 해결 → 블루투스 동글</a>을 보세요.</p>
         <p class="gd-warn"><strong>다시 연결이 안 될 때</strong>(시계에 'PC에서 이 장치를 제거하고 다시 추가하세요' 가 뜨거나 상태줄 블루투스가 노란색): PC 설정의 장치 목록에서 <strong>손목 컨트롤러 XXXX → 장치 제거</strong> 를 누른 뒤, 위 2~3번을 다시 합니다. 펌웨어를 지우고(Erase) 설치했을 때도 이렇게 해야 합니다.</p>
       </section>
 
@@ -276,11 +277,23 @@
         <details>
           <summary>시계에 '연결 대기' 만 나오고 연결이 안 돼요</summary>
           <ol>
+            <li>시계 설정의 <strong>연결 모드</strong> 가 켜져 있는지 봅니다(상태줄에 '연결 꺼짐' 이면 꺼진 것).</li>
             <li>PC 블루투스가 켜져 있는지 봅니다.</li>
             <li>PC 의 장치 목록에 '손목 컨트롤러 XXXX' 가 이미 있으면 <strong>장치 제거</strong> 후 다시 추가합니다(<a href="#s3">3단계</a>).</li>
             <li>다른 PC 와 이미 연결되어 있으면 그 PC 의 블루투스를 끕니다. 시계는 한 번에 PC 한 대와 연결됩니다.</li>
             <li>PWR 를 3초 눌러 '전원을 끌까요?' 에서 [끄기] → PWR 를 길게 눌러 다시 켭니다(화면이 멈췄으면 PWR 를 10초 넘게 눌러 강제로 끕니다).</li>
           </ol>
+        </details>
+        <details id="faq-dongle">
+          <summary>PC 목록에 보이는데 '장치를 다시 연결해 보세요' 만 나와요(블루투스 동글)</summary>
+          <p>시계는 신호를 잘 보내고 있는데, PC 의 연결 요청이 시계까지 오지 않는 경우입니다. 데스크톱에 꽂는 <strong>값싼 USB 블루투스 동글</strong>에서 자주 생깁니다.</p>
+          <ol>
+            <li><strong>동글 확인:</strong> 장치 관리자 → Bluetooth → 'Generic Bluetooth Radio' → 속성 → 자세히 → 하드웨어 ID 가 <code>VID_0A12&amp;PID_0001</code> 이면 CSR8510 으로 표시되는 동글입니다. 이 이름을 단 '블루투스 5.0~5.3' 제품은 대부분 <strong>복제 칩</strong>(진짜 CSR8510 은 4.0)입니다.</li>
+            <li><strong>다른 BLE 기기 끄기:</strong> 복제 칩은 BLE 연결을 <strong>한 번에 1개만</strong> 받는 경우가 많습니다. 블루투스 마우스·키보드(예: MX Master)가 그 자리를 차지하고 있으면 시계가 들어가지 못합니다. 그 기기를 끄거나, 마우스를 전용 수신기(Logi Bolt 등) 채널로 바꾼 뒤 다시 페어링합니다. <em>(실제 사례: 마우스를 끄자 바로 연결됨)</em></li>
+            <li><strong>동글을 두 개 꽂아도 소용없습니다.</strong> Windows 는 블루투스 동글을 한 번에 하나만 씁니다. 새 동글을 꽂으면 예전 동글은 뽑습니다.</li>
+            <li><strong>근본 해결:</strong> Realtek·Intel 칩을 쓰는 정품 블루투스 5.x 동글(예: TP-Link UB500)로 바꿉니다. 마우스와 시계를 함께 쓸 수 있습니다.</li>
+          </ol>
+          <p class="gd-sub">드라이버를 바꾸는 것은 효과가 거의 없습니다(문제는 동글 칩). 출처를 알 수 없는 '동글 드라이버' 파일은 내려받지 않습니다.</p>
         </details>
         <details>
           <summary>PC 에 배터리가 늘 50% 로 나와요</summary>
