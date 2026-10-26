@@ -24,7 +24,7 @@
     <main class="gd-main">
       <p class="gd-nav"><a href="./index.html">← 시뮬레이터</a><a href="./install.html">시계에 설치</a><a href="https://github.com/ibrkiller-penz/wrist-controller-public" target="_blank" rel="noopener">소스(GitHub)</a></p>
       <h1 class="gd-title">손목 컨트롤러 따라 하기</h1>
-      <p class="gd-lead">손목시계 하나로 PC 의 발표 슬라이드를 넘기고, 앱을 열고, 화상 회의 마이크를 끕니다. 코딩을 몰라도 이 순서대로 하면 됩니다. PC 에 따로 설치할 프로그램은 없습니다(바로 가기 키 설정만 한 번).</p>
+      <p class="gd-lead">손목시계 하나로 PC 의 발표 슬라이드를 넘기고, 앱을 열고, 화상 회의 마이크를 끕니다. 코딩을 몰라도 이 순서대로 하면 됩니다. PC 에 따로 설치할 프로그램은 없습니다.</p>
 
       <nav class="gd-toc" aria-label="차례">
         <strong>차례</strong>
@@ -35,7 +35,7 @@
           <li><a href="#s2">2단계 펌웨어 설치</a></li>
           <li><a href="#s3">3단계 블루투스 연결</a></li>
           <li><a href="#s4">4단계 시계 시간 맞추기</a></li>
-          <li><a href="#s5">5단계 PC 바로 가기 키</a></li>
+          <li><a href="#s5">5단계 실행 모드(PC 설정 없음)</a></li>
           <li><a href="#use">사용법 표</a></li>
           <li><a href="#settings">설정 모드·테마</a></li>
           <li><a href="#faq">문제 해결</a></li>
@@ -220,29 +220,19 @@
 
       <!-- ───────────── 5단계 ───────────── -->
       <section class="gd-card" id="s5" aria-labelledby="s5-h">
-        <h2 id="s5-h"><span class="gd-n">5</span>PC 바로 가기 키 만들기(실행 모드용)</h2>
-        <p>실행 모드의 앱 타일(Claude·카카오톡·한글·쿨메신저)은 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+숫자 키를 보냅니다. 나이스·유튜브는 시계가 실행 창(<kbd>Win</kbd>+<kbd>R</kbd>)에 주소를 넣어 열고, 탐색기(<kbd>Win</kbd>+<kbd>E</kbd>)·바탕 화면(<kbd>Win</kbd>+<kbd>D</kbd>)·창 닫기(<kbd>Alt</kbd>+<kbd>F4</kbd>)는 Windows 기본 키라 설정이 필요 없습니다. PC 가 이 키를 받고 앱을 열도록, <strong>PC 마다 한 번</strong> 바로 가기를 만듭니다. 관리자 권한은 필요 없습니다.</p>
-        <ol>
-          <li><a href="./pc-setup/wrist-shortcuts.ps1" download="wrist-shortcuts.ps1">wrist-shortcuts.ps1 내려받기</a></li>
-          <li>내려받은 파일을 <strong>오른쪽 클릭 → PowerShell 에서 실행</strong>.</li>
-          <li>실행이 막히면 내려받은 폴더(보통 '다운로드')에서 PowerShell 을 열고 아래 한 줄을 실행합니다.
-            <pre class="gd-cmd"><code>powershell -ExecutionPolicy Bypass -File .\wrist-shortcuts.ps1</code></pre>
-          </li>
-          <li>앱마다 <code>만듦</code> 또는 <code>건너뜀</code> 이 나옵니다. 건너뜀 = 그 앱이 설치되어 있지 않음(설치 후 다시 실행하면 됩니다).</li>
-          <li>그래도 키가 안 먹으면 <strong>로그아웃 후 다시 로그인</strong>합니다.</li>
-        </ol>
+        <h2 id="s5-h"><span class="gd-n">5</span>실행 모드 — PC 설정 필요 없음</h2>
+        <p>실행 타일은 PC 에 아무것도 깔지 않아도 됩니다. 시계가 실행 창(<kbd>Win</kbd>+<kbd>R</kbd>)에 명령을 넣어 시작 메뉴에서 그 앱을 찾아 엽니다. 설치되지 않은 앱은 열리지 않습니다. 실행 창이 한글 입력 상태면 글자가 깨질 수 있으니 처음 한 번 한/영을 확인하세요.</p>
         <div class="gd-tablewrap">
           <table class="gd-table">
-            <thead><tr><th>키</th><th>앱</th></tr></thead>
+            <thead><tr><th>타일</th><th>시계가 PC 에 보내는 것</th></tr></thead>
             <tbody>
-              <tr><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>1</kbd></td><td>Claude</td></tr>
-              <tr><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>2</kbd></td><td>카카오톡</td></tr>
-              <tr><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>6</kbd></td><td>한글</td></tr>
-              <tr><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>7</kbd></td><td>쿨메신저</td></tr>
+              <tr><td>Claude·카카오톡·한글·쿨메신저</td><td><kbd>Win</kbd>+<kbd>R</kbd> → 시작 메뉴에서 그 앱을 찾아 여는 명령 → <kbd>Enter</kbd></td></tr>
+              <tr><td>나이스·유튜브</td><td><kbd>Win</kbd>+<kbd>R</kbd> → 주소 → <kbd>Enter</kbd></td></tr>
+              <tr><td>탐색기·바탕 화면·창 닫기</td><td>Windows 기본 키 <kbd>Win</kbd>+<kbd>E</kbd> · <kbd>Win</kbd>+<kbd>D</kbd> · <kbd>Alt</kbd>+<kbd>F4</kbd></td></tr>
             </tbody>
           </table>
         </div>
-        <p class="gd-sub">스크립트는 내 시작 메뉴에 <code>손목 컨트롤러</code> 폴더를 만들고 바로 가기 4개를 넣을 뿐입니다(예전에 만든 크롬·파워포인트·엑셀 바로 가기는 지웁니다). 지우려면 그 폴더를 지우면 됩니다.</p>
+        <p class="gd-sub">예전 방식(선택, 이제 필요 없음): 바로 가기 스크립트 <a href="./pc-setup/wrist-shortcuts.ps1" download="wrist-shortcuts.ps1">wrist-shortcuts.ps1</a> 은 옛 펌웨어용으로 남겨 두었습니다. 새 펌웨어에서는 실행하지 않아도 됩니다. 예전에 만든 시작 메뉴 <code>손목 컨트롤러</code> 폴더는 지워도 됩니다.</p>
       </section>
 
       <!-- ───────────── 사용법 표 ───────────── -->
@@ -345,7 +335,7 @@
         <h2 id="faq-h">문제 해결</h2>
         <details>
           <summary>실행 화면에서 카카오톡(또는 다른 앱)이 안 열려요</summary>
-          <p><a href="#s5">5단계 PC 바로 가기 키</a>를 그 PC 에서 했는지 확인합니다. PC 마다 한 번 해야 합니다. 스크립트에 '건너뜀' 이 나왔다면 그 앱이 설치되어 있지 않은 것입니다. 했는데도 안 되면 로그아웃 후 다시 로그인합니다.</p>
+          <p>PC 설정은 필요 없습니다(<a href="#s5">5단계</a>). ① 그 앱이 이 PC 에 설치되어 있는지(시작 메뉴에서 찾아지는지) 확인합니다. 설치되지 않은 앱은 열리지 않습니다. ② 실행 창(<kbd>Win</kbd>+<kbd>R</kbd>)이 한글 입력 상태면 명령 글자가 깨집니다 — 한/영 키로 영문으로 바꾸고 다시 누릅니다. ③ 실행 창이 늦게 뜨는 PC 면 한 번 더 눌러 봅니다.</p>
         </details>
         <details>
           <summary>한글 입력 상태에서 암전이 안 돼요</summary>
@@ -420,7 +410,7 @@
               <tr><td><code>sim/</code></td><td>이 웹앱(Vite + TypeScript): 시뮬레이터 · 설치 페이지 · 이 안내서</td></tr>
               <tr><td><code>firmware/</code></td><td>시계 펌웨어(ESP-IDF 5.5 + NimBLE + LVGL 9). <code>logic/</code> 은 하드웨어와 무관한 판정 로직(C++)</td></tr>
               <tr><td><code>tools/</code></td><td>JSON → C 헤더 생성기, 글꼴 생성기</td></tr>
-              <tr><td><code>sim/public/pc-setup/</code></td><td>PC 바로 가기 키 스크립트</td></tr>
+              <tr><td><code>sim/public/pc-setup/</code></td><td>옛 바로 가기 키 스크립트(이제 필요 없음, 선택)</td></tr>
             </tbody>
           </table>
         </div>
