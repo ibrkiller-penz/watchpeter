@@ -63,7 +63,7 @@
             <text x="210" y="90" font-size="14" font-weight="500" style="fill:var(--sim-text-1)">위 = BOOT</text>
             <text x="210" y="106" font-size="12" style="fill:var(--sim-text-2)">짧게: 다음 화면</text>
             <text x="210" y="148" font-size="14" font-weight="500" style="fill:var(--sim-text-1)">아래 = PWR</text>
-            <text x="210" y="164" font-size="12" style="fill:var(--sim-text-2)">짧게: 화면 켜기/끄기</text>
+            <text x="210" y="164" font-size="12" style="fill:var(--sim-text-2)">짧게: 시계 + 눈</text>
             <!-- 다섯 화면(위 3 · 아래 2, 시계 → 발표 → 실행 → 회의 → 설정 → 시계) -->
             <g font-size="12" text-anchor="middle">
               <rect x="360" y="20" width="100" height="100" rx="20" fill="#000" style="stroke:var(--wc-mode-clock)" stroke-width="2" />
@@ -254,8 +254,9 @@
             <thead><tr><th>버튼</th><th>누르는 법</th><th>하는 일</th></tr></thead>
             <tbody>
               <tr><td>위 BOOT</td><td>짧게(<span data-g="button.shortMaxMs" data-v="1000">1초</span> 안에 뗌)</td><td>다음 화면으로: 시계 → 발표 → 실행 → 회의 → 설정 → 시계(키는 보내지 않음). 설정 화면에서 누르면 시계로. 화면을 보지 않고도 버튼으로 모드를 돌릴 수 있음. 잠금 중에는 막힘(풀기 = BOOT 2초). 연결 대기 화면에서는 화면을 바꾸지 않고 '그만하려면 위에서 당겨 연결 끄기' 줄이 잠깐 강조됨. 1초 넘게 누르다 2초 전에 떼면 <strong>아무 일도 하지 않음</strong>(망설인 누름은 취소)</td></tr>
-              <tr><td>위 BOOT</td><td><span data-g="button.longPressMs" data-v="2000">2초</span> 누름</td><td>잠금 켜기/끄기 — 누르고 있으면 1초부터 남은 초와 '계속 누르면 잠겨요'(잠금 중이면 '풀려요')가 보임. 잠금 중에는 <strong>발표 화면의 왼쪽·오른쪽 탭(이전·다음)만</strong> 되고, 타일·암전·밀기(모드 바꾸기)·위에서 당기기(쇼 시트·설정)·손목 튕김·에어마우스는 막힘(막힌 터치를 하면 '잠금 · BOOT 2초 = 풀기' 가 3초에 한 번 뜸). BOOT 짧게(다음 모드)도 막힘 — 발표 좌우 넘김만 됨(가운데 암전도 막힘), 풀기 = BOOT 2초. PWR(화면 켜기/끄기·전원 끄기)는 평소대로. 켤 때 '잠금 · 발표 좌우만 동작', 풀 때 '잠금 풀림' 이 잠깐 뜸. 에어마우스를 쓰는 중이면 겨누다 잠기지 않게 3초 눌러야 잠김</td></tr>
-              <tr><td>아래 PWR</td><td>짧게(1초 안에 뗌)</td><td>화면 켜기/끄기. 꺼진 화면은 조금 길게 눌렀다 떼도 켜짐. 설정 화면에서 끄면 설정 전 화면으로 돌아간 채 꺼짐</td></tr>
+              <tr><td>위 BOOT</td><td><span data-g="button.longPressMs" data-v="2000">2초</span> 누름</td><td>잠금 켜기/끄기 — 누르고 있으면 1초부터 남은 초와 '계속 누르면 잠겨요'(잠금 중이면 '풀려요')가 보임. 잠금 중에는 <strong>발표 화면의 왼쪽·오른쪽 탭(이전·다음)만</strong> 되고, 타일·암전·밀기(모드 바꾸기)·위에서 당기기(쇼 시트·설정)·손목 튕김·에어마우스는 막힘(막힌 터치를 하면 '잠금 · BOOT 2초 = 풀기' 가 3초에 한 번 뜸). BOOT 짧게(다음 모드)도 막힘 — 발표 좌우 넘김만 됨(가운데 암전도 막힘), 풀기 = BOOT 2초. PWR(짧게 = 시계 + 눈, 3초 = 전원 끄기)는 평소대로. 켤 때 '잠금 · 발표 좌우만 동작', 풀 때 '잠금 풀림' 이 잠깐 뜸. 에어마우스를 쓰는 중이면 겨누다 잠기지 않게 3초 눌러야 잠김</td></tr>
+              <tr><td>아래 PWR</td><td>짧게(1초 안에 뗌)</td><td><strong>바로 시계 + 눈</strong> — 발표·실행·회의·설정 어느 화면에서든 시계로 가서 기다리지 않고 눈을 띄움(화면을 만지거나 버튼을 누를 때까지). 꺼진 화면이면 켜고 눈(조금 길게 눌렀다 떼도 됨). 잠금 중에도 됨. 화면을 끄지는 않음 — 눈 화면은 저절로 꺼지지 않고 1분 뒤 어두워지기만 함</td></tr>
+              <tr><td>아래 PWR</td><td>두 번 짧게(<span data-g="button.doubleMs" data-v="400">0.4초</span> 안에)</td><td><strong>시계 숫자</strong>(눈 대신) — <span data-g="timing.faceWakeHoldMs" data-v="8000">8초</span> 동안 시계가 보이고, 그 뒤 아무것도 안 하면 다시 눈</td></tr>
               <tr><td>아래 PWR</td><td><span data-g="button.powerOffHoldMs" data-v="3000">3초</span> 누름</td><td><strong>전원 끄기</strong> — 누르고 있으면 1초부터 남은 초와 막대가 보이고, 3초가 되면 상어 로고가 뜨고 꺼짐(따로 확인 버튼을 누르지 않아도 됨). 설정 화면에서 눌러도 똑같이 꺼짐. 1초 넘게 누르다 3초 전에 떼면 아무것도 하지 않고 '전원은 3초' 가 잠깐 뜸.<strong>USB 가 꽂혀 있으면</strong> 꺼지지 않고 'USB 연결 · 화면만 꺼요'·'USB 빼고 PWR 3초 = 끄기' 가 4초 뜹니다. 안내 중 입력이 없으면 화면만 꺼지고 연결 모드도 꺼짐(쇼·암전도 처음으로). 화면·버튼을 만지면 그대로 계속 사용 — 정말 끄려면 USB 를 빼고 다시 3초 누름</td></tr>
               <tr><td>아래 PWR</td><td>4초 넘게</td><td>시계가 멈췄을 때도 전원 회로가 강제로 끔(펌웨어가 이 시간을 4초로 맞춰 둠)</td></tr>
               <tr><td>아래 PWR</td><td>꺼진 상태에서 짧게</td><td>켜기 — 상어 로고가 뜬 뒤 시계 화면. 켜질 때 <strong>연결 모드는 꺼져</strong> 있음(<a href="#s3">3단계</a>)</td></tr>
@@ -286,9 +287,9 @@
         </ul>
         <h3>그 밖에</h3>
         <ul>
-          <li><strong>시계 화면(눈)</strong>은 저절로 꺼지지 않고, 눈이 뜬 뒤 <span data-g="power.faceDimAfterMs" data-v="60000">60초</span>(1분) 지나면 <span data-g="power.faceBrightnessPercent" data-v="30">30%</span> 로 어두워지기만 합니다(충전 케이블을 꽂고 있어도 같음 — 끄려면 PWR 짧게). 그 밖의 화면은 아무것도 하지 않으면 <span data-g="power.screenOffMs" data-v="20000">20초</span> 뒤 꺼집니다(연결 대기 화면은 <span data-g="timing.pairScreenOffMs" data-v="60000">60초</span>, 연결 끊김 중은 30초 이상). <strong>시계가 스스로 켠 화면</strong>(손목 들기·배터리 알림)은 그 뒤 손대지 않으면 눈 화면이어도 <span data-g="power.screenOffMs" data-v="20000">20초</span> 뒤 다시 꺼집니다. 꺼진 화면은 PWR 짧게·화면 터치·BOOT·손목 들기로 다시 켜집니다. 눈이나 꺼진 화면에서 깨운 시계는 <span data-g="timing.faceWakeHoldMs" data-v="8000">8초</span> 동안 시계로 보이고, 기기가 켠 화면은 <span data-g="power.screenOffMs" data-v="20000">20초</span>에 꺼집니다.</li>
+          <li><strong>시계 화면(눈)</strong>은 저절로 꺼지지 않고, 눈이 뜬 뒤 <span data-g="power.faceDimAfterMs" data-v="60000">60초</span>(1분) 지나면 <span data-g="power.faceBrightnessPercent" data-v="30">30%</span> 로 어두워지기만 합니다(충전 케이블을 꽂고 있어도 같음 — PWR 짧게는 끄지 않고 눈을 바로 띄움). 그 밖의 화면은 아무것도 하지 않으면 <span data-g="power.screenOffMs" data-v="20000">20초</span> 뒤 꺼집니다(연결 대기 화면은 <span data-g="timing.pairScreenOffMs" data-v="60000">60초</span>, 연결 끊김 중은 30초 이상). <strong>시계가 스스로 켠 화면</strong>(손목 들기·배터리 알림)은 그 뒤 손대지 않으면 눈 화면이어도 <span data-g="power.screenOffMs" data-v="20000">20초</span> 뒤 다시 꺼집니다. 꺼진 화면은 PWR 짧게(시계 + 눈)·화면 터치·BOOT·손목 들기로 다시 켜집니다. 눈이나 꺼진 화면에서 깨운 시계는 <span data-g="timing.faceWakeHoldMs" data-v="8000">8초</span> 동안 시계로 보이고, 기기가 켠 화면은 <span data-g="power.screenOffMs" data-v="20000">20초</span>에 꺼집니다.</li>
           <li><b>손목 들면 시계로</b>(설정 2쪽)는 <strong>기본 꺼짐</strong>입니다 — 꺼져 있으면 손목을 들어도 화면만 켜지고 보던 화면 그대로입니다. 켜면 손목을 들 때 시계 화면부터 보이는데, <strong>연결 모드 중 발표·회의 화면</strong>이면 수업·회의를 방해하지 않게 그 화면을 그대로 둡니다(잠깐 끊겨 다시 붙는 중이어도).</li>
-          <li><strong>시계 화면</strong>에서 <span data-g="timing.faceIdleMs" data-v="5000">5초</span> 동안 아무것도 하지 않으면 표정(눈)이 뜹니다. 눈이 떠 있는 동안은 <strong>화면이 저절로 꺼지지 않습니다</strong> — 끄려면 PWR 를 짧게 누릅니다. 눈이 뜬 뒤 <span data-g="power.faceDimAfterMs" data-v="60000">60초</span> 더 지나면 배터리와 화면 보호를 위해 밝기가 <span data-g="power.faceBrightnessPercent" data-v="30">30%</span> 로 낮아집니다. 눈 화면을 터치하거나 손목을 들면 시계가 다시 보이고 밝기도 돌아옵니다(눈 화면의 <b>첫 터치는 시계만 보여 주고 버립니다</b> — 그 터치로 화면이 넘어가거나 설정이 열리지 않음). 이렇게 깨운 시계는 시각을 읽을 수 있게 <span data-g="timing.faceWakeHoldMs" data-v="8000">8초</span> 동안 눈으로 돌아가지 않습니다. 설정 화면이거나, 연결 대기·끊김 중이거나, 배터리 <span data-g="power.dangerBatteryPct" data-v="10">10%</span> 이하(충전 아님)이거나, 시계 시간이 맞춰지지 않았으면 눈이 뜨지 않고 평소처럼 꺼집니다.</li>
+          <li><strong>시계 화면</strong>에서 <span data-g="timing.faceIdleMs" data-v="5000">5초</span> 동안 아무것도 하지 않으면 표정(눈)이 뜹니다. 눈이 떠 있는 동안은 <strong>화면이 저절로 꺼지지 않습니다</strong>(눈 화면이 대기 화면). 다른 화면에서 PWR 를 짧게 누르면 기다리지 않고 바로 시계 + 눈, 두 번 짧게 누르면 시계 숫자가 보입니다. 눈이 뜬 뒤 <span data-g="power.faceDimAfterMs" data-v="60000">60초</span> 더 지나면 배터리와 화면 보호를 위해 밝기가 <span data-g="power.faceBrightnessPercent" data-v="30">30%</span> 로 낮아집니다. 눈 화면을 터치하거나 손목을 들면 시계가 다시 보이고 밝기도 돌아옵니다(눈 화면의 <b>첫 터치는 시계만 보여 주고 버립니다</b> — 그 터치로 화면이 넘어가거나 설정이 열리지 않음). 이렇게 깨운 시계는 시각을 읽을 수 있게 <span data-g="timing.faceWakeHoldMs" data-v="8000">8초</span> 동안 눈으로 돌아가지 않습니다. 설정 화면이거나, 연결 대기·끊김 중이거나, 배터리 <span data-g="power.dangerBatteryPct" data-v="10">10%</span> 이하(충전 아님)이거나, 시계 시간이 맞춰지지 않았으면 눈이 뜨지 않고 평소처럼 꺼집니다.</li>
           <li>꺼진 화면을 터치하거나 BOOT 를 누르면 <strong>화면만 켜지고</strong> 누른 동작은 보내지 않습니다(주머니 속·화면을 안 보고 누른 오작동 방지 — BOOT 를 길게 눌러도 잠금·에어마우스가 되지 않음). 단 <strong>발표 화면 + PC 연결됨</strong>이면 꺼진 지 <span data-g="timing.presentWakePassMs" data-v="3000000">3000초</span>(50분 — 수업 한 차시) 안에는 <b>왼쪽·오른쪽 짧은 탭</b>이 화면을 켜면서 바로 이전·다음 장으로 넘깁니다(가운데·위쪽·밀기·길게 누르기는 켜기만). 잠금 중에도 이 좌우 탭은 넘어갑니다(잠금은 발표 좌우만 남기므로). 시계·실행·회의 화면이나 연결 모드가 꺼져 있으면 언제나 켜기만 합니다.</li>
           <li>배터리가 <span data-g="power.lowBatteryPct" data-v="20">20%</span>, <span data-g="power.dangerBatteryPct" data-v="10">10%</span> 로 처음 내려가면 화면이 켜지며 '배터리 N% · 충전해 주세요' 알림이 3초 뜹니다(10% 는 빨강 테두리, 상태줄 배터리도 빨강). 충전하면 다시 처음부터 알립니다.</li>
           <li>에어마우스(BOOT 를 누른 채 손목을 움직여 마우스 포인터 움직이기)는 기본으로 꺼져 있습니다. 쓰려면 시계 설정에서 '에어마우스' 를 켭니다.</li>
@@ -308,7 +309,7 @@
               <tr><td>위아래로 밀기</td><td>쪽 넘기기(위로 = 다음 쪽, 아래로 = 앞쪽, 2쪽을 돌아감). 잠금 중에도 됨</td></tr>
               <tr><td>줄 탭</td><td>그 설정 바꾸기. 설정 화면에 들어온 직후 0.45초는 실수 방지로 무시. 잠금 중에는 '잠금' 알림만</td></tr>
               <tr><td>BOOT 짧게</td><td>다음 화면(= 시계). 잠금·연결 대기 중에는 막힘</td></tr>
-              <tr><td>PWR 짧게</td><td>화면 끄기 — 설정 전 화면으로 돌아간 채 꺼짐</td></tr>
+              <tr><td>PWR 짧게</td><td>시계로 가서 바로 눈(두 번 짧게 = 시계 숫자)</td></tr>
               <tr><td>오른쪽 아래 '‹ 회의'</td><td>설정에 들어오기 전 화면으로 돌아가기(글자는 그 화면 이름과 색, 예: '‹ 회의', '‹ 시계'). 두 쪽 모두 같은 자리</td></tr>
             </tbody>
           </table>
@@ -377,6 +378,10 @@
           <p>배터리가 없는 판(또는 배터리 연결이 빠진 상태)이면 시계가 배터리 양을 읽지 못해 50% 로 알립니다. 배터리 포함판에서 배터리 커넥터가 제대로 꽂혀 있는지 확인합니다. USB 를 꽂고 쓰면 동작에는 문제가 없습니다.</p>
         </details>
         <details>
+          <summary>PWR 를 짧게 눌렀는데 화면이 안 꺼지고 눈이 떠요</summary>
+          <p>정상입니다. PWR 짧게는 <strong>바로 시계 + 눈</strong>입니다 — 어느 화면에서든 시계로 가서 기다리지 않고 눈을 띄웁니다. 눈 화면이 대기 화면이라 화면을 따로 끄지 않습니다(저절로 꺼지지 않고 1분 뒤 어두워지기만 함). 다른 화면은 아무것도 하지 않으면 <span data-g="power.screenOffMs" data-v="20000">20초</span> 뒤 꺼집니다. 시각을 보고 싶으면 PWR 를 <span data-g="button.doubleMs" data-v="400">0.4초</span> 안에 두 번 짧게 누릅니다(시계 숫자). 전원을 끄려면 PWR 3초입니다.</p>
+        </details>
+        <details>
           <summary>PWR 를 오래 눌렀더니 꺼졌어요 / 꺼지지 않아요</summary>
           <p>PWR 를 3초 누르면 상어 로고가 뜨고 꺼지는 것이 정상입니다(4초가 되면 전원 회로가 강제로도 끕니다). PWR 를 짧게 누르면 다시 켜집니다. 잠금은 <strong>BOOT(위 버튼)</strong> 2초입니다.</p>
           <p><strong>안 꺼지고 'USB 연결 · 화면만 꺼요' 가 뜨면</strong> USB 전원이 들어오고 있는 것입니다. USB 전원이 있으면 꺼도 바로 다시 켜지므로 전원은 끄지 않고, 4초 동안 입력이 없으면 화면만 끄고 연결 모드도 끕니다(쇼·암전도 처음으로, 충전은 계속). 안내 중에 화면·버튼을 만지면 그대로 계속 사용합니다. 정말 끄려면 USB 를 빼고 다시 3초 누릅니다.</p>
@@ -443,6 +448,6 @@ cd sim &amp;&amp; npm test</code></pre>
 
       <p class="gd-foot"><a href="https://github.com/ibrkiller-penz/wrist-controller-public" target="_blank" rel="noopener">이 프로젝트의 소스·라이선스(MIT)</a></p>
       <p class="gd-foot">이 페이지는 한 번 열면 인터넷 없이도 다시 열 수 있습니다. 소스는 MIT 라이선스입니다. 사용한 글꼴·라이브러리는 저장소의 <code>THIRD_PARTY.md</code> 에 있습니다.</p>
-    </main>
+    </main>
   </body>
 </html>
