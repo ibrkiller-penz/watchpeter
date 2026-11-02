@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>클로드 코드 실무 연수</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500;700;800;900&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+@page{size:A4;margin:16mm 16mm 18mm;
+  @bottom-center{content:counter(page);font:500 9pt "IBM Plex Mono",monospace;color:#7A8580}}
+@page cover{margin:0;@bottom-center{content:none}}
+:root{--ink:#1D2321;--muted:#5B6661;--line:#D5DAD3;--paper:#F3F5F0;--accent:#1F5F57;--accent-soft:#E2EEEA;
+  --mark:#F3D34A;--code:#1F2624;--code-fg:#EEF3F0;--warn:#9A3B1D;--warn-soft:#FBEAE2;
+  --fd:"Gothic A1",sans-serif;--fb:"IBM Plex Sans KR",sans-serif;--fm:"IBM Plex Mono",monospace}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;font-family:var(--fb);font-size:10.5pt;line-height:1.72;color:var(--ink);word-break:keep-all;overflow-wrap:anywhere}
+p{margin:0 0 7pt}
+ul,ol{margin:0 0 8pt;padding-left:16pt}
+li{margin:1.5pt 0}
+b,strong{font-weight:600}
+em{font-style:normal;background:linear-gradient(transparent 55%,var(--mark) 55%)}
+code{font-family:var(--fm);font-size:.9em;background:var(--accent-soft);padding:0 3pt;border-radius:2pt}
+h2{font-family:var(--fd);font-weight:800;font-size:19pt;line-height:1.3;margin:0 0 6pt;break-after:avoid}
+h3{font-family:var(--fd);font-weight:700;font-size:13pt;margin:16pt 0 6pt;padding-top:6pt;border-top:1.2pt solid var(--ink);break-after:avoid}
+h4{font-family:var(--fd);font-weight:700;font-size:11.5pt;margin:0 0 3pt;break-after:avoid}
+.lbl{font-family:var(--fd);font-weight:700;font-size:9pt;letter-spacing:.08em;margin:0 0 5pt}
+
+/* 표지 */
+.cover{page:cover;height:297mm;background:var(--code);color:var(--code-fg);padding:30mm 22mm 22mm;display:flex;flex-direction:column;break-after:page;position:relative;overflow:hidden}
+.cover .k{font-family:var(--fd);font-weight:700;font-size:11pt;letter-spacing:.14em;color:var(--mark)}
+.cover h1{font-family:var(--fd);font-weight:900;font-size:40pt;line-height:1.18;margin:14pt 0 16pt;letter-spacing:-.01em}
+.cover h1 span{color:var(--mark)}
+.cover .lead{font-size:13pt;line-height:1.7;color:#C7D3CE;max-width:140mm}
+.cover .phone{position:absolute;right:22mm;bottom:52mm;width:62mm;height:110mm;border:2.2pt solid #46524E;border-radius:9mm;padding:9mm 6mm;display:flex;flex-direction:column;gap:5mm}
+.cover .phone div{border-radius:3mm;background:#2B3431;padding:4mm;font-size:9.5pt;line-height:1.5}
+.cover .phone div.me{background:var(--mark);color:#2A2200;align-self:flex-end;max-width:85%}
+.cover .phone div.ai{max-width:92%}
+.cover .foot{margin-top:auto;display:flex;justify-content:space-between;font-size:10pt;color:#9FB0A9;border-top:1pt solid #3A4642;padding-top:6mm}
+
+/* 미리보기 릴 */
+.reel{break-after:page}
+.reel .hd{font-family:var(--fd);font-weight:900;font-size:24pt;margin:0 0 3pt}
+.reel .sub{color:var(--muted);margin-bottom:12pt}
+.reel .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7pt}
+.reel .clip{border:1pt solid var(--line);border-radius:5pt;padding:8pt 9pt;background:#fff;display:flex;flex-direction:column;gap:3pt;min-height:44mm}
+.reel .clip .n{font-family:var(--fm);font-size:8.5pt;color:var(--accent)}
+.reel .clip .h{font-family:var(--fd);font-weight:800;font-size:12pt;line-height:1.35}
+.reel .clip .io{margin-top:auto;font-size:8.8pt;color:var(--muted);line-height:1.45;border-top:.8pt dashed var(--line);padding-top:4pt}
+.reel .clip.mine{background:var(--code);color:var(--code-fg);border-color:var(--code)}
+.reel .clip.mine .n{color:var(--mark)} .reel .clip.mine .io{color:#B9C6C1;border-color:#46524E}
+
+/* 차례·읽는 법 */
+.toc{break-after:page}
+.toc table{width:100%;border-collapse:collapse;margin-top:8pt}
+.toc td{padding:6pt 4pt;border-bottom:.8pt solid var(--line);vertical-align:top}
+.toc td.n{font-family:var(--fm);color:var(--accent);width:16mm}
+.toc td.t{font-family:var(--fd);font-weight:700}
+.toc td.d{color:var(--muted);font-size:9.5pt}
+.toc tr.part td{border-bottom:1.2pt solid var(--ink);font-family:var(--fd);font-weight:800;padding-top:12pt;font-size:10pt;letter-spacing:.08em;color:var(--muted)}
+.legend{display:grid;grid-template-columns:1fr 1fr;gap:6pt;margin-top:14pt}
+.legend div{border-radius:4pt;padding:7pt 9pt;font-size:9.5pt}
+
+/* 에피소드 */
+.ep{break-before:page}
+.hook{background:var(--code);color:var(--code-fg);border-radius:6pt;padding:16pt 18pt 14pt;margin-bottom:16pt;break-inside:avoid}
+.hook .ep-no{font-family:var(--fm);font-size:9.5pt;color:var(--mark);letter-spacing:.1em;margin:0 0 4pt}
+.hook .hook-line{font-family:var(--fd);font-weight:900;font-size:23pt;line-height:1.3;margin:0 0 12pt}
+.hook .hook-line em{background:none;color:var(--mark)}
+.hook .io{display:grid;grid-template-columns:1fr auto 1fr;gap:8pt;align-items:stretch}
+.hook .io>div{background:#2B3431;border-radius:4pt;padding:7pt 9pt;font-size:10pt;line-height:1.5}
+.hook .io b{display:block;font-family:var(--fd);font-size:8.5pt;letter-spacing:.08em;color:#9FB0A9;font-weight:700;margin-bottom:2pt}
+.hook .io .arrow{background:none;align-self:center;font-size:16pt;color:var(--mark);padding:0}
+.hook .io .out{background:var(--mark);color:#2A2200}
+.hook .io .out b{color:#6B5A00}
+.hook .time{font-family:var(--fm);font-size:9pt;color:#9FB0A9;margin:9pt 0 0;text-align:right}
+.intro{font-size:11pt;color:#2E3634}
+ol.steps{list-style:none;counter-reset:s;padding:0}
+ol.steps>li{counter-increment:s;position:relative;padding-left:24pt;margin:0 0 9pt;break-inside:avoid}
+ol.steps>li::before{content:counter(s);position:absolute;left:0;top:1pt;width:16pt;height:16pt;border-radius:50%;background:var(--accent);color:#fff;font:500 9pt/16pt var(--fm);text-align:center}
+.prompt{background:var(--code);color:var(--code-fg);border-radius:5pt;padding:9pt 12pt 10pt;margin:9pt 0;break-inside:avoid}
+.prompt .lbl{color:var(--mark)}
+.prompt pre{margin:0;font-family:var(--fb);font-size:10pt;line-height:1.68;white-space:pre-wrap;word-break:keep-all;overflow-wrap:anywhere}
+.explain{border:1pt solid var(--line);border-radius:5pt;padding:9pt 12pt;margin:9pt 0;break-inside:auto}
+.explain .lbl{color:var(--accent)}
+.explain dl{margin:0;display:grid;grid-template-columns:44mm 1fr;gap:4pt 10pt}
+.explain dt{font-weight:600;font-size:9.8pt}
+.explain dd{margin:0;font-size:9.8pt;color:#2E3634}
+.screen{background:var(--paper);border-radius:5pt;padding:9pt 12pt;margin:9pt 0;break-inside:avoid}
+.screen .lbl{color:var(--muted)}
+.screen p{font-size:9.8pt;padding:5pt 8pt;border-radius:4pt;margin:0 0 5pt;max-width:88%}
+.screen p.lbl{padding:0;max-width:none}
+.screen .me{background:var(--mark);margin-left:auto}
+.screen .ai{background:#fff;border:.8pt solid var(--line)}
+.check{border-left:3pt solid var(--accent);background:var(--accent-soft);padding:8pt 12pt;margin:9pt 0;break-inside:avoid;border-radius:0 4pt 4pt 0}
+.check .lbl{color:var(--accent)}
+.check ul{margin:0}
+.oops{background:var(--warn-soft);border-radius:5pt;padding:9pt 12pt;margin:9pt 0;break-inside:avoid}
+.oops .lbl{color:var(--warn)}
+.oops dl{margin:0;display:grid;grid-template-columns:44mm 1fr;gap:4pt 10pt;font-size:9.8pt}
+.oops dt{font-weight:600}
+.oops dd{margin:0}
+.case{border:1.4pt solid var(--ink);border-radius:5pt;padding:9pt 12pt;margin:10pt 0;position:relative;break-inside:avoid}
+.case .lbl{display:inline-block;background:var(--mark);color:#2A2200;padding:1pt 6pt;border-radius:2pt}
+.takeaway{font-family:var(--fd);font-weight:800;font-size:12.5pt;margin:14pt 0 0;padding:9pt 0 0;border-top:1.2pt solid var(--ink);break-inside:avoid}
+.takeaway::before{content:"한 줄 정리  ";font-size:9pt;letter-spacing:.08em;color:var(--accent)}
+.note{border:1pt solid var(--line);background:var(--paper);border-radius:5pt;padding:9pt 12pt;margin:9pt 0;break-inside:avoid}
+.note .lbl{color:var(--ink)}
+table.tbl{width:100%;border-collapse:collapse;margin:8pt 0 10pt;font-size:9.6pt}
+table.tbl th{text-align:left;font-family:var(--fd);font-weight:700;font-size:8.8pt;color:var(--muted);background:var(--paper);padding:5pt 7pt;border-bottom:1pt solid var(--ink)}
+table.tbl td{padding:5pt 7pt;border-bottom:.7pt solid var(--line);vertical-align:top}
+table.tbl tr{break-inside:avoid}
+ul.todo{list-style:none;padding:0}
+ul.todo li{padding:5pt 0;border-bottom:.7pt dashed var(--line)}
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <p class="k">부산 AI&amp;창의 교사 모임 · 실무 연수 자료</p>
+  <h1>말로 시키면<br>파일이 <span>만들어진다</span><br>클로드 코드 실무</h1>
+  <p class="lead">코딩을 몰라도 됩니다. 자료를 넣고, 이 책의 문장을 복사해 몇 단어만 바꾸면 됩니다. 업무 처리부터 앱 만들기, 점검·수정까지. 예시는 모두 발표자가 실제로 한 일입니다.</p>
+  <div class="phone">
+    <div class="me">폴더의 양식이랑 메모로 공개수업 가정통신문 만들어 줘.</div>
+    <div class="ai">양식을 읽었습니다. 날짜 하나가 메모에 없어 [  ]로 비워 두었어요. 가정통신문_공개수업.hwpx 로 저장했습니다.</div>
+    <div class="me">고마워. 확인할 곳만 알려 줘.</div>
+  </div>
+  <div class="foot"><span>2026년 11월</span><span>EP 0 – EP 11 · 따라 하기용</span></div>
+</section>
+
+<section class="reel">
+  <p class="hd">30초 미리보기</p>
+  <p class="sub">이 책을 다 따라 하면 이런 일이 됩니다. 마음에 드는 것부터 펼쳐 보세요.</p>
+  <div class="grid">
+    <div class="clip"><span class="n">EP 0</span><span class="h">말로 시키면 파일이 생깁니다</span><span class="io">폴더 하나 + 한 문장 → 완성 파일</span></div>
+    <div class="clip"><span class="n">EP 1</span><span class="h">메모가 가정통신문으로</span><span class="io">양식 .hwpx + 행사 메모 → 완성 .hwpx</span></div>
+    <div class="clip"><span class="n">EP 2</span><span class="h">엑셀 7개가 표 하나로</span><span class="io">반별 신청서 → 통합 + 확인필요 + 합계</span></div>
+    <div class="clip"><span class="n">EP 3</span><span class="h">공문 PDF가 할 일 표로</span><span class="io">PDF 2개 → 마감일 순 할 일 엑셀</span></div>
+    <div class="clip"><span class="n">EP 4</span><span class="h">상장 50장이 한 번에</span><span class="io">양식 + 명단 → 두 장 확인 → 전부</span></div>
+    <div class="clip mine"><span class="n">EP 5 · 발표자 사례</span><span class="h">교실 PC 세팅이 클릭 한 번</span><span class="io">반복하던 설정 → 실행 파일 하나</span></div>
+    <div class="clip mine"><span class="n">EP 6 · 발표자 사례</span><span class="h">손목을 튕기면 슬라이드가 넘어갑니다</span><span class="io">아이디어 한 문단 → 10일 → 시계 앱</span></div>
+    <div class="clip"><span class="n">EP 7</span><span class="h">모둠 뽑기 앱을 직접</span><span class="io">네 번 말하기 → 교실 TV용 앱</span></div>
+    <div class="clip"><span class="n">EP 8</span><span class="h">링크 하나로 동료와 나누기</span><span class="io">HTML 파일 → 누구나 여는 주소</span></div>
+    <div class="clip"><span class="n">EP 9</span><span class="h">고치기 전에 문제 목록부터</span><span class="io">만든 앱 → 심각도별 점검표</span></div>
+    <div class="clip"><span class="n">EP 10</span><span class="h">망가져도 되돌릴 수 있게</span><span class="io">문제 알리기 양식 → 원인 → 수정</span></div>
+    <div class="clip"><span class="n">EP 11</span><span class="h">회차별로 키우고, 안전하게</span><span class="io">일주일 메모 → 고도화 계획</span></div>
+  </div>
+</section>
+
+<section class="toc">
+  <h2>차례와 읽는 법</h2>
+  <p>에피소드마다 첫머리 검은 상자가 "이런 일이 됩니다"입니다. 그 아래에 자세한 따라 하기가 이어집니다. 처음이라면 EP 0부터, 급한 일이 있다면 그 EP만 보셔도 됩니다.</p>
+  <table>
+    <tr class="part"><td colspan="3">1부 · 업무 처리: 자료 던지고 맡기기</td></tr>
+    <tr><td class="n">EP 0</td><td class="t">시작하기</td><td class="d">채팅과 다른 점, 작업 폴더, 첫 대화, 프롬프트 다섯 칸</td></tr>
+    <tr><td class="n">EP 1</td><td class="t">가정통신문</td><td class="d">한글 양식에 메모 내용 채우기</td></tr>
+    <tr><td class="n">EP 2</td><td class="t">엑셀 합치기</td><td class="d">여러 파일 통합, 이상한 값 표시</td></tr>
+    <tr><td class="n">EP 3</td><td class="t">공문 → 할 일</td><td class="d">PDF에서 내 일만 뽑아 마감일 순으로</td></tr>
+    <tr><td class="n">EP 4</td><td class="t">상장 대량 제작</td><td class="d">먼저 두 장, 확인 후 전부</td></tr>
+    <tr><td class="n">EP 5</td><td class="t">PC 세팅 자동화</td><td class="d">발표자 사례: 바로 가기 스크립트</td></tr>
+    <tr class="part"><td colspan="3">2부 · 앱 만들기: 작게 만들고 키우기</td></tr>
+    <tr><td class="n">EP 6</td><td class="t">손목 컨트롤러 이야기</td><td class="d">발표자 사례: 10일, 커밋 26개</td></tr>
+    <tr><td class="n">EP 7</td><td class="t">모둠 뽑기 앱</td><td class="d">계획 → 작은 판 → 하나씩 → 저장</td></tr>
+    <tr><td class="n">EP 8</td><td class="t">링크로 나누기</td><td class="d">GitHub Pages, 공개 전 개인정보 검사</td></tr>
+    <tr class="part"><td colspan="3">3부 · 점검하고 고치기</td></tr>
+    <tr><td class="n">EP 9</td><td class="t">점검하기</td><td class="d">관점을 정해 문제 목록 받기</td></tr>
+    <tr><td class="n">EP 10</td><td class="t">고치기와 되돌리기</td><td class="d">문제 알리기 양식, 저장 지점, 막혔을 때</td></tr>
+    <tr><td class="n">EP 11</td><td class="t">키우기와 지킬 것</td><td class="d">회차별 고도화, 개인정보·원본 보호</td></tr>
+    <tr><td class="n">부록</td><td class="t">30분 실습 · 한 장 요약</td><td class="d">체크리스트, 자주 쓰는 말 10개</td></tr>
+  </table>
+  <div class="legend">
+    <div class="prompt"><p class="lbl">이렇게 말하세요</p>복사해서 [대괄호]만 바꿔 보냅니다.</div>
+    <div class="explain"><p class="lbl">왜 이렇게 말하나요?</p>문장마다 들어간 이유를 풀어 줍니다.</div>
+    <div class="screen"><p class="lbl">화면에서 일어나는 일 (예시)</p>대화가 이렇게 흘러갑니다.</div>
+    <div class="oops"><p class="lbl">이럴 땐</p>자주 막히는 곳과 해결법입니다.</div>
+  </div>
+</section>
+
+<!--PARTS-->
+
+<section class="ep" id="colophon">
+  <h2>이 자료는 이렇게 만들었습니다</h2>
+  <p>이 PDF도 클로드 코드로 만들었습니다. 발표자가 보낸 것은 카톡 캡처 한 장과 두 번의 짧은 요청뿐입니다.</p>
+  <div class="prompt"><p class="lbl">1차 요청 (웹 페이지판)</p><pre>클로드 코드를 선생님들이 사용할 수 있도록 연수 자료 제작. 선생님들은 초보.
+예시 프롬프트와 자료 던지고 업무처리 및 클로드 코드로 앱 개발하는 법. 그리고 개발된 앱 한번 점검하고 수정하는 법..
+내가 한 일들을 예시로.</pre></div>
+  <div class="prompt"><p class="lbl">2차 요청 (이 PDF)</p><pre>팀을 짜서 기획하고 만들어.
+쇼츠 구성처럼. 처음에는 이런일 된다. 로 짧게 시작. 내용은 자세하고 친절하게... 설명과 함께..
+Pdf문서로 제작.</pre></div>
+  <p>"팀을 짜서"라는 말에 클로드는 스스로 역할을 나눴습니다. 편집장(전체 기획·명세·디자인·조립)이 공통 명세서를 쓰고, 작가 세 명(업무 처리 편, 앱 만들기 편, 점검·수정 편)이 동시에 원고를 썼습니다. 이어서 검토자가 "초보 선생님이 혼자 따라 할 수 있는가, 사실과 다른 내용은 없는가"를 점검했고, 편집장이 고쳐 PDF로 묶었습니다.</p>
+  <div class="case"><p class="lbl">선생님이 가져갈 것</p><p>큰일을 맡길 때도 방법은 같습니다. <b>누구를 위한 무엇인지</b>, <b>어떤 자료를 쓸지</b>, <b>어떤 모양으로 받을지</b>만 분명하면 나머지 설계는 클로드에게 맡길 수 있습니다. 결과는 꼭 사람이 확인합니다.</p></div>
+</section>
+
+</body>
+</html>
