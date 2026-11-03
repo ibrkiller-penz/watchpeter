@@ -5,7 +5,7 @@ const { chromium } = require('playwright');
 
 const dir = __dirname;
 const shell = fs.readFileSync(path.join(dir, 'shell.html'), 'utf8');
-const parts = ['part-a.html', 'part-b.html', 'part-d.html', 'part-e.html', 'part-c.html']
+const parts = ['part-0.html', 'part-a.html', 'part-b.html', 'part-d.html', 'part-e.html', 'part-c.html']
   .map((f) => fs.readFileSync(path.join(dir, f), 'utf8'))
   .join('\n');
 const html = shell.replace('<!--PARTS-->', parts);
