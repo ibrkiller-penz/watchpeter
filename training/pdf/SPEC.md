@@ -162,3 +162,5 @@
 - 한글 플러그인: `claude plugin marketplace add airmang/hwpx-plugins` → `claude plugin install hwpx-plugin@hwpx`, uv 필요(Windows `winget install --id=astral-sh.uv -e`), 설치 후 새 세션 (airmang/hwpx-plugins README).
 - 손목 컨트롤러 사실: 10.17 시뮬레이터 첫 배포, 10.18 실기 녹화·1.0g·튕김 기본 끔·따라 하기 안내서, 10.24~26 2호기 고도화 1~5회차, 커밋 26개(저장소 대조 완료).
 - 단정 금지 유지: 저작권법 제25조 세부 요건, Firebase 무료 한도 수치, 메뉴 위치의 절대적 표현.
+
+- 설정 단축키 Ctrl+, : 발표자가 보낸 Windows 데스크톱 앱 실제 화면(계정 메뉴 "설정 Ctrl+,")으로 확인된 사실.
