@@ -8,7 +8,7 @@ FONT = "font-family=\"'IBM Plex Sans KR','Gothic A1',sans-serif\""
 def esc(t): return html.escape(str(t))
 
 def text(x, y, t, size=13, w='500', fill=INK, anchor='middle'):
-    lines = str(t).split('\n'); out = ''
+    size = round(size*1.08, 1); lines = str(t).split('\n'); out = ''
     for i, l in enumerate(lines):
         out += f'<text x="{x}" y="{y + i*size*1.3}" font-size="{size}" font-weight="{w}" fill="{fill}" text-anchor="{anchor}" {FONT}>{esc(l)}</text>'
     return out
@@ -129,7 +129,7 @@ def settings_connectors():
 def main_window():
     w, h = 690, 400; b = box(2, 2, w-4, h-4, DARK, '#444', 10, 1.4)
     b += box(2, 2, 150, h-4, '#191a19', '#333', 10)
-    b += dtext(14, 26, '☰  ◧   ‹ ›', 11, '500', DMUT) + box(84, 10, 62, 26, '#33363a', BLUE, 6) + dtext(115, 28, 'Code', 12, '700', DTXT, 'middle')
+    b += dtext(14, 28, '☰  ◧', 12, '500', DMUT) + box(84, 10, 62, 26, '#33363a', BLUE, 6) + dtext(115, 28, 'Code', 12, '700', DTXT, 'middle')
     for i in range(8): b += box(14, 48+i*26, 124, 16, '#262726', '#262726', 4)
     b += dtext(14, 268, '(세션 목록)', 10, '500', DMUT)
     b += box(8, 288, 138, 104, '#262726', '#3a3a3a', 8)
@@ -208,7 +208,7 @@ def cowork_mock():
     for i, (t, d) in enumerate([('양식 읽기', 1), ('메모에서 날짜·장소 찾기', 1), ('빈칸 [  ] 표시', 1), ('새 파일로 저장', 1), ('확인할 곳 목록 만들기', 0)]):
         y = 92+i*28; b += box(340, y-14, 18, 18, ACC if d else '#fff', ACC, 4) + (text(349, y, '✓', 12, '700', '#fff') if d else '')
         b += text(368, y, t, 12, '500', INK if d else MUTED, 'start')
-    b += box(340, 236, 322, 30, MARK, INK, 15) + text(501, 256, '파일을 지우기 전에는 꼭 허락을 묻습니다', 11.5, '700')
+    b += box(340, 236, 322, 30, MARK, INK, 15) + text(501, 256, '지우기 전에 허락을 묻습니다. 그래도 복사본부터', 11.5, '700')
     b += callout(1, 300, 52) + callout(2, 662, 52)
     return window(w, h, 'Cowork (개략도)', b)
 F['ep0'] = [('after_intro', fig(cowork_mock(), '① 맡긴 폴더 안에 결과 파일이 생깁니다 ② 클로드가 하는 일을 단계별로 보여 줍니다.', 'mock'))]
@@ -274,15 +274,14 @@ F['ep11'] = [('after_intro', fig(check(), '사람이 계산한 정답과 프로�
 
 # ---------- 사이트·캔바·3D ----------
 def sitemap():
-    b = box(255, 10, 180, 46, MARK, INK, 10) + text(345, 39, '입구(허브)', 14, '800')
-    for i, t in enumerate(['교과서 A 사이트', '교과서 B 사이트']):
-        x = 60+i*390; b += f'<line x1="345" y1="56" x2="{x+90}" y2="84" stroke="{ACC}" stroke-width="2"/>' + box(x, 84, 180, 40, SOFT, INK, 8) + text(x+90, 109, t, 13, '700')
-        for j, u in enumerate(['단원 1', '단원 2']):
-            ux = x-30+j*120; b += f'<line x1="{x+90}" y1="124" x2="{ux+50}" y2="148" stroke="{LINE}" stroke-width="2"/>' + box(ux, 148, 100, 32, '#fff', LINE, 6) + text(ux+50, 169, u, 12, '600')
-            b += box(ux+6, 188, 88, 24, PAPER, LINE, 4) + text(ux+50, 205, '차시 1 · 2 · 3', 10.5, '500', MUTED)
-    b += text(345, 238, '차시 페이지: 학습 목표 · 핵심 개념 · 활동 · 확인 퀴즈 · 활동지', 12, '600', ACC)
-    return svg(690, 248, b, '사이트 지도')
-F['ep12'] = [('after_intro', fig(sitemap(), '실습은 단원 하나(단원 첫 화면 + 차시 페이지)부터 만듭니다. 그림 위쪽의 입구·교과서별 사이트는 발표자처럼 여러 단원·교과서로 넓혔을 때의 모습입니다.'))]
+    b = box(225, 8, 240, 50, MARK, INK, 10) + text(345, 32, '단원 첫 화면', 15, '800') + text(345, 50, 'index.html', 10.5, '500', MUTED)
+    for k in range(4):
+        x = 30+k*162; b += f'<line x1="345" y1="58" x2="{x+70}" y2="92" stroke="{ACC}" stroke-width="2"/>'
+        b += box(x, 92, 140, 92, '#fff', INK, 8) + text(x+70, 114, f'{k+1}차시 페이지', 13, '700')
+        for r, t in enumerate(['학습 목표·핵심 개념', '활동 안내·확인 퀴즈', '활동지 내려받기']): b += text(x+70, 136+r*16, t, 10, '500', MUTED)
+    b += box(60, 200, 570, 30, PAPER, LINE, 6) + text(345, 220, '실습은 여기까지(단원 하나). 익숙해지면 단원·교과서를 늘려 입구 페이지로 묶습니다.', 11.5, '600', ACC)
+    return svg(690, 238, b, '사이트 지도')
+F['ep12'] = [('after_intro', fig(sitemap(), '실습 결과의 모양: 단원 첫 화면 하나와 차시 페이지 여러 개. 발표자처럼 교과서별 입구로 넓히는 것은 익숙해진 다음입니다.'))]
 F['ep13'] = [('after_intro', fig(flow([('차시 핵심 개념', 'EP 12 사이트'), ('캔바 커넥터', '세팅 장에서 연결'), ('캔바 슬라이드', '클로드가 초안'), ('사람이 다듬기', '캔바에서'), ('내보내기', 'PNG·PDF → 사이트')], [2]), '캔바 활용 흐름'))]
 def three_d():
     b = flow([('말로 설명', '모양 + 치수(mm)'), ('OpenSCAD 코드', '.scad · 치수는 변수'), ('미리보기·STL', 'OpenSCAD'), ('슬라이서', 'Bambu Studio·Cura'), ('출력 → 재기', '치수 고쳐 다시')], [1])
@@ -319,10 +318,10 @@ def win_light(w, h, title, inner):
     return window(w, h, title, inner)
 def permission_mock():
     w, h = 690, 230; b = ''
-    b += text(24, 62, '클로드: 시간표.html 파일을 새로 만들겠습니다.', 13, '500', INK, 'start')
+    b += text(24, 62, '클로드: 진짜시간표.html 파일을 새로 만들겠습니다.', 13, '500', INK, 'start')
     b += box(20, 78, 650, 132, SOFT, ACC, 10, 1.6)
     b += text(36, 104, '이 작업을 해도 될까요?', 14, '800', INK, 'start')
-    b += text(36, 128, '파일 만들기: 바탕 화면 › 클로드작업 › 시간표 › 시간표.html', 12, '500', MUTED, 'start')
+    b += text(36, 128, '파일 만들기: 바탕 화면 › 클로드작업 › 시간표 › 진짜시간표.html', 12, '500', MUTED, 'start')
     for i, (t, c) in enumerate([('허락', ACC), ('항상 허락', '#fff'), ('거절', '#fff')]):
         b += box(36+i*150, 148, 136, 36, c, ACC, 18, 1.4) + text(104+i*150, 171, t, 13, '700', '#fff' if i == 0 else ACC)
     b += text(500, 171, '← 잘 모르면 "거절" 후 질문', 11.5, '600', WARN, 'start')
@@ -332,7 +331,7 @@ def saveas_mock():
     w, h = 690, 250; b = ''
     b += text(24, 60, '한글 › 파일 › 다른 이름으로 저장하기', 13, '700', INK, 'start')
     b += box(24, 74, 640, 34, '#fff', LINE, 6) + text(36, 96, '파일 이름:  양식', 12.5, '500', INK, 'start')
-    b += box(24, 116, 640, 34, MARK, INK, 6, 1.6) + text(36, 138, '파일 형식:  HWPX 문서 (*.hwpx)   ▾', 12.5, '700', INK, 'start')
+    b += box(24, 116, 640, 34, MARK, INK, 6, 1.6) + text(36, 138, '파일 형식:  HWPX 문서 (*.hwpx)', 12.5, '700', INK, 'start') + box(600, 120, 58, 26, '#fff', INK, 4) + text(629, 138, '▼', 13, '700') + text(596, 106, '여기를 눌러 고르세요 →', 11, '700', WARN, 'end')
     b += box(560, 160, 104, 30, ACC, ACC, 15) + text(612, 180, '저장', 12.5, '700', '#fff')
     b += text(24, 222, '탐색기 › 보기 › 표시 › "파일 확장명" 켜기 → 양식.hwpx 처럼 끝의 확장자가 보입니다', 12, '600', ACC, 'start')
     b += callout(1, 680, 132) + callout(2, 14, 216)
