@@ -19,7 +19,7 @@
       <tr><td>캔바 커넥터</td><td>왼쪽 아래 내 이름 → 설정 › 사용자 지정 › 커넥터(메뉴 지도 표와 같음), 클로드 코드는 claude mcp add</td><td>EP 13</td></tr>
       <tr><td>한글 플러그인 + uv</td><td>클로드 코드(claude plugin install), uv는 winget</td><td>EP 1 · EP 4 · EP 9</td></tr>
       <tr><td>Git for Windows</td><td>git-scm.com/downloads/win</td><td>클로드 코드를 쓸 때 (EP 6·10)</td></tr>
-      <tr><td>GitHub 계정</td><td>github.com (저장소는 github.com에서 직접 만들기)</td><td>백업할 때</td></tr>
+      <tr><td>GitHub 계정</td><td>github.com (저장소는 github.com에서 직접 만들기)</td><td>백업·클라우드 코드를 쓸 때</td></tr>
       <tr><td>GitHub CLI(gh)</td><td>(선택) 클로드가 저장소를 직접 만들게 하고 싶을 때만. 없어도 github.com에서 직접 만들면 됩니다</td><td>선택</td></tr>
       <tr><td>Node.js·firebase-tools</td><td>nodejs.org에서 LTS 설치 후 npm install -g firebase-tools</td><td>웹을 올릴 때 (EP 8 · EP 12)</td></tr>
       <tr><td>OpenSCAD</td><td>공식 사이트에서 내려받기</td><td>EP 14</td></tr>
@@ -52,7 +52,7 @@
       <p><b>왜</b>: 클로드가 내 캔바 계정에 들어가도 되는지 내가 직접 허락하는 단계입니다. 권한을 읽고 허락하세요.</p>
       <p><b>안 되면</b>: 목록에 안 보이면 앱을 최신으로 업데이트하고 다시 열어 보세요. 그래도 안 보이면 학교(조직) 관리자가 막아 둔 것일 수 있습니다.</p></li>
     <li><h4>클로드 코드(터미널)에서 연결</h4><p>터미널에서 아래 한 줄을 실행합니다. 서버 주소는 캔바 커넥터 페이지에 적힌 주소입니다.</p>
-      <p><code>claude mcp add --scope user --transport http canva https://mcp.canva.com/mcp</code></p>
+      <div class="prompt"><p class="lbl">터미널에 붙여 넣고 Enter</p><pre>claude mcp add --scope user --transport http canva https://mcp.canva.com/mcp</pre></div>
       <p><b>왜</b>: --scope user는 이 컴퓨터의 모든 작업 폴더에서 캔바를 쓰게 하는 옵션입니다.</p>
       <p><b>화면(예시)</b>: 명령이 끝나면 canva가 추가되었다는 글이 나옵니다. 첫 사용 때 안내에 따라 캔바에 로그인합니다.</p>
       <p><b>왜</b>: 클로드 코드는 앱 메뉴가 아니라 명령으로 연결을 추가합니다. 명령을 직접 외우지 않아도 됩니다. 아래 프롬프트로 맡기세요.</p>
@@ -69,13 +69,13 @@
   <p>hwpx-plugin은 한글 문서(.hwpx, 일부 .hwp)를 편집·추출·자동화하는 오픈소스 플러그인입니다(python-hwpx 프로젝트, GitHub의 airmang/hwpx-plugins, Apache-2.0 라이선스). 가정통신문·공문 작성, 서식 변경, 표 계산, 메일머지(상장 대량 만들기) 같은 일에 씁니다.</p>
   <ol class="steps">
     <li><h4>먼저 uv를 설치합니다</h4><p>플러그인의 MCP 서버가 돌아가려면 <b>uv</b>(파이썬 도구를 내려받아 실행해 주는 프로그램)가 필요합니다. Windows에서는 아래 명령입니다. 맥은 클로드에게 '맥용 uv 설치 명령을 알려 줘'라고 물어 그 명령을 쓰세요.</p>
-      <p><code>winget install --id=astral-sh.uv -e</code></p>
+      <div class="prompt"><p class="lbl">터미널에 붙여 넣고 Enter</p><pre>winget install --id=astral-sh.uv -e</pre></div>
       <p><b>화면(예시)</b>: 내려받기와 설치 진행 글이 지나가고 끝납니다.</p>
       <p><b>왜</b>: uv가 없으면 플러그인을 설치해도 한글 기능이 켜지지 않습니다.</p>
       <p><b>안 되면</b>: 터미널을 껐다 다시 켜서 시도하세요. 그래도 안 되면 아래 프롬프트로 클로드에게 원인을 물어보세요. 학교 PC에 winget이 없거나 막혀 있으면 클로드에게 'uv를 winget 없이 설치하는 방법을 알려 줘'라고 묻고, 설치 제한은 정보 담당과 상의하세요.</p></li>
-    <li><h4>터미널에 치는 명령(두 줄)</h4><p>두 줄을 차례로 실행합니다.</p>
-      <p><code>claude plugin marketplace add airmang/hwpx-plugins</code></p>
-      <p><code>claude plugin install hwpx-plugin@hwpx</code></p>
+    <li><h4>터미널에 치는 명령(두 줄)</h4><p>두 줄을 한 줄씩 차례로 붙여 넣고, 줄마다 Enter를 누릅니다.</p>
+      <div class="prompt"><p class="lbl">터미널에 한 줄씩 붙여 넣고 Enter</p><pre>claude plugin marketplace add airmang/hwpx-plugins
+claude plugin install hwpx-plugin@hwpx</pre></div>
       <p><b>왜</b>: 첫 줄은 설치 목록(마켓플레이스)을 등록하고, 둘째 줄은 그 목록에서 플러그인을 설치합니다.</p></li>
     <li><h4>클로드 코드 대화창에서 하는 방법(/plugin)</h4><p>입력창에 /plugin을 글자 그대로 치고 Enter를 누른 뒤, 목록에서 hwpx를 고릅니다.</p></li>
     <li><h4>새 세션을 시작합니다</h4><p>설치하거나 다시 설치한 뒤에는 <b>새 세션(새 대화)을 시작</b>해야 플러그인이 불러와집니다. 이미 열어 둔 대화에서는 안 보입니다.</p>
@@ -95,7 +95,7 @@
   <h3>4. Git과 GitHub (저장·되돌리기·백업)</h3>
   <p><strong>Git</strong>은 파일의 '저장 지점(커밋)'을 남기는 도구입니다. 게임의 세이브처럼 생각하세요. 고치다 망쳐도 잘 되던 저장 지점으로 되돌릴 수 있습니다. <strong>GitHub</strong>는 Git으로 만든 저장소를 인터넷에 보관·공유하는 곳입니다. 비공개 저장소도 만들 수 있습니다. 단, <b>학생 정보와 성적 자료는 비공개 저장소라도 올리지 않습니다</b>.</p>
   <ol class="steps">
-    <li><h4>Windows에서는 Git for Windows를 설치합니다</h4><p>클로드 코드는 Windows에서 Git for Windows 설치를 권장합니다. 내려받는 곳은 git-scm.com/downloads/win 입니다. 설치 화면에서 특별히 바꿀 것 없이 기본 선택으로 진행해도 됩니다. EP 6·10의 '저장 지점(커밋)' 단계에 필요합니다. 앱을 만들 장이면 미리 설치하세요.</p>
+    <li><h4>Windows에서는 Git for Windows를 설치합니다</h4><p>클로드 코드는 Windows에서 Git for Windows 설치를 권장합니다. 내려받는 곳은 <code>git-scm.com/downloads/win</code> 입니다. 설치 화면에서 특별히 바꿀 것 없이 기본 선택으로 진행해도 됩니다. EP 6·10의 '저장 지점(커밋)' 단계에 필요합니다. 앱을 만들 장이면 미리 설치하세요.</p>
       <p><b>왜</b>: 클로드 코드가 저장 지점을 남기려면 컴퓨터에 Git이 있어야 합니다.</p>
       <p><b>안 되면</b>: 설치 후 터미널이나 앱을 완전히 껐다 켜세요.</p></li>
     <li><h4>GitHub 계정을 만들고 로그인합니다</h4><p>github.com에서 계정을 만들고, 저장소도 github.com에서 '비공개(Private)'로 직접 만든 뒤 그 주소를 클로드에게 알려 줍니다. 처음 올릴 때 브라우저 로그인 창이 뜨면 GitHub 계정으로 로그인합니다. 프롬프트 예: '내 GitHub 저장소 [주소]에 지금 폴더를 올려 줘. 비공개인지 먼저 확인해 줘.'</p>
@@ -115,12 +115,14 @@
     <li><h4>구글 계정과 Firebase 프로젝트를 만듭니다</h4><p>구글 계정으로 Firebase 콘솔(Firebase 웹 관리 화면)에 들어가 프로젝트를 만듭니다. 주소는 프로젝트 ID(만들 때 이름 아래에 표시되는 고유 이름)로 정해집니다. 이름이 겹치면 ID에 글자가 더 붙습니다.</p>
       <p><b>왜</b>: 올릴 '집 주소'를 먼저 받는 단계입니다.</p></li>
     <li><h4>Node.js를 설치하고 firebase-tools를 설치합니다</h4><p>Node.js(웹 도구를 돌리는 프로그램)는 nodejs.org에서 LTS(오래 지원되는 안정판)를 내려받아 설치합니다. 그다음 아래 명령을 실행합니다.</p>
-      <p><code>npm install -g firebase-tools</code></p>
+      <div class="prompt"><p class="lbl">터미널에 붙여 넣고 Enter</p><pre>npm install -g firebase-tools</pre></div>
       <p><b>안 되면</b>: Node.js 설치 후 터미널을 껐다 켜야 npm이 인식됩니다. '이 시스템에서 스크립트를 실행할 수 없으므로 … 파일을 로드할 수 없습니다'가 뜨면 PowerShell의 실행 정책 때문입니다. 명령 프롬프트(cmd)에서 같은 명령을 시도하거나, 빨간 메시지를 그대로 클로드에게 보내 방법을 묻습니다. 학교 PC의 정책 변경은 정보 담당과 먼저 상의하세요.</p></li>
-    <li><h4>로그인합니다</h4><p><code>firebase login</code>을 실행하면 브라우저가 열려 구글 로그인을 합니다. 이런 브라우저 단계는 <b>내 컴퓨터(데스크톱 앱의 Code 또는 터미널)</b>에서 하는 것이 쉽습니다. firebase login은 선생님이 터미널에서 직접 칩니다. 클로드에게 시키면 브라우저 로그인을 대신할 수 없습니다.</p></li>
+    <li><h4>로그인합니다</h4><p>아래 명령을 실행하면 브라우저가 열려 구글 로그인을 합니다. 이런 브라우저 단계는 <b>내 컴퓨터(데스크톱 앱의 Code 또는 터미널)</b>에서 하는 것이 쉽습니다. 이 명령은 선생님이 터미널에서 직접 칩니다. 클로드에게 시키면 브라우저 로그인을 대신할 수 없습니다.</p>
+      <div class="prompt"><p class="lbl">터미널에 붙여 넣고 Enter</p><pre>firebase login</pre></div></li>
     <li><h4>올릴 폴더를 정합니다</h4><p>두 가지 방법이 있습니다. ① 터미널에서 <code>firebase init hosting</code>을 직접 치고 화면의 질문에 답합니다(아래 안내). ② 클로드 코드에게 설정 파일을 직접 만들게 합니다(화살표로 답하는 질문이 없어 초보에게 더 쉽습니다).</p>
       <p><b>화면(예시)</b>: 어느 프로젝트를 쓸지, 올릴 폴더 이름이 무엇인지 차례로 묻습니다.</p></li>
-    <li><h4>올립니다</h4><p><code>firebase deploy --only hosting</code>을 실행하면 올라가고 주소가 나옵니다. 그 주소를 열어 확인하세요.</p>
+    <li><h4>올립니다</h4><p>아래 명령을 실행하면 올라가고 주소가 나옵니다. 그 주소를 열어 확인하세요.</p>
+      <div class="prompt"><p class="lbl">터미널에 붙여 넣고 Enter</p><pre>firebase deploy --only hosting</pre></div>
       <p><b>왜</b>: 올리기 전에 <b>내 PC에서 먼저 열어 확인</b>하고, 올려도 되는 파일만 들어 있는지 봅니다.</p></li>
   </ol>
   <p><b>init이 묻는 것(예시. 질문 순서·문구는 버전에 따라 다릅니다)</b>: 어느 프로젝트를 쓸지, 올릴 폴더(public directory), single-page app 여부, GitHub 자동 배포 여부, index.html 덮어쓰기 여부. 화면의 질문이 책과 다르면 질문 문구를 그대로 클로드에게 보여 주고 어떻게 답할지 물어보세요. 올릴 폴더만은 반드시 public처럼 올릴 것만 든 폴더로 답합니다(아래 상자).</p>
@@ -144,7 +146,7 @@
   <div class="check"><p class="lbl">올리기 전 확인</p><ul><li>올릴 폴더에 학생 이름·성적·연락처가 든 파일이 없나요?</li><li>교사 이름이 든 앱이면 학교가 허용했고 입장 코드를 걸었나요?</li><li>올린 뒤 휴대폰으로 주소를 열어 화면이 제대로 나오나요?</li></ul></div>
   <h3>6. 세팅 체크리스트 (다시 보기)</h3>
   <p>어디서 하는지는 장 첫머리 표를 보세요. 하려는 장에 필요한 것만 하면 됩니다. 처음에는 Claude 데스크톱 앱 하나만 있어도 시작할 수 있습니다.</p>
-  <ul>
+  <ul class="todo">
     <li>☐ Claude 계정·Pro 이상 요금제·데스크톱 앱 로그인 (이 책 전체)</li>
     <li>☐ 캔바 커넥터 (EP 13)</li>
     <li>☐ 한글 플러그인 + uv (EP 1·4·9)</li>
