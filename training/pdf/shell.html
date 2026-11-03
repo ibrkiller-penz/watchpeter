@@ -41,8 +41,8 @@ h4{font-family:var(--fd);font-weight:700;font-size:11.5pt;margin:0 0 3pt;break-a
 .reel{break-after:page}
 .reel .hd{font-family:var(--fd);font-weight:900;font-size:24pt;margin:0 0 3pt}
 .reel .sub{color:var(--muted);margin-bottom:12pt}
-.reel .grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:7pt}
-.reel .clip{border:1pt solid var(--line);border-radius:5pt;padding:7pt 9pt;background:#fff;display:flex;flex-direction:column;gap:3pt;min-height:34mm}
+.reel .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6pt}
+.reel .clip{border:1pt solid var(--line);border-radius:5pt;padding:7pt 9pt;background:#fff;display:flex;flex-direction:column;gap:3pt;min-height:31mm}
 .reel .clip .n{font-family:var(--fm);font-size:8.5pt;color:var(--accent)}
 .reel .clip .h{font-family:var(--fd);font-weight:800;font-size:11pt;line-height:1.35}
 .reel .clip .io{margin-top:auto;font-size:8.8pt;color:var(--muted);line-height:1.45;border-top:.8pt dashed var(--line);padding-top:4pt}
@@ -81,7 +81,7 @@ ol.steps>li::before{content:counter(s);position:absolute;left:0;top:1pt;width:16
 .prompt{background:var(--code);color:var(--code-fg);border-radius:5pt;padding:9pt 12pt 10pt;margin:9pt 0;break-inside:avoid}
 .prompt .lbl{color:var(--mark)}
 .prompt pre{margin:0;font-family:var(--fb);font-size:10pt;line-height:1.68;white-space:pre-wrap;word-break:keep-all;overflow-wrap:anywhere}
-.explain{border:1pt solid var(--line);border-radius:5pt;padding:9pt 12pt;margin:9pt 0;break-inside:auto}
+.explain{border:1pt solid var(--line);border-radius:5pt;padding:9pt 12pt;margin:9pt 0}
 .explain .lbl{color:var(--accent)}
 .explain dl{margin:0;display:grid;grid-template-columns:44mm 1fr;gap:4pt 10pt}
 .explain dt{font-weight:600;font-size:9.8pt}
@@ -112,6 +112,20 @@ table.tbl td{padding:5pt 7pt;border-bottom:.7pt solid var(--line);vertical-align
 table.tbl tr{break-inside:avoid}
 ul.todo{list-style:none;padding:0}
 ul.todo li{padding:5pt 0;border-bottom:.7pt dashed var(--line)}
+
+/* 그림 */
+figure{margin:10pt 0 13pt;break-inside:avoid;page-break-inside:avoid}
+figure svg{display:block;width:100%;height:auto}
+figure.mock svg{max-width:150mm;margin:0 auto}
+figure.shot img{display:block;width:100%;border:.8pt solid var(--line);border-radius:4pt}
+figcaption{font-size:8.8pt;line-height:1.5;color:var(--muted);margin-top:5pt;text-align:left}
+figcaption b{color:var(--accent);margin-right:4pt;font-family:var(--fd)}
+/* 쪽 나눔: 단락이 중간에 잘리지 않게 */
+p,li,dd,dt{orphans:3;widows:3}
+p,ul>li,ol>li,dl,tr,.explain,.oops,.check,.case,.note,.screen,.prompt,.takeaway{break-inside:avoid;page-break-inside:avoid}
+h2,h3,h4,.lbl{break-after:avoid;page-break-after:avoid}
+h3+*,h4+*{break-before:avoid}
+.hook+h2,.hook+h2+.intro{break-before:avoid}
 </style>
 </head>
 <body>
@@ -125,7 +139,7 @@ ul.todo li{padding:5pt 0;border-bottom:.7pt dashed var(--line)}
     <div class="ai">양식을 읽었습니다. 날짜 하나가 메모에 없어 [  ]로 비워 두었어요. 가정통신문_공개수업.hwpx 로 저장했습니다.</div>
     <div class="me">고마워. 확인할 곳만 알려 줘.</div>
   </div>
-  <div class="foot"><span>2026년 11월</span><span>EP 0 – EP 15 · 따라 하기용</span></div>
+  <div class="foot"><span>2026년 11월</span><span>EP 0 – EP 16 · 따라 하기용</span></div>
 </section>
 
 <section class="reel">
@@ -133,11 +147,12 @@ ul.todo li{padding:5pt 0;border-bottom:.7pt dashed var(--line)}
   <p class="sub">이 책을 다 따라 하면 이런 일이 됩니다. 마음에 드는 것부터 펼쳐 보세요.</p>
   <div class="grid">
     <div class="clip mine"><span class="n">시작 전</span><span class="h">같은 클로드, 세 가지 쓰임</span><span class="io">문서는 Cowork, 앱은 클로드 코드</span></div>
+    <div class="clip"><span class="n">세팅</span><span class="h">캔바·한글·웹 올리기, 처음 한 번 연결</span><span class="io">MCP · 플러그인 · Git · Firebase</span></div>
     <div class="clip"><span class="n">EP 1</span><span class="h">메모가 가정통신문으로</span><span class="io">양식 .hwpx + 행사 메모 → 완성 .hwpx</span></div>
     <div class="clip"><span class="n">EP 2</span><span class="h">엑셀 7개가 표 하나로</span><span class="io">반별 신청서 → 통합 + 확인필요 + 합계</span></div>
     <div class="clip"><span class="n">EP 3</span><span class="h">공문 PDF가 할 일 표로</span><span class="io">PDF 2개 → 마감일 순 할 일 엑셀</span></div>
     <div class="clip"><span class="n">EP 4</span><span class="h">상장 수십 장이 한 번에</span><span class="io">양식 + 명단 → 두 장 확인 → 전부</span></div>
-    <div class="clip mine"><span class="n">EP 5 · 발표자 사례</span><span class="h">교실 PC 세팅을 스크립트 한 번으로</span><span class="io">반복하던 설정 → 실행 파일 하나</span></div>
+    <div class="clip mine"><span class="n">EP 5</span><span class="h">엉망인 다운로드 폴더가 한 번에 정리</span><span class="io">다운로드·음악 폴더 → 종류별 폴더 + 보고서</span></div>
     <div class="clip"><span class="n">EP 6</span><span class="h">학사일정을 넣으면 이번 주 진짜 시간표</span><span class="io">기본 시간표 + 학사일정 → 주차별</span></div>
     <div class="clip"><span class="n">EP 7</span><span class="h">축제로 빠질 수업, 미리 당겨 오기</span><span class="io">결손 시수 → 당겨오기 후보</span></div>
     <div class="clip"><span class="n">EP 8</span><span class="h">학교 일정이 바뀌어도 자동으로</span><span class="io">일정 갱신 → 다시 계산 → 공유</span></div>
@@ -146,8 +161,9 @@ ul.todo li{padding:5pt 0;border-bottom:.7pt dashed var(--line)}
     <div class="clip"><span class="n">EP 11</span><span class="h">손계산과 자동 비교</span><span class="io">정답표 10건 → 검산 통과</span></div>
     <div class="clip"><span class="n">EP 12</span><span class="h">단원 자료가 수업 사이트로</span><span class="io">차시 계획·활동지 → 학생용 사이트</span></div>
     <div class="clip"><span class="n">EP 13</span><span class="h">클로드가 캔바에서 슬라이드를</span><span class="io">캔바 연결 → 차시 슬라이드·포스터</span></div>
-    <div class="clip"><span class="n">EP 14</span><span class="h">고치기 전에 문제 목록부터</span><span class="io">만든 앱 → 심각도별 점검표</span></div>
-    <div class="clip mine"><span class="n">EP 15 · 발표자 사례</span><span class="h">10일 만에 시계 앱, 이렇게 키웠습니다</span><span class="io">작게 만들고 회차별로</span></div>
+    <div class="clip"><span class="n">EP 14</span><span class="h">말로 치수를 설명하면 3D 모델이</span><span class="io">OpenSCAD → STL → 3D 프린터</span></div>
+    <div class="clip"><span class="n">EP 15</span><span class="h">고치기 전에 문제 목록부터</span><span class="io">만든 앱 → 심각도별 점검표</span></div>
+    <div class="clip mine"><span class="n">EP 16 · 발표자 사례</span><span class="h">10일 만에 시계 앱, 이렇게 키웠습니다</span><span class="io">작게 만들고 회차별로</span></div>
   </div>
 </section>
 
@@ -157,6 +173,8 @@ ul.todo li{padding:5pt 0;border-bottom:.7pt dashed var(--line)}
   <table>
     <tr class="part"><td colspan="3">시작 전</td></tr>
     <tr><td class="n">도구</td><td class="t">채팅 · Cowork · 클로드 코드</td><td class="d">무엇을 언제 쓰나, EP별 추천 도구</td></tr>
+    <tr><td class="n">메뉴</td><td class="t">메뉴 지도</td><td class="d">메인 화면 네 곳, 설정 창, 사용량 읽는 법</td></tr>
+    <tr><td class="n">세팅</td><td class="t">처음 한 번 세팅</td><td class="d">MCP란, 캔바 커넥터, 한글 플러그인, Git·GitHub, Firebase</td></tr>
     <tr><td class="n">Pro</td><td class="t">Pro 요금제로 쓰는 법</td><td class="d">사용량·토큰 관리, 여러 에이전트와 교차 검증</td></tr>
     <tr class="part"><td colspan="3">1부 · 문서 업무: 자료 던지고 맡기기 (Cowork 중심)</td></tr>
     <tr><td class="n">EP 0</td><td class="t">Cowork · 클로드 코드 시작하기</td><td class="d">작업 폴더, 첫 대화, 확인 질문, 프롬프트 다섯 칸</td></tr>
@@ -164,7 +182,7 @@ ul.todo li{padding:5pt 0;border-bottom:.7pt dashed var(--line)}
     <tr><td class="n">EP 2</td><td class="t">엑셀 합치기</td><td class="d">여러 파일 통합, 이상한 값 표시</td></tr>
     <tr><td class="n">EP 3</td><td class="t">공문 → 할 일</td><td class="d">PDF에서 내 일만 뽑아 마감일 순으로</td></tr>
     <tr><td class="n">EP 4</td><td class="t">상장 대량 제작</td><td class="d">먼저 두 장, 확인 후 전부</td></tr>
-    <tr><td class="n">EP 5</td><td class="t">PC 세팅 자동화</td><td class="d">발표자 사례: 바로 가기 스크립트</td></tr>
+    <tr><td class="n">EP 5</td><td class="t">PC 정리와 자동화</td><td class="d">다운로드 폴더·음악 정리, PC 설정 스크립트</td></tr>
     <tr class="part"><td colspan="3">2부 · 학교 일정 연동 시간표와 수업 당겨오기 (클로드 코드)</td></tr>
     <tr><td class="n">EP 6</td><td class="t">학사일정 연동 시간표</td><td class="d">기본 시간표 + 학사일정 → 주차별 진짜 시간표, 결손 시수</td></tr>
     <tr><td class="n">EP 7</td><td class="t">수업 당겨오기</td><td class="d">규칙표 → 후보 찾기 → 등록·되돌리기 → 충돌 검사</td></tr>
@@ -173,12 +191,13 @@ ul.todo li{padding:5pt 0;border-bottom:.7pt dashed var(--line)}
     <tr><td class="n">EP 9</td><td class="t">규정 → 계산 규칙표</td><td class="d">코드보다 규칙표 먼저, 사람이 확정</td></tr>
     <tr><td class="n">EP 10</td><td class="t">계산 프로그램</td><td class="d">가짜 데이터로 만들고 실제 데이터는 내 PC에서</td></tr>
     <tr><td class="n">EP 11</td><td class="t">검산이 핵심</td><td class="d">손계산 정답표와 자동 비교, 경계 사례</td></tr>
-    <tr class="part"><td colspan="3">4부 · 수업 자료 사이트와 캔바 연결</td></tr>
-    <tr><td class="n">EP 12</td><td class="t">기술 교과서 자료로 사이트</td><td class="d">차시별 페이지, 저작권 지키기</td></tr>
+    <tr class="part"><td colspan="3">4부 · 기술 수업: 사이트·캔바·3D 프린팅</td></tr>
+    <tr><td class="n">EP 12</td><td class="t">기술 교과서 자료로 사이트</td><td class="d">차시별 페이지, 저작권, Firebase에 올리기</td></tr>
     <tr><td class="n">EP 13</td><td class="t">캔바 연결(MCP)</td><td class="d">클로드가 캔바에서 슬라이드·포스터 만들기</td></tr>
+    <tr><td class="n">EP 14</td><td class="t">3D 프린팅 모델링</td><td class="d">말로 설계 → OpenSCAD → STL → 출력, 치수 고치기</td></tr>
     <tr class="part"><td colspan="3">5부 · 점검하고 고치기</td></tr>
-    <tr><td class="n">EP 14</td><td class="t">점검하고 고치기</td><td class="d">문제 목록, 문제 알리기 양식, 되돌리기</td></tr>
-    <tr><td class="n">EP 15</td><td class="t">발표자 사례와 지킬 것</td><td class="d">손목 컨트롤러 10일, 성적·개인정보 원칙</td></tr>
+    <tr><td class="n">EP 15</td><td class="t">점검하고 고치기</td><td class="d">문제 목록, 문제 알리기 양식, 되돌리기</td></tr>
+    <tr><td class="n">EP 16</td><td class="t">발표자 사례와 지킬 것</td><td class="d">손목 컨트롤러 10일, 성적·개인정보 원칙</td></tr>
     <tr><td class="n">부록</td><td class="t">30분 실습 · 한 장 요약</td><td class="d">체크리스트, 자주 쓰는 말 10개</td></tr>
   </table>
   <div class="legend">
@@ -193,7 +212,7 @@ ul.todo li{padding:5pt 0;border-bottom:.7pt dashed var(--line)}
 
 <section class="ep" id="colophon">
   <h2>이 자료는 이렇게 만들었습니다</h2>
-  <p>이 PDF도 클로드 코드로 만들었습니다. 발표자가 보낸 것은 카톡 캡처 한 장과 일곱 번의 짧은 요청뿐입니다.</p>
+  <p>이 PDF도 클로드 코드로 만들었습니다. 발표자가 보낸 것은 카톡 캡처 한 장과 열두 번 남짓의 짧은 요청뿐입니다.</p>
   <div class="prompt"><p class="lbl">1차 요청 (웹 페이지판)</p><pre>클로드 코드를 선생님들이 사용할 수 있도록 연수 자료 제작. 선생님들은 초보.
 예시 프롬프트와 자료 던지고 업무처리 및 클로드 코드로 앱 개발하는 법. 그리고 개발된 앱 한번 점검하고 수정하는 법..
 내가 한 일들을 예시로.</pre></div>
@@ -205,6 +224,12 @@ Pdf문서로 제작.</pre></div>
   <div class="prompt"><p class="lbl">5차 요청</p><pre>원고는 하나하나 자세하게. 그리고 co works까지.. 구분해서.</pre></div>
   <div class="prompt"><p class="lbl">6차 요청</p><pre>교차 검증하는 것도 해줘. 중요 자료 조사는 멀티에이전트로 교차검증. 다만 이 경우 토큰 관리 필요함. 프로 요금제에서 권장 하는 내용도</pre></div>
   <div class="prompt"><p class="lbl">7차 요청</p><pre>시간표는 바꾸는 거 말고.. 수업 당겨오기. 학교 일정과 연동해서 앱 만드는 걸로 해야 하는데.. 만들어진 앱을 보고 추측해..</pre></div>
+  <div class="prompt"><p class="lbl">8·9차 요청</p><pre>파이어 베이스와 깃에 대해서도 알려주고. 웹을 만들면 파이어베이스에 올리는 걸로.. 넣자. 그리고 캔바 mcp연결, 한글 프러그인 연결은 초반에 세팅에서 알려줘야 한다. mcp에 대해서도 알려주고.
+클로드와 함께하는 3디 프린팅 모델링도 넣어주고.</pre></div>
+  <div class="prompt"><p class="lbl">10~12차 요청</p><pre>문서를 완성할 때 문서 단락 구분해서.. 중간에 짤리지 않도록 해 주고.. 필요한 이미지.. 개략적인건.. 캡쳐 후.. 개인적인 내용은 지우고, 해줘.
+너무 글자만 있는거 같어. / 클로드 메뉴도 마찬가지야.. 난 처음애 메뉴 찾는게 너무 힘들더라.
+다운로드 폴더.. 모아둔 음악 정리 이런거 하는 거도 넣어줘. / 나는 주간 한도가 안보이는데.. 이거 프로 기준으로 설명해 주고.</pre></div>
+  <p>그림은 두 가지로 넣었습니다. 발표자 앱 화면은 실제로 캡처하고 이름·쪽지·주소를 가렸습니다. 클로드 앱 메뉴는 발표자가 보내 준 화면의 메뉴 이름과 배치를 그대로 옮겨 개략도로 다시 그렸습니다.</p>
   <p>마지막 요청에 클로드는 발표자의 다른 저장소들(SUB모니터, 성적 산출기, 기술·가정 배움터)을 찾아 읽고, 시간표 사이트의 구조를 SUB모니터가 가져오는 데이터에서 추정해 2부를 다시 썼습니다. 추정한 부분은 본문에 밝혀 두었습니다.</p>
   <p>"팀을 짜서"라는 말에 클로드는 스스로 역할을 나눴습니다. 편집장(전체 기획·명세·디자인·조립)이 공통 명세서를 쓰고, 작가 세 명(업무 처리 편, 앱 만들기 편, 점검·수정 편)이 동시에 원고를 썼습니다. 업무 중심 개정 때는 시간표 앱 편, 인정점 프로그램 편, 수업 사이트·캔바 편, 점검·지킬 것 편 작가가 새로 붙었습니다. 마지막으로 도구 고르기 편 작가와, 원고를 하나씩 더 자세하게 다듬고 Cowork·클로드 코드를 구분해 넣는 편집자 세 명이 함께했습니다. 끝으로 검증자 세 명이 교차 검증을 했습니다. 제품 사실은 두 명이 공식 도움말을 따로 읽어 대조했고, 발표자 사례는 가벼운 모델 하나가 저장소 기록과 맞춰 봤습니다. 토큰을 아끼려고 원고 전체가 아니라 확인 목록만 넘겼습니다. 이어서 검토자가 "초보 선생님이 혼자 따라 할 수 있는가, 사실과 다른 내용은 없는가"를 점검했고, 편집장이 고쳐 PDF로 묶었습니다.</p>
   <div class="case"><p class="lbl">선생님이 가져갈 것</p><p>큰일을 맡길 때도 방법은 같습니다. <b>누구를 위한 무엇인지</b>, <b>어떤 자료를 쓸지</b>, <b>어떤 모양으로 받을지</b>만 분명하면 나머지 설계는 클로드에게 맡길 수 있습니다. 결과는 꼭 사람이 확인합니다.</p></div>
