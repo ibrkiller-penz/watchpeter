@@ -310,6 +310,57 @@ def loop():
 F['ep15'] = [('after_intro', fig(loop(), '한 번에 하나씩 고치고, 잘 되면 저장 지점을 남기는 순서를 반복합니다.'))]
 F['ep16'] = [('after_intro', '<figure class="shot"><img src="img/sim.png" alt="손목 컨트롤러 시뮬레이터"><figcaption><b>실제 화면</b> 발표자의 손목 컨트롤러 웹 시뮬레이터. 시계가 없어도 시계 화면·가상 PC·보낸 키 기록을 볼 수 있게 먼저 만들었습니다.</figcaption></figure>')]
 
+
+# ---------- 1차 검토 그림 요청(개략도) ----------
+def win_light(w, h, title, inner):
+    return window(w, h, title, inner)
+def permission_mock():
+    w, h = 690, 230; b = ''
+    b += text(24, 62, '클로드: 시간표.html 파일을 새로 만들겠습니다.', 13, '500', INK, 'start')
+    b += box(20, 78, 650, 132, SOFT, ACC, 10, 1.6)
+    b += text(36, 104, '이 작업을 해도 될까요?', 14, '800', INK, 'start')
+    b += text(36, 128, '파일 만들기: 바탕 화면 › 클로드작업 › 시간표 › 시간표.html', 12, '500', MUTED, 'start')
+    for i, (t, c) in enumerate([('허락', ACC), ('항상 허락', '#fff'), ('거절', '#fff')]):
+        b += box(36+i*150, 148, 136, 36, c, ACC, 18, 1.4) + text(104+i*150, 171, t, 13, '700', '#fff' if i == 0 else ACC)
+    b += text(500, 171, '← 잘 모르면 "거절" 후 질문', 11.5, '600', WARN, 'start')
+    b += callout(1, 36, 104) + callout(2, 104, 144)
+    return window(w, h, '허락 질문 (개략도)', b)
+def saveas_mock():
+    w, h = 690, 250; b = ''
+    b += text(24, 60, '한글 › 파일 › 다른 이름으로 저장하기', 13, '700', INK, 'start')
+    b += box(24, 74, 640, 34, '#fff', LINE, 6) + text(36, 96, '파일 이름:  양식', 12.5, '500', INK, 'start')
+    b += box(24, 116, 640, 34, MARK, INK, 6, 1.6) + text(36, 138, '파일 형식:  HWPX 문서 (*.hwpx)   ▾', 12.5, '700', INK, 'start')
+    b += box(560, 160, 104, 30, ACC, ACC, 15) + text(612, 180, '저장', 12.5, '700', '#fff')
+    b += text(24, 222, '탐색기 › 보기 › 표시 › "파일 확장명" 켜기 → 양식.hwpx 처럼 끝의 확장자가 보입니다', 12, '600', ACC, 'start')
+    b += callout(1, 680, 132) + callout(2, 14, 216)
+    return window(w, h, '파일 형식 바꾸기 (개략도)', b)
+def terminal_open_mock():
+    w, h = 690, 240; b = ''
+    b += box(20, 44, 300, 182, PAPER, LINE, 8) + box(32, 56, 276, 30, '#fff', INK, 15) + text(46, 76, '🔍 터미널'.replace('🔍', '검색:'), 12.5, '600', INK, 'start')
+    b += box(32, 96, 276, 52, MARK, INK, 8, 1.4) + text(46, 118, '터미널 (Windows Terminal)', 12.5, '700', INK, 'start') + text(46, 138, '또는 PowerShell', 11, '500', MUTED, 'start')
+    b += text(32, 176, '① 키보드의 Windows 키 누르기', 11.5, '500', INK, 'start') + text(32, 198, '② "터미널" 입력 → 맨 위 결과 클릭', 11.5, '500', INK, 'start')
+    b += arrow(324, 122, 360, 122)
+    b += box(366, 44, 300, 182, '#1F2624', INK, 8)
+    b += f'<text x="380" y="78" font-size="12" fill="#9FB0A9" font-family="\'IBM Plex Mono\',monospace">PS C:\\Users\\교사&gt;</text>'
+    b += f'<text x="380" y="104" font-size="12" fill="{MARK}" font-family="\'IBM Plex Mono\',monospace">여기에 명령 붙여 넣기</text>'
+    b += text(380, 150, '붙여 넣기: 마우스 오른쪽 클릭', 11.5, '600', '#E3EAE6', 'start') + text(380, 172, '실행: Enter', 11.5, '600', '#E3EAE6', 'start') + text(380, 200, '$ 기호는 치지 않습니다', 11.5, '700', '#F0A184', 'start')
+    return svg(690, 240, b, '터미널 여는 법')
+def rightclick_mock():
+    w, h = 690, 210; b = ''
+    b += box(20, 20, 220, 40, '#fff', INK, 6) + text(36, 46, '▣ 정리.ps1', 13, '700', INK, 'start')
+    b += text(250, 46, '← 파일을 마우스 오른쪽 클릭', 12, '600', WARN, 'start')
+    b += box(60, 70, 300, 130, '#fff', INK, 8, 1.4)
+    for i, (t, on) in enumerate([('열기', 0), ('PowerShell에서 실행', 1), ('편집', 0), ('더 많은 옵션 표시', 0)]):
+        y = 96+i*28
+        if on: b += box(66, y-18, 288, 26, MARK, INK, 5)
+        b += text(80, y, t, 12.5, '700' if on else '500', INK, 'start')
+    b += text(380, 120, 'Windows 11에서 안 보이면', 12, '700', INK, 'start') + text(380, 142, '"더 많은 옵션 표시"를 먼저 누릅니다', 12, '500', MUTED, 'start') + text(380, 172, '학교 PC는 실행이 막혀 있을 수 있음 →', 12, '500', MUTED, 'start') + text(380, 192, '정보 담당 선생님께 문의', 12, '600', WARN, 'start')
+    return svg(690, 210, b, 'PowerShell 스크립트 실행')
+F['ep0'] = F.get('ep0', []) + [('before:h3:허락', fig(permission_mock(), '① 클로드가 무엇을 하려는지 읽고 ② 허락·항상 허락·거절 중 고릅니다. 파일을 지우거나 보내는 일이면 꼭 다시 읽습니다. 버튼 이름은 버전마다 조금 다릅니다.', 'mock')),
+                               ('before:h3:확장자', fig(saveas_mock(), '① 한글에서 파일 형식을 HWPX로 골라 저장 ② 탐색기에서 확장명을 켜면 파일 이름 끝(.hwpx, .txt)이 보입니다.', 'mock'))]
+F['setup'] = F.get('setup', []) + [('before:h3:3.', fig(terminal_open_mock(), '터미널(검은 명령 창) 여는 법과 명령 붙여 넣는 법. 학교 PC는 설치가 막혀 있을 수 있습니다.', 'mock'))]
+F['ep5'] = F.get('ep5', []) + [('before:h3:PC 설정', fig(rightclick_mock(), '.ps1 스크립트 실행하기. 메뉴 이름은 Windows 버전에 따라 다릅니다.', 'mock'))]
+
 F['pro'] = [('after_intro', fig(usage(), '채팅·Cowork·클로드 코드가 같은 사용량을 나눠 씁니다. 그림의 비율은 예시입니다.')), ('before:h3:사용량을 아끼는', fig(settings_usage(), '설정 › 사용량 개략도. ① 현재 세션 막대가 가장 중요합니다 ② 주간 한도 ③ 모델별 막대. Pro에서는 Fable을 사용 크레딧으로만 쓸 수 있습니다.', 'mock'))]
 json.dump(F, open(os.path.join(D, 'figs.json'), 'w', encoding='utf8'), ensure_ascii=False)
 print(len(F), 'sections,', sum(len(v) for v in F.values()), 'figures')

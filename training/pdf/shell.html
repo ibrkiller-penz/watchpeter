@@ -41,7 +41,7 @@ h4{font-family:var(--fd);font-weight:700;font-size:11.5pt;margin:0 0 3pt;break-a
 .reel{break-after:page}
 .reel .hd{font-family:var(--fd);font-weight:900;font-size:24pt;margin:0 0 3pt}
 .reel .sub{color:var(--muted);margin-bottom:12pt}
-.reel .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6pt}
+.reel .grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6pt}
 .reel .clip{border:1pt solid var(--line);border-radius:5pt;padding:7pt 9pt;background:#fff;display:flex;flex-direction:column;gap:3pt;min-height:31mm}
 .reel .clip .n{font-family:var(--fm);font-size:8.5pt;color:var(--accent)}
 .reel .clip .h{font-family:var(--fd);font-weight:800;font-size:11pt;line-height:1.35}
@@ -116,7 +116,7 @@ ul.todo li{padding:5pt 0;border-bottom:.7pt dashed var(--line)}
 /* 그림 */
 figure{margin:10pt 0 13pt;break-inside:avoid;page-break-inside:avoid}
 figure svg{display:block;width:100%;height:auto}
-figure.mock svg{max-width:150mm;margin:0 auto}
+figure.mock svg{max-width:100%;margin:0 auto}
 figure.shot img{display:block;width:100%;border:.8pt solid var(--line);border-radius:4pt}
 figcaption{font-size:8.8pt;line-height:1.5;color:var(--muted);margin-top:5pt;text-align:left}
 figcaption b{color:var(--accent);margin-right:4pt;font-family:var(--fd)}
@@ -152,7 +152,9 @@ figcaption{font-size:9.6pt;color:#3E4844}
   <p class="sub">이 책을 다 따라 하면 이런 일이 됩니다. 마음에 드는 것부터 펼쳐 보세요.</p>
   <div class="grid">
     <div class="clip mine"><span class="n">시작 전</span><span class="h">같은 클로드, 세 가지 쓰임</span><span class="io">문서는 Cowork, 앱은 클로드 코드</span></div>
+    <div class="clip"><span class="n">메뉴 지도</span><span class="h">헤매던 메뉴, 지도 한 장으로</span><span class="io">설정 › 커넥터 · 사용량 · 플러그인</span></div>
     <div class="clip"><span class="n">세팅</span><span class="h">캔바·한글·웹 올리기, 처음 한 번 연결</span><span class="io">MCP · 플러그인 · Git · Firebase</span></div>
+    <div class="clip"><span class="n">Pro</span><span class="h">한 달 요금으로 넉넉하게 쓰는 법</span><span class="io">새 대화로 나누기 · 가벼운 모델부터</span></div>
     <div class="clip"><span class="n">EP 1</span><span class="h">메모가 가정통신문으로</span><span class="io">양식 .hwpx + 행사 메모 → 완성 .hwpx</span></div>
     <div class="clip"><span class="n">EP 2</span><span class="h">엑셀 7개가 표 하나로</span><span class="io">반별 신청서 → 통합 + 확인필요 + 합계</span></div>
     <div class="clip"><span class="n">EP 3</span><span class="h">공문 PDF가 할 일 표로</span><span class="io">PDF 2개 → 마감일 순 할 일 엑셀</span></div>
@@ -163,7 +165,7 @@ figcaption{font-size:9.6pt;color:#3E4844}
     <div class="clip"><span class="n">EP 8</span><span class="h">학교 일정이 바뀌어도 자동으로</span><span class="io">일정 갱신 → 다시 계산 → 공유</span></div>
     <div class="clip"><span class="n">EP 9</span><span class="h">성적 규정이 계산 규칙표로</span><span class="io">규정 PDF → 근거 달린 규칙표</span></div>
     <div class="clip"><span class="n">EP 10</span><span class="h">결시생 인정점, 자동 계산</span><span class="io">붙여 넣기 → 계산 근거까지 표로</span></div>
-    <div class="clip"><span class="n">EP 11</span><span class="h">손계산과 자동 비교</span><span class="io">정답표 10건 → 검산 통과</span></div>
+    <div class="clip"><span class="n">EP 11</span><span class="h">손계산과 자동 비교</span><span class="io">정답표 8건 → 검산 통과</span></div>
     <div class="clip"><span class="n">EP 12</span><span class="h">단원 자료가 수업 사이트로</span><span class="io">차시 계획·활동지 → 학생용 사이트</span></div>
     <div class="clip"><span class="n">EP 13</span><span class="h">클로드가 캔바에서 슬라이드를</span><span class="io">캔바 연결 → 차시 슬라이드·포스터</span></div>
     <div class="clip"><span class="n">EP 14</span><span class="h">말로 치수를 설명하면 3D 모델이</span><span class="io">OpenSCAD → STL → 3D 프린터</span></div>
@@ -175,6 +177,7 @@ figcaption{font-size:9.6pt;color:#3E4844}
 <section class="toc">
   <h2>차례와 읽는 법</h2>
   <p>에피소드마다 첫머리 검은 상자가 "이런 일이 됩니다"입니다. 노란 띠는 그 일에 알맞은 도구(Cowork 또는 클로드 코드)입니다. 그 아래에 자세한 따라 하기가 이어집니다. 처음이라면 '시작 전' 네 장부터, 급한 일이 있다면 그 EP만 보셔도 됩니다.</p>
+  <div class="note"><p class="lbl">처음 오신 분은 이 순서로</p><p>① 도구 고르기(5분) → ② 메뉴 지도(5분) → ③ EP 0 시작하기 → ④ EP 1 가정통신문. 세팅 장(캔바·한글·Git·Firebase)은 처음부터 다 할 필요 없이, 각 EP의 '준비'에 나올 때 돌아와서 하면 됩니다. Pro 장은 사용량이 걱정될 때 읽으세요.</p></div>
   <table>
     <tr class="part"><td colspan="3">시작 전</td></tr>
     <tr><td class="n">도구</td><td class="t">채팅 · Cowork · 클로드 코드</td><td class="d">무엇을 언제 쓰나, EP별 추천 도구</td></tr>
