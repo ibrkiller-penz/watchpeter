@@ -62,8 +62,10 @@ fs.writeFileSync(built, html);
         if (hgt < PAGE * 0.55) group.push(n);
       }
       const w = document.createElement('div'); w.className = 'keep';
+      if (group.length && group[group.length - 1] !== n) w.style.breakAfter = 'avoid';
       h.parentElement.insertBefore(w, h); group.forEach((e) => w.appendChild(e));
     });
+    document.querySelectorAll('section.ep table.tbl').forEach((t) => { if (t.offsetHeight < PAGE * 0.6) t.style.breakInside = 'avoid'; });
   });
   const out = path.join(dir, '..', '클로드코드_실무연수.pdf');
   await page.pdf({ path: out, format: 'A4', printBackground: true, preferCSSPageSize: true });

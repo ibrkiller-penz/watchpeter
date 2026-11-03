@@ -13,7 +13,7 @@ def fills():
             if any(px[x,y] < 200 for x in range(int(w*.08), int(w*.92), 2)): last = y
         out[n] = (last-top)/(bot-top)
     return out
-tight = {}
+tight = {'wrap': 2}
 for it in range(4):
     json.dump(tight, open(os.path.join(D,'tight.json'),'w'))
     subprocess.run(['python3', os.path.join(D,'paginate.py')], check=True, capture_output=True)
