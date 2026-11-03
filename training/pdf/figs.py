@@ -129,7 +129,7 @@ def settings_connectors():
 def main_window():
     w, h = 690, 400; b = box(2, 2, w-4, h-4, DARK, '#444', 10, 1.4)
     b += box(2, 2, 150, h-4, '#191a19', '#333', 10)
-    b += dtext(14, 26, '☰  ◧   ‹ ›', 11, '500', DMUT) + box(104, 12, 40, 22, '#33363a', BLUE, 6) + dtext(124, 28, '‹/›', 10.5, '700', DTXT, 'middle')
+    b += dtext(14, 26, '☰  ◧   ‹ ›', 11, '500', DMUT) + box(84, 10, 62, 26, '#33363a', BLUE, 6) + dtext(115, 28, 'Code', 12, '700', DTXT, 'middle')
     for i in range(8): b += box(14, 48+i*26, 124, 16, '#262726', '#262726', 4)
     b += dtext(14, 268, '(세션 목록)', 10, '500', DMUT)
     b += box(8, 288, 138, 104, '#262726', '#3a3a3a', 8)
@@ -142,7 +142,7 @@ def main_window():
     for i, t in enumerate(['환경 (작업 폴더·저장소)', '컨텍스트 (사용량 %)', '커넥터', '결과물', '변경 사항']): b += dtext(516, 74+i*58, t, 11.5, '700') + box(516, 82+i*58, 150, 20, '#262726', '#262726', 4)
     b += callout(1, 124, 48) + callout(2, 146, 300) + callout(3, 494, 340) + callout(4, 500, 70)
     return svg(w, h, b, 'Claude 데스크톱 앱 Code 화면')
-F['menus'] = [('after_intro', fig(main_window(), '데스크톱 앱 Code 화면의 개략도. ① 모드 전환(Code ‹/›) ② 왼쪽 아래 계정 메뉴 → 설정(Ctrl+,) ③ 입력창 아래 모델·권한 모드 ④ 오른쪽 패널: 작업 폴더, 컨텍스트, 커넥터, 결과물, 변경 사항.', 'mock')),
+F['menus'] = [('after_intro', fig(main_window(), '데스크톱 앱 Code 화면의 개략도. ① 모드 전환(왼쪽 위 아이콘, 지금은 Code 선택) ② 왼쪽 아래 계정 메뉴 → 설정(Ctrl+,) ③ 입력창 아래 모델·권한 모드 ④ 오른쪽 패널: 작업 폴더, 컨텍스트, 커넥터, 결과물, 변경 사항.', 'mock')),
               ('before:h3:설정 창', fig(settings_connectors(), '설정 창 개략도(실제 메뉴 이름). ① 사용자 지정 › 커넥터 ② 내 항목/탐색 ③ + 추가 ④ Canva가 "개인별·✓"면 연결된 것.', 'mock')),
               ('before:h3:사용량', fig(settings_usage(), '설정 › 사용량 개략도. ① 현재 세션(5시간마다 초기화) ② 주간 한도 ③ Fable 같은 모델별 막대. 사진은 팀 요금제 화면을 바탕으로 했고, Pro 화면은 항목이 다를 수 있습니다.', 'mock'))]
 # ---------- 세팅 ----------
@@ -168,10 +168,10 @@ def connectors_mock():
     return window(w, h, 'Claude 앱 › 사용자 지정 (개략도)', b)
 
 def terminal():
-    lines = [('$ claude plugin marketplace add airmang/hwpx-plugins', MARK), ('  ✔ 마켓플레이스 hwpx 추가됨', '#9FD8C9'),
-             ('$ claude plugin install hwpx-plugin@hwpx', MARK), ('  ✔ hwpx-plugin 설치됨 — 새 세션을 시작하세요', '#9FD8C9'),
-             ('$ winget install --id=astral-sh.uv -e      ← 한글 플러그인 MCP에 필요(Windows)', '#E3EAE6'),
-             ('$ claude mcp add --transport http canva https://mcp.canva.com/mcp', MARK)]
+    lines = [('claude plugin marketplace add airmang/hwpx-plugins', MARK), ('  ✔ 마켓플레이스 hwpx 추가됨', '#9FD8C9'),
+             ('claude plugin install hwpx-plugin@hwpx', MARK), ('  ✔ hwpx-plugin 설치됨 — 새 세션을 시작하세요', '#9FD8C9'),
+             ('winget install --id=astral-sh.uv -e      ← 한글 플러그인 MCP에 필요(Windows)', '#E3EAE6'),
+             ('claude mcp add --transport http canva https://mcp.canva.com/mcp', MARK)]
     b = box(2, 2, 686, 196, '#1F2624', INK, 10)
     for i, (t, c) in enumerate(lines): b += f'<text x="18" y="{34+i*28}" font-size="12.5" fill="{c}" font-family="\'IBM Plex Mono\',monospace">{esc(t)}</text>'
     return svg(690, 200, b, '터미널 설치 명령')
@@ -191,7 +191,7 @@ def firebase():
     return flow([('내 작업 폴더', 'index.html 등'), ('올리기 전 검사', '개인정보·파일 종류'), ('firebase deploy', '클로드 코드가 실행'), ('웹 주소', '이름.web.app'), ('학생·동료', '링크로 열기')], [2])
 F['setup'] = [('after_intro', fig(mcp(), 'MCP는 클로드에 다른 도구를 꽂는 플러그입니다. 커넥터와 플러그인이 이 방식으로 연결됩니다.')),
               ('before:h3:캔바', fig(settings_connectors(), '설정 › 사용자 지정 › 커넥터. 탐색에서 Canva를 찾아 연결하고 캔바에 로그인하면 내 항목에 "개인별 ✓"로 보입니다.', 'mock')),
-              ('before:h3:한글', fig(terminal(), '터미널에서 쓰는 설치 명령. 노란 줄이 내가 치거나 클로드에게 실행을 맡길 명령입니다.')),
+              ('before:h3:한글', fig(terminal(), '터미널(검은 명령 창)에 한 줄씩 붙여 넣는 설치 명령. 노란 줄이 붙여 넣을 명령이고, 초록 줄은 성공했을 때 보이는 글입니다(예시). 클로드 코드 대화창에 "이 명령을 실행해 줘"라고 맡겨도 됩니다.')),
               ('before:h3:Git', fig(git_line(), '저장 지점이 있으면 망가져도 잘 되던 때로 돌아갈 수 있습니다.')),
               ('before:h3:Firebase', fig(firebase(), '웹을 Firebase에 올리는 흐름. 올린 주소는 누구나 열 수 있습니다.'))]
 
@@ -259,7 +259,7 @@ F['ep8'] = [('after_intro', fig(flow([('학사일정 바뀜', '붙여 넣기'), 
 F['ep9'] = [('after_intro', fig(flow([('학업성적관리규정', 'PDF · hwpx'), ('계산 규칙표', '근거 조항 달기'), ('확인필요 항목', '클로드가 정하지 않음'), ('사람이 확정', '담당자·위원회')], [1]), '규정을 규칙표로'))]
 F['ep10'] = [('after_intro', fig(flow([('확정된 규칙표', ''), ('가짜 학생 20명', '학생01~20'), ('인정점.html', '브라우저 안에서만'), ('계산 근거 열', '점수 × 비율'), ('내 PC에서 실제 점수', '클로드에 안 줌')], [2]), '인정점 프로그램 흐름'))]
 def check():
-    rows = [('학생03', '24.0', '24.0'), ('학생07', '25.1', '25.1'), ('학생11', '36.8', '36.7'), ('학생15', '42.0', '42.0')]
+    rows = [('학생02', '24.0', '24.0'), ('학생04', '25.1', '25.1'), ('학생07', '42.0', '42.0'), ('학생11', '36.8', '36.7')]
     b = text(20, 24, '정답표(손계산) ↔ 프로그램 결과 자동 비교 (예시)', 13.5, '700', INK, 'start')
     for i, h in enumerate(['학생', '손계산', '프로그램', '결과']): b += text(80+i*170, 54, h, 12, '700', MUTED)
     for r, (n, a, p) in enumerate(rows):
@@ -267,7 +267,7 @@ def check():
         b += box(10, y, 670, 30, '#fff' if ok else '#FBEAE2', LINE, 4)
         for i, v in enumerate([n, a, p, '통과' if ok else '다름 → 고치기']): b += text(80+i*170, y+20, v, 12.5, '700' if not ok else '500', WARN if (not ok and i >= 2) else INK)
     return svg(690, 206, b, '검산')
-F['ep11'] = [('after_intro', fig(check(), '사람이 계산한 정답과 프로그램 결과가 하나라도 다르면 실패로 알려 줍니다. 36.7은 버그를 가정한 예시입니다.'))]
+F['ep11'] = [('after_intro', fig(check(), '사람이 계산한 정답과 프로그램 결과가 하나라도 다르면 실패로 알려 줍니다. 학생11의 36.7은 반올림 대신 버림을 쓴 버그를 가정한 예시입니다(EP 11 정답표와 같은 숫자).'))]
 
 # ---------- 사이트·캔바·3D ----------
 def sitemap():
@@ -279,7 +279,7 @@ def sitemap():
             b += box(ux+6, 188, 88, 24, PAPER, LINE, 4) + text(ux+50, 205, '차시 1 · 2 · 3', 10.5, '500', MUTED)
     b += text(345, 238, '차시 페이지: 학습 목표 · 핵심 개념 · 활동 · 확인 퀴즈 · 활동지', 12, '600', ACC)
     return svg(690, 248, b, '사이트 지도')
-F['ep12'] = [('after_intro', fig(sitemap(), '사이트 지도를 먼저 받고, 한 차시를 완성한 뒤 같은 틀로 늘립니다.'))]
+F['ep12'] = [('after_intro', fig(sitemap(), '실습은 단원 하나(단원 첫 화면 + 차시 페이지)부터 만듭니다. 그림 위쪽의 입구·교과서별 사이트는 발표자처럼 여러 단원·교과서로 넓혔을 때의 모습입니다.'))]
 F['ep13'] = [('after_intro', fig(flow([('차시 핵심 개념', 'EP 12 사이트'), ('캔바 커넥터', '세팅 장에서 연결'), ('캔바 슬라이드', '클로드가 초안'), ('사람이 다듬기', '캔바에서'), ('내보내기', 'PNG·PDF → 사이트')], [2]), '캔바 활용 흐름'))]
 def three_d():
     b = flow([('말로 설명', '모양 + 치수(mm)'), ('OpenSCAD 코드', '.scad · 치수는 변수'), ('미리보기·STL', 'OpenSCAD'), ('슬라이서', 'Bambu Studio·Cura'), ('출력 → 재기', '치수 고쳐 다시')], [1])

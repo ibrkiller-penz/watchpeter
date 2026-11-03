@@ -6,7 +6,7 @@ const { chromium } = require('playwright');
 const dir = __dirname;
 const shell = fs.readFileSync(path.join(dir, 'shell.html'), 'utf8');
 const figs = JSON.parse(fs.readFileSync(path.join(dir, 'figs.json'), 'utf8'));
-const parts = ['part-0.html', 'part-m.html', 'part-s.html', 'part-a.html', 'part-b.html', 'part-d.html', 'part-e.html', 'part-f.html', 'part-c.html'];
+const parts = ['part-0.html', 'part-m.html', 'part-s.html', 'part-p.html', 'part-a.html', 'part-b.html', 'part-d.html', 'part-e.html', 'part-f.html', 'part-c.html'];
 
 // 그림 끼워 넣기: section id 별로 after_intro / before:h3:<글자> / end
 function inject(html) {
