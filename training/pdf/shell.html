@@ -13,7 +13,7 @@
   --fd:"Gothic A1",sans-serif;--fb:"IBM Plex Sans KR",sans-serif;--fm:"IBM Plex Mono",monospace}
 *{box-sizing:border-box}
 html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-body{margin:0;font-family:var(--fb);font-size:10.5pt;line-height:1.72;color:var(--ink);word-break:keep-all;overflow-wrap:anywhere}
+body{margin:0;font-family:var(--fb);font-size:10.5pt;line-height:1.72;color:var(--ink);word-break:keep-all;overflow-wrap:break-word}
 p{margin:0 0 7pt}
 ul,ol{margin:0 0 8pt;padding-left:16pt}
 li{margin:1.5pt 0}
@@ -81,7 +81,7 @@ ol.steps>li{counter-increment:s;position:relative;padding-left:24pt;margin:0 0 9
 ol.steps>li::before{content:counter(s);position:absolute;left:0;top:1pt;width:16pt;height:16pt;border-radius:50%;background:var(--accent);color:#fff;font:500 9pt/16pt var(--fm);text-align:center}
 .prompt{background:var(--code);color:var(--code-fg);border-radius:5pt;padding:9pt 12pt 10pt;margin:9pt 0;break-inside:avoid}
 .prompt .lbl{color:var(--mark)}
-.prompt pre{margin:0;font-family:var(--fb);font-size:10pt;line-height:1.68;white-space:pre-wrap;word-break:keep-all;overflow-wrap:anywhere}
+.prompt pre{margin:0;font-family:var(--fb);font-size:10pt;line-height:1.68;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word}
 .explain{border:1pt solid var(--line);border-radius:5pt;padding:9pt 12pt;margin:9pt 0}
 .explain .lbl{color:var(--accent)}
 .explain dl{margin:0;display:grid;grid-template-columns:44mm 1fr;gap:4pt 10pt}
@@ -189,6 +189,11 @@ table.tbl td:first-child,table.tbl th:first-child{min-width:5.2em}
 
 figure.mock svg{max-width:84%!important}
 figure.diagram svg{max-width:96%;margin:0 auto}
+
+/* 줄바꿈: 낱말 단위, 마지막 줄 한두 글자만 남지 않게 */
+p,li,dd,dt,td,th,figcaption,.hook-line,h2,h3,h4{text-wrap:pretty}
+h2,h3,.hook .hook-line{text-wrap:balance}
+.prompt pre{overflow-wrap:break-word}
 </style>
 </head>
 <body>
