@@ -37,7 +37,8 @@ function inject(html) {
   });
 }
 
-const html = shell.replace('<!--PARTS-->', parts.map((f) => inject(fs.readFileSync(path.join(dir, f), 'utf8'))).join('\n'));
+let pages = {}; try { pages = JSON.parse(fs.readFileSync(path.join(dir, 'pages.json'), 'utf8')); } catch (e) {}
+const html = shell.replace(/\{\{pg:([a-z0-9]+)\}\}/g, (m, k) => pages[k] || '00').replace('<!--PARTS-->', parts.map((f) => inject(fs.readFileSync(path.join(dir, f), 'utf8'))).join('\n'));
 const built = path.join(dir, 'book.html');
 fs.writeFileSync(built, html);
 

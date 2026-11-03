@@ -8,7 +8,7 @@ FONT = "font-family=\"'IBM Plex Sans KR','Gothic A1',sans-serif\""
 def esc(t): return html.escape(str(t))
 
 def text(x, y, t, size=13, w='500', fill=INK, anchor='middle'):
-    size = round(size*1.08, 1); lines = str(t).split('\n'); out = ''
+    size = round(size*1.12, 1); lines = str(t).split('\n'); out = ''
     for i, l in enumerate(lines):
         out += f'<text x="{x}" y="{y + i*size*1.3}" font-size="{size}" font-weight="{w}" fill="{fill}" text-anchor="{anchor}" {FONT}>{esc(l)}</text>'
     return out
@@ -249,18 +249,18 @@ def dangyeo():
                 v = marks.get((r, c), ''); col = {'당겨옴': MARK, '당겨 감': PAPER, '축제': SOFT, '3반': '#fff'}.get(v, '#fff')
                 b += box(x+28+c*52, 54+r*36, 48, 30, col, INK if v in ('당겨옴', '당겨 감') else LINE, 4, 1.4 if v else 1) + text(x+52+c*52, 74+r*36, v, 10.5, '700' if v else '400')
         return b
-    b = grid(0, '당기기 전', {(1, 4): '축제', (1, 1): '', (2, 3): '3반', (0, 0): '3반'})
+    b = grid(0, '당기기 전', {(1, 4): '축제', (1, 1): '', (2, 3): '3반', (0, 0): '3반', (3, 4): '3반'})
     b += grid(360, '당긴 뒤', {(1, 4): '축제', (1, 1): '당겨옴', (2, 3): '3반', (0, 0): '3반', (3, 4): '당겨 감'})
     b += arrow(312, 130, 352, 130)
     b += text(345, 214, '금요일 축제로 빠질 3반 수업을 화요일 5교시(내 공강·3반 빈 시간)로 미리 당겨 옵니다 (예시)', 11.5, '600', ACC)
     return svg(690, 224, b, '수업 당겨오기 전후')
 F['ep7'] = [('after_intro', fig(dangyeo(), '당겨 온 칸은 "당겨옴", 원래 칸은 "당겨 감"으로 표시하고 언제든 되돌릴 수 있게 만듭니다.'))]
-F['ep8'] = [('after_intro', fig(flow([('학사일정 바뀜', '붙여 넣기'), ('다시 계산', '결손 시수'), ('변경 기록 저장', '파일로'), ('Firebase에 올리기', '교사 이름 주의'), ('동료가 링크로', '학교 안 공유')], [3]), '학교 일정과 함께 쓰는 흐름')),
-            ('end', '<figure class="shot"><img src="img/submon-hub.png" alt="SUB모니터 화면"><figcaption><b>실제 화면</b> 발표자의 SUB모니터. 시간표 사이트의 계산 결과를 가져와 시계·날씨·시간표·학교 일정·쪽지를 한 줄에 띄웁니다(이름·쪽지 내용은 가렸습니다).</figcaption></figure>')]
+F['ep8'] = [('after_intro', fig(flow([('일정 붙여 넣기', '다시 계산'), ('저장·불러오기', '변경 기록 파일'), ('학교 안 나누기', '파일로 공유'), ('(선택) 웹에 올리기', 'Firebase + 입장 코드'), ('다른 앱으로', '넓히기')], [3]), '학교 일정과 함께 쓰는 흐름. 웹에 올리는 것은 학교가 허용한 경우에만 입장 코드와 함께.')),
+            ('end', '<figure class="shot"><img src="img/submon-hub.png" alt="SUB모니터 화면"><figcaption><b>실제 화면</b> 발표자의 SUB모니터. 시간표 사이트의 계산 결과를 가져와 시계·날씨·시간표·학교 일정·쪽지를 한 줄에 띄웁니다(교사 이름·쪽지·일정 내용은 가렸습니다).</figcaption></figure>')]
 
 # ---------- 인정점 ----------
 F['ep9'] = [('after_intro', fig(flow([('학업성적관리규정', 'PDF · hwpx'), ('계산 규칙표', '근거 조항 달기'), ('확인필요 항목', '클로드가 정하지 않음'), ('사람이 확정', '담당자·위원회')], [1]), '규정을 규칙표로'))]
-F['ep10'] = [('after_intro', fig(flow([('확정된 규칙표', ''), ('가짜 학생 20명', '학생01~20'), ('인정점.html', '브라우저 안에서만'), ('계산 근거 열', '점수 × 비율'), ('내 PC에서 실제 점수', '클로드에 안 줌')], [2]), '인정점 프로그램 흐름'))]
+F['ep10'] = [('after_intro', fig(flow([('확정된 규칙표', ''), ('가짜 학생 20명', '학생01~20'), ('인정점.html', '브라우저 안에서만'), ('계산 근거 열', '점수 × 비율'), ('실제 점수는 내 PC', '클로드에 안 줌')], [2]), '인정점 프로그램 흐름'))]
 def check():
     rows = [('학생02', '24.0', '24.0'), ('학생04', '25.1', '25.1'), ('학생07', '42.0', '42.0'), ('학생11', '36.8', '36.7')]
     b = text(20, 24, '정답표(손계산) ↔ 프로그램 결과 자동 비교 (예시)', 13.5, '700', INK, 'start')
@@ -287,27 +287,27 @@ def three_d():
     b = flow([('말로 설명', '모양 + 치수(mm)'), ('OpenSCAD 코드', '.scad · 치수는 변수'), ('미리보기·STL', 'OpenSCAD'), ('슬라이서', 'Bambu Studio·Cura'), ('출력 → 재기', '치수 고쳐 다시')], [1])
     return b
 def scad_sample():
-    code = ['// 책상 명패 (예시) — 숫자만 바꾸면 크기가 바뀝니다', '가로 = 120;  세로 = 40;  두께 = 4;', '글자 = "기술실 3모둠";  글자높이 = 1.2;', '', 'cube([가로, 세로, 두께]);                 // 바탕판', 'translate([8, 14, 두께])', '  linear_extrude(글자높이) text(글자, size = 9);']
+    code = ['// 책상 명패 (예시) — 숫자만 바꾸면 크기가 바뀝니다', '가로 = 90;  세로 = 30;  두께 = 3;', '글자 = "김하늘";  글자높이 = 1.5;', '', 'cube([가로, 세로, 두께]);                 // 바탕판', 'translate([8, 14, 두께])', '  linear_extrude(글자높이) text(글자, size = 9);']
     b = box(2, 2, 336, 186, '#1F2624', INK, 10)
     for i, l in enumerate(code): b += f'<text x="16" y="{30+i*22}" font-size="11.5" fill="{MARK if l.startswith("//") else "#E3EAE6"}" font-family="\'IBM Plex Mono\',monospace">{esc(l)}</text>'
     # 명패 그림 (등각 느낌)
     b += f'<polygon points="380,130 600,130 660,90 440,90" fill="{SOFT}" stroke="{INK}" stroke-width="1.5"/>'
     b += f'<polygon points="380,130 600,130 600,146 380,146" fill="#BFD8D1" stroke="{INK}" stroke-width="1.5"/><polygon points="600,130 660,90 660,106 600,146" fill="#A9CBC2" stroke="{INK}" stroke-width="1.5"/>'
-    b += text(520, 116, '기술실 3모둠', 15, '800', ACC)
-    b += text(520, 176, '바탕판 위에 글자가 1.2mm 솟음', 11.5, '500', MUTED)
+    b += text(520, 116, '김하늘', 15, '800', ACC)
+    b += text(520, 176, '바탕판 위에 글자가 1.5mm 솟음', 11.5, '500', MUTED)
     return svg(690, 192, b, 'OpenSCAD 예시')
 F['ep14'] = [('after_intro', fig(three_d(), '클로드는 모양을 깎는 대신 치수가 담긴 코드를 씁니다.')),
              ('before:h3:따라', fig(scad_sample(), 'OpenSCAD 코드와 결과 모양(예시 개략도). 숫자를 바꿔 달라고 말하면 크기가 바뀝니다.', 'mock'))]
 
 # ---------- 점검 ----------
 def loop():
-    pts = [('직접 써 보기', '캡처·메모'), ('점검 목록 받기', '심각/보통/사소'), ('하나만 고치기', '원인부터'), ('확인하기', '무엇을 눌러?'), ('저장 지점', '커밋')]
+    pts = [('① 직접 써 보기', '캡처·메모'), ('② 점검 목록 받기', '심각/보통/사소'), ('③ 하나만 고치기', '원인부터'), ('④ 확인하기', '무엇을 눌러?'), ('⑤ 저장 지점', '커밋')]
     import math; b = ''
     cx, cy, R = 345, 128, 96
     for i, (t, s) in enumerate(pts):
         a = -math.pi/2 + i*2*math.pi/5; x = cx+R*1.9*math.cos(a); y = cy+R*math.sin(a)
         b += box(x-74, y-26, 148, 52, MARK if i == 2 else '#fff', INK, 10) + text(x, y-2, t, 13, '700') + text(x, y+16, s, 10.5, '400', MUTED)
-    b += text(cx, cy+5, '한 바퀴씩', 15, '800', ACC)
+    b += text(cx, cy-4, '한 바퀴씩', 15, '800', ACC) + text(cx, cy+18, '①→②→③→④→⑤→①', 12, '700', ACC)
     return svg(690, 256, b, '점검 순환')
 F['ep15'] = [('after_intro', fig(loop(), '한 번에 하나씩 고치고, 잘 되면 저장 지점을 남기는 순서를 반복합니다.'))]
 F['ep16'] = [('after_intro', '<figure class="shot"><img src="img/sim.png" alt="손목 컨트롤러 시뮬레이터"><figcaption><b>실제 화면</b> 발표자의 손목 컨트롤러 웹 시뮬레이터. 시계가 없어도 시계 화면·가상 PC·보낸 키 기록을 볼 수 있게 먼저 만들었습니다.</figcaption></figure>')]
