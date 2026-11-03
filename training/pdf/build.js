@@ -22,6 +22,12 @@ function inject(html) {
         const m = body.match(re);
         if (m) body = body.replace(m[0], code + '\n' + m[0]);
         else { console.warn('anchor not found', id, where); body += code; }
+      } else if (where.startsWith('after:h3:')) {
+        const key = where.slice(9);
+        const re = new RegExp('<h[34]>[^<]*' + key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '[^<]*</h[34]>');
+        const m = body.match(re);
+        if (m) body = body.replace(m[0], m[0] + '\n' + code);
+        else { console.warn('anchor not found', id, where); body += code; }
       } else if (where === 'end') {
         const t = body.lastIndexOf('<p class="takeaway">');
         body = t >= 0 ? body.slice(0, t) + code + '\n' + body.slice(t) : body + code;

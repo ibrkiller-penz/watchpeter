@@ -142,7 +142,7 @@ def main_window():
     for i, t in enumerate(['환경 (작업 폴더·저장소)', '컨텍스트 (사용량 %)', '커넥터', '결과물', '변경 사항']): b += dtext(516, 74+i*58, t, 11.5, '700') + box(516, 82+i*58, 150, 20, '#262726', '#262726', 4)
     b += callout(1, 124, 48) + callout(2, 146, 300) + callout(3, 494, 340) + callout(4, 500, 70)
     return svg(w, h, b, 'Claude 데스크톱 앱 Code 화면')
-F['menus'] = [('after_intro', fig(main_window(), '데스크톱 앱 Code 화면의 개략도. ① 모드 전환(왼쪽 위 아이콘, 지금은 Code 선택) ② 왼쪽 아래 계정 메뉴 → 설정(Ctrl+,) ③ 입력창 아래 모델·권한 모드 ④ 오른쪽 패널: 작업 폴더, 컨텍스트, 커넥터, 결과물, 변경 사항.', 'mock')),
+F['menus'] = [('after_intro', fig(main_window(), '데스크톱 앱 Code 화면의 개략도. ① 모드 전환(왼쪽 위 아이콘 묶음: 채팅·Cowork·Code, 지금은 Code 선택) ② 왼쪽 아래 계정 메뉴 → 설정(Ctrl+,) ③ 입력창 아래 모델·권한 모드 ④ 오른쪽 패널: 작업 폴더, 컨텍스트, 커넥터, 결과물, 변경 사항.', 'mock')),
               ('before:h3:설정 창', fig(settings_connectors(), '설정 창 개략도(실제 메뉴 이름). ① 사용자 지정 › 커넥터 ② 내 항목/탐색 ③ + 추가 ④ Canva가 "개인별·✓"면 연결된 것.', 'mock')),
               ('before:h3:사용량', fig(settings_usage(), '설정 › 사용량 개략도. ① 현재 세션(5시간마다 초기화) ② 주간 한도 ③ Fable 같은 모델별 막대. 팀 요금제 화면을 바탕으로 그린 개략도라 Pro 화면은 항목이 다를 수 있고, 현재 세션 막대만 보여도 정상입니다.', 'mock'))]
 # ---------- 세팅 ----------
@@ -193,10 +193,10 @@ def git_line():
 def firebase():
     return flow([('내 작업 폴더', 'index.html 등'), ('올리기 전 검사', '개인정보·파일 종류'), ('firebase deploy', '클로드 코드가 실행'), ('웹 주소', '이름.web.app'), ('학생·동료', '링크로 열기')], [2])
 F['setup'] = [('after_intro', fig(mcp(), 'MCP는 클로드에 다른 도구를 꽂는 플러그입니다. 커넥터와 플러그인이 이 방식으로 연결됩니다.')),
-              ('before:h3:캔바', fig(settings_connectors(), '설정 › 사용자 지정 › 커넥터. 탐색에서 Canva를 찾아 연결하고 캔바에 로그인하면 내 항목에 "개인별 ✓"로 보입니다.', 'mock')),
+              ('before:h3:3. 한글', fig(settings_connectors(), '설정 › 사용자 지정 › 커넥터. 탐색에서 Canva를 찾아 연결하고 캔바에 로그인하면 내 항목에 "개인별 ✓"로 보입니다.', 'mock')),
               ('before:h3:한글', fig(terminal(), '한글 플러그인 설치 순서(보기용 그림). 실제로 복사할 때는 본문의 명령 상자를 쓰세요. 클로드 코드 대화창에 이 명령을 실행해 달라고 맡겨도 됩니다. 캔바 연결 명령은 캔바 절에 따로 있습니다.')),
               ('before:h3:Git', fig(git_line(), '저장 지점이 있으면 망가져도 잘 되던 때로 돌아갈 수 있습니다.')),
-              ('before:h3:Firebase', fig(firebase(), '웹을 Firebase에 올리는 흐름. 올린 주소는 누구나 열 수 있습니다.'))]
+              ('after:h3:5. Firebase', fig(firebase(), '웹을 Firebase에 올리는 흐름. 올린 주소는 누구나 열 수 있습니다.'))]
 
 # ---------- EP0 Cowork 개략도 ----------
 def cowork_mock():
@@ -360,9 +360,9 @@ def rightclick_mock():
     return svg(690, 210, b, 'PowerShell 스크립트 실행')
 F['ep0'] = F.get('ep0', []) + [('before:h3:허락', fig(permission_mock(), '① 클로드가 무엇을 하려는지 읽고 ② 허락·항상 허락·거절 중 고릅니다. 파일을 지우거나 보내는 일이면 꼭 다시 읽습니다. 버튼 이름은 버전마다 조금 다릅니다.', 'mock')),
                                ('before:h3:확장자', fig(saveas_mock(), '① 한글에서 파일 형식을 HWPX로 골라 저장 ② 탐색기에서 확장명을 켜면 파일 이름 끝(.hwpx, .txt)이 보입니다.', 'mock'))]
-F['setup'] = F.get('setup', []) + [('before:h3:3.', fig(terminal_open_mock(), '터미널(검은 명령 창) 여는 법과 명령 붙여 넣는 법. 학교 PC는 설치가 막혀 있을 수 있습니다.', 'mock'))]
+F['setup'] = F.get('setup', []) + [('after:h3:터미널이란', fig(terminal_open_mock(), '터미널(검은 명령 창) 여는 법과 명령 붙여 넣는 법. 학교 PC는 설치가 막혀 있을 수 있습니다.', 'mock'))]
 F['ep5'] = F.get('ep5', []) + [('before:h3:PC 설정', fig(rightclick_mock(), '.ps1 스크립트 실행하기. 메뉴 이름은 Windows 버전에 따라 다릅니다.', 'mock'))]
 
-F['pro'] = [('after_intro', fig(usage(), '채팅·Cowork·클로드 코드가 같은 사용량을 나눠 씁니다. 그림의 비율은 예시입니다.')), ('before:h3:사용량을 아끼는', fig(settings_usage(), '설정 › 사용량 개략도(팀 요금제 화면을 바탕으로 그림). ① 현재 세션 막대가 가장 중요합니다 ② 주간 한도 ③ 모델별 막대. Pro 화면에는 현재 세션 막대만 보여도 정상입니다. Fable은 모델 이름이며, 요금 안내 기준 Pro에서는 사용 크레딧으로 씁니다.', 'mock'))]
+F['pro'] = [('after_intro', fig(usage(), '채팅·Cowork·클로드 코드가 같은 사용량을 나눠 씁니다. 그림의 비율은 예시입니다.')), ('before:h3:사용량을 아끼는', fig(settings_usage(), '설정 › 사용량 개략도(팀 요금제 화면을 바탕으로 그림). ① 현재 세션 막대가 가장 중요합니다 ② 주간 한도 ③ 모델별 막대. Pro 화면에는 현재 세션 막대만 보여도 정상입니다. Fable은 Claude 모델 이름 중 하나입니다. 요금 안내 기준으로 Pro에서는 사용 크레딧으로 씁니다(2026년 11월 기준). 성능 차이는 이 책에서 다루지 않으며, Pro 화면에는 이 막대가 없을 수 있습니다.', 'mock'))]
 json.dump(F, open(os.path.join(D, 'figs.json'), 'w', encoding='utf8'), ensure_ascii=False)
 print(len(F), 'sections,', sum(len(v) for v in F.values()), 'figures')
