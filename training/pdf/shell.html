@@ -194,6 +194,9 @@ figure.diagram svg{max-width:96%;margin:0 auto}
 p,li,dd,dt,td,th,figcaption,.hook-line,h2,h3,h4{text-wrap:pretty}
 h2,h3,.hook .hook-line{text-wrap:balance}
 .prompt pre{overflow-wrap:break-word}
+
+.takeaway::before{display:block;margin-bottom:2pt;font-size:9pt}
+table.tbl td:first-child,table.tbl th:first-child{min-width:6.2em}
 </style>
 </head>
 <body>
@@ -228,7 +231,7 @@ h2,h3,.hook .hook-line{text-wrap:balance}
     <div class="clip"><span class="n">EP 8</span><span class="h">학교 일정이 바뀌어도 자동으로</span><span class="io">일정 갱신 → 다시 계산 → 공유</span></div>
     <div class="clip"><span class="n">EP 9</span><span class="h">성적 규정이 계산 규칙표로</span><span class="io">규정 PDF → 근거 달린 규칙표</span></div>
     <div class="clip"><span class="n">EP 10</span><span class="h">결시생 인정점, 자동 계산</span><span class="io">붙여 넣기 → 계산 근거까지 표로</span></div>
-    <div class="clip"><span class="n">EP 11</span><span class="h">손계산과 자동 비교</span><span class="io">정답표 8건 → 검산 통과</span></div>
+    <div class="clip"><span class="n">EP 11</span><span class="h">손으로 계산한 답과 프로그램 자동 비교</span><span class="io">정답표 8건 → 검산 통과</span></div>
     <div class="clip"><span class="n">EP 12</span><span class="h">단원 자료가 수업 사이트로</span><span class="io">차시 계획·활동지 → 학생용 사이트</span></div>
     <div class="clip"><span class="n">EP 13</span><span class="h">클로드가 캔바에서 슬라이드를</span><span class="io">캔바 연결 → 차시 슬라이드·포스터</span></div>
     <div class="clip"><span class="n">EP 14</span><span class="h">말로 치수를 설명하면 3D 모델이</span><span class="io">OpenSCAD → STL → 3D 프린터</span></div>
@@ -294,8 +297,8 @@ h2,h3,.hook .hook-line{text-wrap:balance}
       <tr><td>3~4</td><td>업무 중심으로. 시간표 앱, 인정점 프로그램, 기술 교과서 사이트, 캔바 연결까지.</td><td>장 구성을 업무 중심으로 다시 짬</td></tr>
       <tr><td>5~6</td><td>원고는 자세하게, Cowork와 구분해서. 중요한 사실은 여러 에이전트로 교차 검증하되 토큰은 아끼고, Pro 기준 안내도.</td><td>도구 구분, 공식 도움말 교차 검증, Pro 장 추가</td></tr>
       <tr><td>7~9</td><td>시간표는 수업 당겨오기·학사일정 연동으로(만든 앱을 보고 추측). Firebase·Git·MCP 설명, 캔바·한글 연결은 앞쪽 세팅에. 3D 프린팅도.</td><td>발표자 앱 구조 추정, 세팅 장과 EP 14 추가</td></tr>
-      <tr><td>10~12</td><td>단락이 잘리지 않게, 그림을 넣고 개인정보는 지우기. 메뉴 찾기가 제일 어려웠다. 폴더·음악 정리도. 주간 한도는 Pro 기준으로.</td><td>그림 32개, 메뉴 지도 장, EP 5 확장</td></tr>
-      <tr><td>13</td><td>교사와 자문교사 역할의 검토자를 두고 세 차례 검토·수정.</td><td>검토 3차를 거쳐 이 판을 완성</td></tr>
+      <tr><td>10~12</td><td>단락이 잘리지 않게, 그림을 넣고 개인정보는 지우기. 메뉴 찾기가 제일 어려웠다. 폴더·음악 정리도. 주간 한도는 Pro 기준으로.</td><td>그림 30여 개, 메뉴 지도 장, EP 5 확장</td></tr>
+      <tr><td>13</td><td>교사와 자문교사 역할의 검토자를 두고 세 차례 검토·수정. 이어서 에듀테크 교사 5명이 쪽마다 두 차례 다시 보고 고침.</td><td>검토 3차와 편집 2차를 거쳐 이 판을 완성</td></tr>
     </tbody>
   </table>
   <div class="case"><p class="lbl">선생님이 가져갈 것</p><p>큰일을 맡길 때도 방법은 같습니다. <b>누구를 위한 무엇인지</b>, <b>어떤 자료를 쓸지</b>, <b>어떤 모양으로 받을지</b>만 분명하면 설계는 클로드에게 맡기고, 중간에 방향을 고쳐 주면 됩니다. 결과는 꼭 사람이 확인합니다.</p></div>

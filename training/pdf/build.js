@@ -11,6 +11,7 @@ const parts = ['part-0.html', 'part-m.html', 'part-s.html', 'part-p.html', 'part
 // 그림 끼워 넣기: section id 별로 after_intro / before:h3:<글자> / end
 function inject(html) {
   return html.replace(/<section class="ep" id="([^"]+)">([\s\S]*?)<\/section>/g, (all, id, body) => {
+    const lastAfter = {};
     for (const [where, code] of figs[id] || []) {
       if (where === 'after_intro') {
         const m = body.match(/<p class="intro">[\s\S]*?<\/p>/);
@@ -26,7 +27,7 @@ function inject(html) {
         const key = where.slice(9);
         const re = new RegExp('<h[34]>[^<]*' + key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '[^<]*</h[34]>');
         const m = body.match(re);
-        if (m) body = body.replace(m[0], m[0] + '\n' + code);
+        if (m) { const prev = lastAfter[key] || m[0]; body = body.replace(prev, prev + '\n' + code); lastAfter[key] = prev + '\n' + code; }
         else { console.warn('anchor not found', id, where); body += code; }
       } else if (where === 'end') {
         const t = body.lastIndexOf('<p class="takeaway">');
