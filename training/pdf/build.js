@@ -18,7 +18,7 @@ function inject(html) {
         else { const h = body.indexOf('</h2>'); body = body.slice(0, h + 5) + code + body.slice(h + 5); }
       } else if (where.startsWith('before:h3:')) {
         const key = where.slice(10);
-        const re = new RegExp('<h3>[^<]*' + key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+        const re = new RegExp('<h[34]>[^<]*' + key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
         const m = body.match(re);
         if (m) body = body.replace(m[0], code + '\n' + m[0]);
         else { console.warn('anchor not found', id, where); body += code; }
