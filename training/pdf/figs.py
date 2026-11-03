@@ -168,13 +168,16 @@ def connectors_mock():
     return window(w, h, 'Claude 앱 › 사용자 지정 (개략도)', b)
 
 def terminal():
-    lines = [('claude plugin marketplace add airmang/hwpx-plugins', MARK), ('  ✔ 마켓플레이스 hwpx 추가됨', '#9FD8C9'),
-             ('claude plugin install hwpx-plugin@hwpx', MARK), ('  ✔ hwpx-plugin 설치됨 — 새 세션을 시작하세요', '#9FD8C9'),
-             ('winget install --id=astral-sh.uv -e      ← 한글 플러그인 MCP에 필요(Windows)', '#E3EAE6'),
-             ('claude mcp add --transport http canva https://mcp.canva.com/mcp', MARK)]
-    b = box(2, 2, 686, 196, '#1F2624', INK, 10)
-    for i, (t, c) in enumerate(lines): b += f'<text x="18" y="{34+i*28}" font-size="12.5" fill="{c}" font-family="\'IBM Plex Mono\',monospace">{esc(t)}</text>'
-    return svg(690, 200, b, '터미널 설치 명령')
+    rows = [('① uv 설치 (한 번만, Windows)', 'winget install --id=astral-sh.uv -e'),
+            ('② 한글 플러그인 목록 추가', 'claude plugin marketplace add airmang/hwpx-plugins'),
+            ('③ 한글 플러그인 설치', 'claude plugin install hwpx-plugin@hwpx')]
+    b = ''
+    for i, (t, c) in enumerate(rows):
+        y = 8+i*62
+        b += text(6, y+16, t, 12.5, '700', INK, 'start')
+        b += box(2, y+24, 686, 30, '#1F2624', INK, 6) + f'<text x="16" y="{y+44}" font-size="12.5" fill="{MARK}" font-family="\'IBM Plex Mono\',monospace">{esc(c)}</text>'
+    b += text(6, 204, '한 상자에 한 줄씩, 순서대로 붙여 넣고 Enter. 다 끝나면 클로드 코드를 새로 시작합니다.', 12, '600', ACC, 'start')
+    return svg(690, 214, b, '한글 플러그인 설치 순서')
 
 def git_line():
     pts = [('월', '첫 화면'), ('화', '주차 이동'), ('수', '당겨오기'), ('목', '충돌 검사'), ('오늘', '망가짐?')]
@@ -191,7 +194,7 @@ def firebase():
     return flow([('내 작업 폴더', 'index.html 등'), ('올리기 전 검사', '개인정보·파일 종류'), ('firebase deploy', '클로드 코드가 실행'), ('웹 주소', '이름.web.app'), ('학생·동료', '링크로 열기')], [2])
 F['setup'] = [('after_intro', fig(mcp(), 'MCP는 클로드에 다른 도구를 꽂는 플러그입니다. 커넥터와 플러그인이 이 방식으로 연결됩니다.')),
               ('before:h3:캔바', fig(settings_connectors(), '설정 › 사용자 지정 › 커넥터. 탐색에서 Canva를 찾아 연결하고 캔바에 로그인하면 내 항목에 "개인별 ✓"로 보입니다.', 'mock')),
-              ('before:h3:한글', fig(terminal(), '터미널(검은 명령 창)에 한 줄씩 붙여 넣는 설치 명령. 노란 줄이 붙여 넣을 명령이고, 초록 줄은 성공했을 때 보이는 글입니다(예시). 클로드 코드 대화창에 "이 명령을 실행해 줘"라고 맡겨도 됩니다.')),
+              ('before:h3:한글', fig(terminal(), '한글 플러그인 설치 순서(보기용 그림). 실제로 복사할 때는 본문의 명령 상자를 쓰세요. 클로드 코드 대화창에 이 명령을 실행해 달라고 맡겨도 됩니다. 캔바 연결 명령은 캔바 절에 따로 있습니다.')),
               ('before:h3:Git', fig(git_line(), '저장 지점이 있으면 망가져도 잘 되던 때로 돌아갈 수 있습니다.')),
               ('before:h3:Firebase', fig(firebase(), '웹을 Firebase에 올리는 흐름. 올린 주소는 누구나 열 수 있습니다.'))]
 
