@@ -33,10 +33,12 @@ function inject(html) {
         body = t >= 0 ? body.slice(0, t) + code + '\n' + body.slice(t) : body + code;
       }
     }
-    return `<section class="ep" id="${id}">${body}</section>`;
+    const lv = tight[id] ? ' tight' + Math.min(tight[id], 3) + (tight[id] >= 2 ? ' tight1' : '') + (tight[id] >= 3 ? ' tight2' : '') : '';
+    return `<section class="ep${lv}" id="${id}">${body}</section>`;
   });
 }
 
+let tight = {}; try { tight = JSON.parse(fs.readFileSync(path.join(dir, 'tight.json'), 'utf8')); } catch (e) {}
 let pages = {}; try { pages = JSON.parse(fs.readFileSync(path.join(dir, 'pages.json'), 'utf8')); } catch (e) {}
 const html = shell.replace(/\{\{pg:([a-z0-9]+)\}\}/g, (m, k) => pages[k] || '00').replace('<!--PARTS-->', parts.map((f) => inject(fs.readFileSync(path.join(dir, f), 'utf8'))).join('\n'));
 const built = path.join(dir, 'book.html');
@@ -47,6 +49,22 @@ fs.writeFileSync(built, html);
   const page = await browser.newPage();
   await page.goto('file://' + built, { waitUntil: 'networkidle' });
   await page.evaluate(() => document.fonts.ready);
+  // 제목 + 이어지는 짧은 문단 + 첫 덩어리(표·그림·상자)를 한 묶음으로: 쪽 끝에 제목만 남지 않게
+  await page.emulateMedia({ media: 'print' });
+  await page.evaluate(() => {
+    const PAGE = 990; // A4 본문 높이(px, 대략)
+    document.querySelectorAll('section.ep h3, section.ep > h4').forEach((h) => {
+      if (h.closest('li') || h.parentElement.classList.contains('keep')) return;
+      const group = [h]; let n = h.nextElementSibling; let ps = 0;
+      while (n && n.tagName === 'P' && !n.classList.contains('takeaway') && ps < 2) { group.push(n); ps++; n = n.nextElementSibling; }
+      if (n && !/^H[234]$/.test(n.tagName) && !n.classList.contains('takeaway')) {
+        const hgt = group.reduce((a, e) => a + e.offsetHeight, 0) + n.offsetHeight;
+        if (hgt < PAGE * 0.55) group.push(n);
+      }
+      const w = document.createElement('div'); w.className = 'keep';
+      h.parentElement.insertBefore(w, h); group.forEach((e) => w.appendChild(e));
+    });
+  });
   const out = path.join(dir, '..', '클로드코드_실무연수.pdf');
   await page.pdf({ path: out, format: 'A4', printBackground: true, preferCSSPageSize: true });
   await browser.close();

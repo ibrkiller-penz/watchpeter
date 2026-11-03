@@ -5,7 +5,7 @@ def build(): subprocess.run(['node', os.path.join(D, 'build.js')], check=True, c
 def scan():
     n = int(re.search(r'Pages:\s+(\d+)', subprocess.run(['pdfinfo', P], capture_output=True, text=True).stdout).group(1))
     m = {'시작 전': 'tools', '시작 전 · 2': 'menus', '시작 전 · 3': 'setup', '시작 전 · 4': 'pro'}; out = {}
-    for p in range(5, n+1):
+    for p in range(3, n+1):
         t = subprocess.run(['pdftotext', '-f', str(p), '-l', str(p), P, '-'], capture_output=True, text=True).stdout
         first = [l.strip() for l in t.split('\n') if l.strip()][:2]
         for l in first:

@@ -143,6 +143,44 @@ kbd{display:inline-block;font-family:var(--fm);font-size:.82em;font-weight:500;l
 .note.keys{background:#FFFBEA;border-color:#E3CF7A}
 .note.keys .lbl{color:#6B5A00}
 .key-tip{display:inline-block;margin-top:3pt;padding:1pt 6pt;background:#FFFBEA;border:.8pt solid #E3CF7A;border-radius:3pt;font-size:9.6pt}
+
+/* 차례 한 쪽에 */
+.toc td{padding:3.2pt 4pt;line-height:1.45}
+.toc tr.part td{padding-top:7pt}
+.toc .note{padding:6pt 10pt;margin:6pt 0}
+.toc .note p{margin:0;line-height:1.55;font-size:9.8pt}
+.legend{grid-template-columns:repeat(4,1fr)!important;gap:5pt!important;margin-top:8pt!important;break-inside:avoid;page-break-inside:avoid}
+.legend>div{margin:0!important;padding:6pt 8pt!important;font-size:8.8pt!important;line-height:1.45}
+.toc{break-inside:auto}
+/* 장 끝 꼬리 줄이기: 자동 맞춤 단계 */
+section.ep.tight1{line-height:1.6}
+section.ep.tight1 p{margin-bottom:5pt}
+section.ep.tight1 .prompt,section.ep.tight1 .explain,section.ep.tight1 .screen,section.ep.tight1 .check,section.ep.tight1 .oops,section.ep.tight1 .case,section.ep.tight1 .note{margin:6pt 0;padding-top:7pt;padding-bottom:7pt}
+section.ep.tight1 figure{margin:6pt 0 8pt}
+section.ep.tight1 h3{margin-top:11pt}
+section.ep.tight2{font-size:10pt;line-height:1.55}
+section.ep.tight2 .prompt pre{font-size:9.5pt;line-height:1.55}
+section.ep.tight2 ol.steps>li{margin-bottom:6pt}
+section.ep.tight3{font-size:9.6pt;line-height:1.5}
+section.ep.tight3 figure svg,section.ep.tight3 figure img{max-height:70mm;width:auto;max-width:100%;margin:0 auto}
+
+.keep{break-inside:avoid;page-break-inside:avoid}
+.keep>h3:first-child{margin-top:16pt}
+
+/* 차례 한 쪽 압축 */
+.toc h2{font-size:16pt;margin-bottom:3pt}
+.toc>p{font-size:9pt;line-height:1.45;margin-bottom:4pt}
+.toc table{margin-top:3pt;font-size:8.8pt}
+.toc td{padding:1.5pt 4pt!important;line-height:1.3!important}
+.toc td.t{font-size:9.2pt}
+.toc td.d{font-size:8.4pt!important}
+.toc tr.part td{padding-top:4pt!important;padding-bottom:1.5pt!important;font-size:8.6pt}
+.toc .note{padding:4pt 8pt!important;margin:4pt 0!important}
+.toc .note .lbl{margin-bottom:1pt}
+.toc .note p{font-size:8.6pt!important;line-height:1.4!important}
+.legend{margin-top:6pt!important}
+.legend>div{padding:4pt 7pt!important;font-size:8pt!important;line-height:1.35!important}
+.legend .lbl{font-size:8pt;margin-bottom:2pt}
 </style>
 </head>
 <body>
