@@ -41,10 +41,10 @@ h4{font-family:var(--fd);font-weight:700;font-size:11.5pt;margin:0 0 3pt;break-a
 .reel{break-after:page}
 .reel .hd{font-family:var(--fd);font-weight:900;font-size:24pt;margin:0 0 3pt}
 .reel .sub{color:var(--muted);margin-bottom:12pt}
-.reel .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7pt}
-.reel .clip{border:1pt solid var(--line);border-radius:5pt;padding:7pt 9pt;background:#fff;display:flex;flex-direction:column;gap:3pt;min-height:40mm}
+.reel .grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:7pt}
+.reel .clip{border:1pt solid var(--line);border-radius:5pt;padding:7pt 9pt;background:#fff;display:flex;flex-direction:column;gap:3pt;min-height:34mm}
 .reel .clip .n{font-family:var(--fm);font-size:8.5pt;color:var(--accent)}
-.reel .clip .h{font-family:var(--fd);font-weight:800;font-size:12pt;line-height:1.35}
+.reel .clip .h{font-family:var(--fd);font-weight:800;font-size:11pt;line-height:1.35}
 .reel .clip .io{margin-top:auto;font-size:8.8pt;color:var(--muted);line-height:1.45;border-top:.8pt dashed var(--line);padding-top:4pt}
 .reel .clip.mine{background:var(--code);color:var(--code-fg);border-color:var(--code)}
 .reel .clip.mine .n{color:var(--mark)} .reel .clip.mine .io{color:#B9C6C1;border-color:#46524E}
@@ -118,13 +118,13 @@ ul.todo li{padding:5pt 0;border-bottom:.7pt dashed var(--line)}
 <section class="cover">
   <p class="k">부산 AI&amp;창의 교사 모임 · 실무 연수 자료</p>
   <h1>말로 시키면<br>업무가 <span>끝난다</span><br>클로드 코드 실무</h1>
-  <p class="lead">코딩을 몰라도 됩니다. 자료를 넣고, 이 책의 문장을 복사해 몇 단어만 바꾸면 됩니다. 문서 업무부터 시간표 앱, 성적처리 인정점 프로그램, 점검·수정까지. 학교 업무를 중심으로 따라 하며 익힙니다.</p>
+  <p class="lead">코딩을 몰라도 됩니다. 자료를 넣고, 이 책의 문장을 복사해 몇 단어만 바꾸면 됩니다. 문서 업무부터 시간표 앱, 성적처리 인정점 프로그램, 수업 자료 사이트와 캔바 연결, 점검·수정까지. 학교 업무를 중심으로 따라 하며 익힙니다.</p>
   <div class="phone">
     <div class="me">폴더의 양식이랑 메모로 공개수업 가정통신문 만들어 줘.</div>
     <div class="ai">양식을 읽었습니다. 날짜 하나가 메모에 없어 [  ]로 비워 두었어요. 가정통신문_공개수업.hwpx 로 저장했습니다.</div>
     <div class="me">고마워. 확인할 곳만 알려 줘.</div>
   </div>
-  <div class="foot"><span>2026년 11월</span><span>EP 0 – EP 13 · 따라 하기용</span></div>
+  <div class="foot"><span>2026년 11월</span><span>EP 0 – EP 15 · 따라 하기용</span></div>
 </section>
 
 <section class="reel">
@@ -143,8 +143,10 @@ ul.todo li{padding:5pt 0;border-bottom:.7pt dashed var(--line)}
     <div class="clip"><span class="n">EP 9</span><span class="h">성적 규정이 계산 규칙표로</span><span class="io">규정 PDF → 근거 달린 규칙표</span></div>
     <div class="clip"><span class="n">EP 10</span><span class="h">결시생 인정점, 자동 계산</span><span class="io">붙여 넣기 → 계산 근거까지 표로</span></div>
     <div class="clip"><span class="n">EP 11</span><span class="h">손계산과 자동 비교</span><span class="io">정답표 10건 → 검산 통과</span></div>
-    <div class="clip"><span class="n">EP 12</span><span class="h">고치기 전에 문제 목록부터</span><span class="io">두 앱 → 심각도별 점검표</span></div>
-    <div class="clip mine"><span class="n">EP 13 · 발표자 사례</span><span class="h">10일 만에 시계 앱, 이렇게 키웠습니다</span><span class="io">작게 만들고 회차별로</span></div>
+    <div class="clip"><span class="n">EP 12</span><span class="h">단원 자료가 수업 사이트로</span><span class="io">차시 계획·활동지 → 학생용 사이트</span></div>
+    <div class="clip"><span class="n">EP 13</span><span class="h">클로드가 캔바에서 슬라이드를</span><span class="io">캔바 연결 → 차시 슬라이드·포스터</span></div>
+    <div class="clip"><span class="n">EP 14</span><span class="h">고치기 전에 문제 목록부터</span><span class="io">만든 앱 → 심각도별 점검표</span></div>
+    <div class="clip mine"><span class="n">EP 15 · 발표자 사례</span><span class="h">10일 만에 시계 앱, 이렇게 키웠습니다</span><span class="io">작게 만들고 회차별로</span></div>
   </div>
 </section>
 
@@ -167,9 +169,12 @@ ul.todo li{padding:5pt 0;border-bottom:.7pt dashed var(--line)}
     <tr><td class="n">EP 9</td><td class="t">규정 → 계산 규칙표</td><td class="d">코드보다 규칙표 먼저, 사람이 확정</td></tr>
     <tr><td class="n">EP 10</td><td class="t">계산 프로그램</td><td class="d">가짜 데이터로 만들고 실제 데이터는 내 PC에서</td></tr>
     <tr><td class="n">EP 11</td><td class="t">검산이 핵심</td><td class="d">손계산 정답표와 자동 비교, 경계 사례</td></tr>
-    <tr class="part"><td colspan="3">4부 · 점검하고 고치기</td></tr>
-    <tr><td class="n">EP 12</td><td class="t">점검하고 고치기</td><td class="d">문제 목록, 문제 알리기 양식, 되돌리기</td></tr>
-    <tr><td class="n">EP 13</td><td class="t">발표자 사례와 지킬 것</td><td class="d">손목 컨트롤러 10일, 성적·개인정보 원칙</td></tr>
+    <tr class="part"><td colspan="3">4부 · 수업 자료 사이트와 캔바 연결</td></tr>
+    <tr><td class="n">EP 12</td><td class="t">기술 교과서 자료로 사이트</td><td class="d">차시별 페이지, 저작권 지키기</td></tr>
+    <tr><td class="n">EP 13</td><td class="t">캔바 연결(MCP)</td><td class="d">클로드가 캔바에서 슬라이드·포스터 만들기</td></tr>
+    <tr class="part"><td colspan="3">5부 · 점검하고 고치기</td></tr>
+    <tr><td class="n">EP 14</td><td class="t">점검하고 고치기</td><td class="d">문제 목록, 문제 알리기 양식, 되돌리기</td></tr>
+    <tr><td class="n">EP 15</td><td class="t">발표자 사례와 지킬 것</td><td class="d">손목 컨트롤러 10일, 성적·개인정보 원칙</td></tr>
     <tr><td class="n">부록</td><td class="t">30분 실습 · 한 장 요약</td><td class="d">체크리스트, 자주 쓰는 말 10개</td></tr>
   </table>
   <div class="legend">
@@ -184,7 +189,7 @@ ul.todo li{padding:5pt 0;border-bottom:.7pt dashed var(--line)}
 
 <section class="ep" id="colophon">
   <h2>이 자료는 이렇게 만들었습니다</h2>
-  <p>이 PDF도 클로드 코드로 만들었습니다. 발표자가 보낸 것은 카톡 캡처 한 장과 세 번의 짧은 요청뿐입니다.</p>
+  <p>이 PDF도 클로드 코드로 만들었습니다. 발표자가 보낸 것은 카톡 캡처 한 장과 네 번의 짧은 요청뿐입니다.</p>
   <div class="prompt"><p class="lbl">1차 요청 (웹 페이지판)</p><pre>클로드 코드를 선생님들이 사용할 수 있도록 연수 자료 제작. 선생님들은 초보.
 예시 프롬프트와 자료 던지고 업무처리 및 클로드 코드로 앱 개발하는 법. 그리고 개발된 앱 한번 점검하고 수정하는 법..
 내가 한 일들을 예시로.</pre></div>
@@ -192,7 +197,8 @@ ul.todo li{padding:5pt 0;border-bottom:.7pt dashed var(--line)}
 쇼츠 구성처럼. 처음에는 이런일 된다. 로 짧게 시작. 내용은 자세하고 친절하게... 설명과 함께..
 Pdf문서로 제작.</pre></div>
   <div class="prompt"><p class="lbl">3차 요청 (업무 중심 개정)</p><pre>그리고 업무 위주로. 시간표 앱 만들기. 성적처리 인정점 프로그램 만들기 중심으로</pre></div>
-  <p>"팀을 짜서"라는 말에 클로드는 스스로 역할을 나눴습니다. 편집장(전체 기획·명세·디자인·조립)이 공통 명세서를 쓰고, 작가 세 명(업무 처리 편, 앱 만들기 편, 점검·수정 편)이 동시에 원고를 썼습니다. 업무 중심 개정 때는 시간표 앱 편, 인정점 프로그램 편, 점검·지킬 것 편 작가가 새로 붙었습니다. 이어서 검토자가 "초보 선생님이 혼자 따라 할 수 있는가, 사실과 다른 내용은 없는가"를 점검했고, 편집장이 고쳐 PDF로 묶었습니다.</p>
+  <div class="prompt"><p class="lbl">4차 요청 (추가)</p><pre>기술 교과서 자료로 사이트 만들기. 캔바 연결 mcp까지.</pre></div>
+  <p>"팀을 짜서"라는 말에 클로드는 스스로 역할을 나눴습니다. 편집장(전체 기획·명세·디자인·조립)이 공통 명세서를 쓰고, 작가 세 명(업무 처리 편, 앱 만들기 편, 점검·수정 편)이 동시에 원고를 썼습니다. 업무 중심 개정 때는 시간표 앱 편, 인정점 프로그램 편, 수업 사이트·캔바 편, 점검·지킬 것 편 작가가 새로 붙었습니다. 이어서 검토자가 "초보 선생님이 혼자 따라 할 수 있는가, 사실과 다른 내용은 없는가"를 점검했고, 편집장이 고쳐 PDF로 묶었습니다.</p>
   <div class="case"><p class="lbl">선생님이 가져갈 것</p><p>큰일을 맡길 때도 방법은 같습니다. <b>누구를 위한 무엇인지</b>, <b>어떤 자료를 쓸지</b>, <b>어떤 모양으로 받을지</b>만 분명하면 나머지 설계는 클로드에게 맡길 수 있습니다. 결과는 꼭 사람이 확인합니다.</p></div>
 </section>
 
