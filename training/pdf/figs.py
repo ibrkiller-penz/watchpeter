@@ -144,7 +144,7 @@ def main_window():
     return svg(w, h, b, 'Claude 데스크톱 앱 Code 화면')
 F['menus'] = [('after_intro', fig(main_window(), '데스크톱 앱 Code 화면의 개략도. ① 모드 전환(왼쪽 위 아이콘 묶음: 채팅·Cowork·Code, 지금은 Code 선택) ② 왼쪽 아래 계정 메뉴 → 설정(Ctrl+,) ③ 입력창 아래 모델·권한 모드 ④ 오른쪽 패널: 작업 폴더, 컨텍스트, 커넥터, 결과물, 변경 사항.', 'mock')),
               ('before:h3:설정 창', fig(settings_connectors(), '설정 창 개략도(실제 메뉴 이름). ① 사용자 지정 › 커넥터 ② 내 항목/탐색 ③ + 추가 ④ Canva가 "개인별·✓"면 연결된 것.', 'mock')),
-              ('before:h3:사용량', fig(settings_usage(), '설정 › 사용량 개략도. ① 현재 세션(5시간마다 초기화) ② 주간 한도 ③ Fable 같은 모델별 막대. 팀 요금제 화면을 바탕으로 그린 개략도라 Pro 화면은 항목이 다를 수 있고, 현재 세션 막대만 보여도 정상입니다.', 'mock'))]
+              ('before:h3:사용량', fig(settings_usage(), '설정 › 사용량 개략도. ① 현재 세션(5시간마다 초기화) ② 주간 한도 ③ Fable 같은 모델별 막대. 팀 요금제 화면을 바탕으로 그린 개략도라, 요금제·앱 버전에 따라 항목이 다를 수 있습니다.', 'mock'))]
 # ---------- 세팅 ----------
 def mcp():
     b = box(255, 80, 180, 70, MARK, INK, 14, 1.6) + text(345, 112, '클로드', 18, '800') + text(345, 134, '(채팅·Cowork·코드)', 11, '500', MUTED)
@@ -363,6 +363,6 @@ F['ep0'] = F.get('ep0', []) + [('before:h3:허락', fig(permission_mock(), '① 
 F['setup'] = F.get('setup', []) + [('after:h3:터미널이란', fig(terminal_open_mock(), '터미널(검은 명령 창) 여는 법과 명령 붙여 넣는 법. 학교 PC는 설치가 막혀 있을 수 있습니다.', 'mock'))]
 F['ep5'] = F.get('ep5', []) + [('before:h3:PC 설정', fig(rightclick_mock(), '.ps1 스크립트 실행하기. 메뉴 이름은 Windows 버전에 따라 다릅니다.', 'mock'))]
 
-F['pro'] = [('after_intro', fig(usage(), '채팅·Cowork·클로드 코드가 같은 사용량을 나눠 씁니다. 그림의 비율은 예시입니다.')), ('before:h3:사용량을 아끼는', fig(settings_usage(), '설정 › 사용량 개략도(팀 요금제 화면을 바탕으로 그림). ① 현재 세션 막대가 가장 중요합니다 ② 주간 한도 ③ 모델별 막대. Pro 화면에는 현재 세션 막대만 보여도 정상입니다. Fable은 Claude 모델 이름 중 하나입니다. 요금 안내 기준으로 Pro에서는 사용 크레딧으로 씁니다(2026년 11월 기준). 성능 차이는 이 책에서 다루지 않으며, Pro 화면에는 이 막대가 없을 수 있습니다.', 'mock'))]
+F['pro'] = [('after_intro', fig(usage(), '채팅·Cowork·클로드 코드가 같은 사용량을 나눠 씁니다. 그림의 비율은 예시입니다.')), ('before:h3:사용량을 아끼는', fig(settings_usage(), '설정 › 사용량 개략도(팀 요금제 화면을 바탕으로 그림). ① 현재 세션 막대가 가장 중요합니다 ② 주간 한도 ③ 모델별 막대. 화면 표시는 요금제·앱 버전마다 다릅니다. Fable은 Claude 모델 이름 중 하나입니다. 요금 안내 기준으로 Pro에서는 사용 크레딧으로 씁니다(2026년 11월 기준). 성능 차이는 이 책에서 다루지 않으며, Pro 화면에는 이 막대가 없을 수 있습니다.', 'mock'))]
 json.dump(F, open(os.path.join(D, 'figs.json'), 'w', encoding='utf8'), ensure_ascii=False)
 print(len(F), 'sections,', sum(len(v) for v in F.values()), 'figures')
