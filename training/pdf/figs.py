@@ -34,8 +34,8 @@ def flow(steps, hi=None, w=680):
         x = 10 + i*(bw+gap); on = i in hi
         body += box(x, y, bw, bh, MARK if on else '#fff', INK if on else LINE, 10, 1.6 if on else 1.2)
         body += f'<circle cx="{x+16}" cy="{y+16}" r="10" fill="{ACC}"/>' + text(x+16, y+20.5, i+1, 11, '700', '#fff')
-        body += text(x+bw/2, y+44, t, 14, '700')
-        body += text(x+bw/2, y+64, s, 10.5, '400', MUTED)
+        body += text(x+bw/2, y+44, t, 14 if n < 5 else 12, '700')
+        body += text(x+bw/2, y+64, s, 10.5 if n < 5 else 9.5, '400', MUTED)
         if i < n-1: body += arrow(x+bw+3, y+bh/2, x+bw+gap-3, y+bh/2)
     return svg(w, bh+28, body, ' → '.join(t for t, _ in steps))
 
@@ -109,7 +109,7 @@ def settings_usage():
     b += bar(226, '모든 모델', '(요일) 오후 ○시에 초기화', 2)
     b += bar(276, 'Fable', '(요일) 오후 ○시에 초기화', 25)
     b += dtext(200, 330, '제한 초기화', 15, '800') + dtext(200, 354, '현재 초기화 없음', 12, '600') + dtext(200, 372, '받으시면 만료일과 함께 여기에 표시됩니다.', 10.5, '500', DMUT)
-    b += callout(1, 186, 104) + callout(2, 186, 162) + callout(3, 400, 268)
+    b += callout(1, 300, 108) + callout(2, 300, 166) + callout(3, 400, 268)
     return dwin(w, h, '설정', b)
 def settings_connectors():
     w, h = 690, 470; b = settings_nav('커넥터', h)
@@ -124,7 +124,7 @@ def settings_connectors():
         for j, v in enumerate(r):
             if j == 3 and v == '연결': b += box(596, y-14, 46, 22, '#3a3a3a', '#3a3a3a', 5) + dtext(619, y+1, v, 11, '600', DTXT, 'middle')
             else: b += dtext([200, 400, 490, 606][j], y, v, 12 if j == 0 else 11, '600' if j == 0 else '500', DTXT if j == 0 else DMUT)
-    b += callout(1, 184, 401) + callout(2, 266, 52) + callout(3, 588, 52) + callout(4, 186, 128)
+    b += callout(1, 184, 401) + callout(2, 300, 50) + callout(3, 588, 52) + callout(4, 186, 128)
     return dwin(w, h, '설정', b)
 def main_window():
     w, h = 690, 400; b = box(2, 2, w-4, h-4, DARK, '#444', 10, 1.4)
@@ -195,7 +195,7 @@ def firebase():
 F['setup'] = [('after_intro', fig(mcp(), 'MCP는 클로드에 다른 도구를 꽂는 플러그입니다. 커넥터와 플러그인이 이 방식으로 연결됩니다.')),
               ('after:h3:2. 캔바', fig(settings_connectors(), '설정 › 사용자 지정 › 커넥터. 탐색에서 Canva를 찾아 연결하고 캔바에 로그인하면 내 항목에 "개인별 ✓"로 보입니다.', 'mock')),
               ('before:h3:한글', fig(terminal(), '한글 플러그인 설치 순서(보기용 그림). 실제로 복사할 때는 본문의 명령 상자를 쓰세요. 클로드 코드 대화창에 이 명령을 실행해 달라고 맡겨도 됩니다. 캔바 연결 명령은 캔바 절에 따로 있습니다.')),
-              ('before:h3:Git', fig(git_line(), '저장 지점이 있으면 망가져도 잘 되던 때로 돌아갈 수 있습니다.')),
+              ('after:h3:4. Git', fig(git_line(), '저장 지점이 있으면 망가져도 잘 되던 때로 돌아갈 수 있습니다.')),
               ('after:h3:5. Firebase', fig(firebase(), '웹을 Firebase에 올리는 흐름. 올린 주소는 누구나 열 수 있습니다.'))]
 
 # ---------- EP0 Cowork 개략도 ----------
@@ -242,9 +242,10 @@ def dangyeo():
     def grid(x, title, marks):
         b = text(x+150, 22, title, 14, '800')
         days = ['월', '화', '수', '목', '금']
+        b += text(x+14, 46, '교시', 9.5, '700', MUTED)
         for c, d in enumerate(days): b += text(x+52+c*52, 46, d, 12, '700', MUTED)
         for r in range(4):
-            b += text(x+12, 72+r*36, f'{r+4}교시', 10.5, '600', MUTED, 'start')
+            b += text(x+14, 72+r*36, f'{r+4}', 11, '700', MUTED)
             for c in range(5):
                 v = marks.get((r, c), ''); col = {'당겨옴': MARK, '당겨 감': PAPER, '축제': SOFT, '3반': '#fff'}.get(v, '#fff')
                 b += box(x+28+c*52, 54+r*36, 48, 30, col, INK if v in ('당겨옴', '당겨 감') else LINE, 4, 1.4 if v else 1) + text(x+52+c*52, 74+r*36, v, 10.5, '700' if v else '400')
@@ -289,7 +290,7 @@ def three_d():
 def scad_sample():
     code = ['// 책상 명패 (예시) — 숫자만 바꾸면 크기가 바뀝니다', '가로 = 90;  세로 = 30;  두께 = 3;', '글자 = "김하늘";  글자크기 = 10;  글자돌출 = 1.5;', '', 'cube([가로, 세로, 두께]);                 // 바탕판', 'translate([8, 14, 두께])', '  linear_extrude(글자돌출) text(글자, size = 글자크기);']
     b = box(2, 2, 336, 186, '#1F2624', INK, 10)
-    for i, l in enumerate(code): b += f'<text x="16" y="{30+i*22}" font-size="11.5" fill="{MARK if l.startswith("//") else "#E3EAE6"}" font-family="\'IBM Plex Mono\',monospace">{esc(l)}</text>'
+    for i, l in enumerate(code): b += f'<text x="12" y="{30+i*22}" font-size="10" fill="{MARK if l.startswith("//") else "#E3EAE6"}" font-family="\'IBM Plex Mono\',monospace">{esc(l)}</text>'
     # 명패 그림 (등각 느낌)
     b += f'<polygon points="380,130 600,130 660,90 440,90" fill="{SOFT}" stroke="{INK}" stroke-width="1.5"/>'
     b += f'<polygon points="380,130 600,130 600,146 380,146" fill="#BFD8D1" stroke="{INK}" stroke-width="1.5"/><polygon points="600,130 660,90 660,106 600,146" fill="#A9CBC2" stroke="{INK}" stroke-width="1.5"/>'
