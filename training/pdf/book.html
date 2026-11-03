@@ -138,6 +138,11 @@ thead{display:table-header-group}
 td:first-child,th:first-child{word-break:keep-all}
 
 .toc tr.part{break-after:avoid;page-break-after:avoid}
+
+kbd{display:inline-block;font-family:var(--fm);font-size:.82em;font-weight:500;line-height:1.3;padding:0 4pt;margin:0 1pt;background:#FFF6CC;border:.8pt solid #B9A24A;border-bottom-width:1.6pt;border-radius:3pt;color:#3A3000;white-space:nowrap}
+.note.keys{background:#FFFBEA;border-color:#E3CF7A}
+.note.keys .lbl{color:#6B5A00}
+.key-tip{display:inline-block;margin-top:3pt;padding:1pt 6pt;background:#FFFBEA;border:.8pt solid #E3CF7A;border-radius:3pt;font-size:9.6pt}
 </style>
 </head>
 <body>
@@ -184,38 +189,38 @@ td:first-child,th:first-child{word-break:keep-all}
 <section class="toc">
   <h2>차례와 읽는 법</h2>
   <p>에피소드마다 첫머리 검은 상자가 "이런 일이 됩니다"입니다. 노란 띠는 그 일에 알맞은 도구(Cowork 또는 클로드 코드)입니다. 그 아래에 자세한 따라 하기가 이어집니다. 처음이면 도구 고르기·메뉴 지도 두 장을 읽고 EP 0으로 가세요. Pro 장은 사용량이 걱정될 때, 세팅 장은 각 EP의 '준비'가 가리킬 때 읽습니다. 급한 일이 있다면 그 EP만 보셔도 됩니다.</p>
-  <div class="note"><p class="lbl">처음 오신 분은 이 순서로</p><p>① 도구 고르기(5분) → ② 메뉴 지도(5분) → ③ EP 0 시작하기 → ④ EP 3 공문 PDF → 할 일 표(약 3분, 설치 필요 없음) → ⑤ 세팅 장 3절(p. 15)에서 한글 플러그인을 설치한 뒤 EP 1 가정통신문. 세팅 장(캔바·한글·Git·Firebase)은 처음부터 다 할 필요 없이, 각 EP의 '준비'에 나올 때 돌아와서 하면 됩니다. Pro 장은 사용량이 걱정될 때 읽으세요.</p></div>
+  <div class="note"><p class="lbl">처음 오신 분은 이 순서로</p><p>① 도구 고르기(5분) → ② 메뉴 지도(5분) → ③ EP 0 시작하기 → ④ EP 3 공문 PDF → 할 일 표(약 3분, 설치 필요 없음) → ⑤ 세팅 장 3절(p. 16)에서 한글 플러그인을 설치한 뒤 EP 1 가정통신문. 세팅 장(캔바·한글·Git·Firebase)은 처음부터 다 할 필요 없이, 각 EP의 '준비'에 나올 때 돌아와서 하면 됩니다. Pro 장은 사용량이 걱정될 때 읽으세요.</p></div>
   <table>
     <tr class="part"><td colspan="4">시작 전</td></tr>
     <tr><td class="n">도구</td><td class="t">채팅 · Cowork · 클로드 코드</td><td class="d">무엇을 언제 쓰나, EP별 추천 도구</td><td class="pg">6</td></tr>
     <tr><td class="n">메뉴</td><td class="t">메뉴 지도</td><td class="d">메인 화면 네 곳, 설정 창, 사용량 읽는 법</td><td class="pg">10</td></tr>
-    <tr><td class="n">세팅</td><td class="t">처음 한 번 세팅</td><td class="d">MCP란, 캔바 커넥터, 한글 플러그인, Git·GitHub, Firebase</td><td class="pg">15</td></tr>
-    <tr><td class="n">Pro</td><td class="t">Pro 요금제로 쓰는 법</td><td class="d">사용량·토큰 관리, 여러 에이전트와 교차 검증</td><td class="pg">25</td></tr>
+    <tr><td class="n">세팅</td><td class="t">처음 한 번 세팅</td><td class="d">MCP란, 캔바 커넥터, 한글 플러그인, Git·GitHub, Firebase</td><td class="pg">16</td></tr>
+    <tr><td class="n">Pro</td><td class="t">Pro 요금제로 쓰는 법</td><td class="d">사용량·토큰 관리, 여러 에이전트와 교차 검증</td><td class="pg">26</td></tr>
     <tr class="part"><td colspan="4">1부 · 문서 업무: 자료 던지고 맡기기 (Cowork 중심)</td></tr>
-    <tr><td class="n">EP 0</td><td class="t">Cowork · 클로드 코드 시작하기</td><td class="d">작업 폴더, 첫 대화, 확인 질문, 프롬프트 다섯 칸</td><td class="pg">29</td></tr>
-    <tr><td class="n">EP 1</td><td class="t">가정통신문</td><td class="d">한글 양식에 메모 내용 채우기</td><td class="pg">36</td></tr>
-    <tr><td class="n">EP 2</td><td class="t">엑셀 합치기</td><td class="d">여러 파일 통합, 이상한 값 표시</td><td class="pg">40</td></tr>
-    <tr><td class="n">EP 3</td><td class="t">공문 → 할 일</td><td class="d">PDF에서 내 일만 뽑아 마감일 순으로</td><td class="pg">43</td></tr>
-    <tr><td class="n">EP 4</td><td class="t">상장 대량 제작</td><td class="d">먼저 두 장, 확인 후 전부</td><td class="pg">46</td></tr>
-    <tr><td class="n">EP 5</td><td class="t">PC 정리와 자동화</td><td class="d">다운로드 폴더·음악 정리, PC 설정 스크립트</td><td class="pg">50</td></tr>
+    <tr><td class="n">EP 0</td><td class="t">Cowork · 클로드 코드 시작하기</td><td class="d">작업 폴더, 첫 대화, 확인 질문, 프롬프트 다섯 칸</td><td class="pg">30</td></tr>
+    <tr><td class="n">EP 1</td><td class="t">가정통신문</td><td class="d">한글 양식에 메모 내용 채우기</td><td class="pg">38</td></tr>
+    <tr><td class="n">EP 2</td><td class="t">엑셀 합치기</td><td class="d">여러 파일 통합, 이상한 값 표시</td><td class="pg">42</td></tr>
+    <tr><td class="n">EP 3</td><td class="t">공문 → 할 일</td><td class="d">PDF에서 내 일만 뽑아 마감일 순으로</td><td class="pg">45</td></tr>
+    <tr><td class="n">EP 4</td><td class="t">상장 대량 제작</td><td class="d">먼저 두 장, 확인 후 전부</td><td class="pg">48</td></tr>
+    <tr><td class="n">EP 5</td><td class="t">PC 정리와 자동화</td><td class="d">다운로드 폴더·음악 정리, PC 설정 스크립트</td><td class="pg">52</td></tr>
     <tr><td class="n"></td><td colspan="2" class="d">2·3·4부는 서로 독립입니다. EP 13은 EP 12에서 만든 차시 내용을 쓰고, EP 15는 EP 6~8 또는 EP 9~11의 앱 하나를 만든 뒤에 합니다.</td></tr>
     <tr class="part"><td colspan="4">2부 · 학교 일정 연동 시간표와 수업 당겨오기 (클로드 코드)</td></tr>
-    <tr><td class="n">EP 6</td><td class="t">학사일정 연동 시간표</td><td class="d">기본 시간표 + 학사일정 → 주차별 진짜 시간표, 결손 시수</td><td class="pg">60</td></tr>
-    <tr><td class="n">EP 7</td><td class="t">수업 당겨오기</td><td class="d">규칙표 → 후보 찾기 → 등록·되돌리기 → 충돌 검사</td><td class="pg">68</td></tr>
-    <tr><td class="n">EP 8</td><td class="t">학교 일정과 함께 쓰고, 다른 앱으로 넓히기</td><td class="d">일정 갱신, 저장·불러오기, 공유와 입장 코드</td><td class="pg">78</td></tr>
+    <tr><td class="n">EP 6</td><td class="t">학사일정 연동 시간표</td><td class="d">기본 시간표 + 학사일정 → 주차별 진짜 시간표, 결손 시수</td><td class="pg">62</td></tr>
+    <tr><td class="n">EP 7</td><td class="t">수업 당겨오기</td><td class="d">규칙표 → 후보 찾기 → 등록·되돌리기 → 충돌 검사</td><td class="pg">70</td></tr>
+    <tr><td class="n">EP 8</td><td class="t">학교 일정과 함께 쓰고, 다른 앱으로 넓히기</td><td class="d">일정 갱신, 저장·불러오기, 공유와 입장 코드</td><td class="pg">80</td></tr>
     <tr class="part"><td colspan="4">3부 · 성적처리 인정점 프로그램 (Cowork → 클로드 코드)</td></tr>
-    <tr><td class="n">EP 9</td><td class="t">규정 → 계산 규칙표</td><td class="d">코드보다 규칙표 먼저, 사람이 확정</td><td class="pg">86</td></tr>
-    <tr><td class="n">EP 10</td><td class="t">계산 프로그램</td><td class="d">가짜 데이터로 만들고 실제 데이터는 내 PC에서</td><td class="pg">91</td></tr>
-    <tr><td class="n">EP 11</td><td class="t">검산이 핵심</td><td class="d">손계산 정답표와 자동 비교, 경계 사례</td><td class="pg">97</td></tr>
+    <tr><td class="n">EP 9</td><td class="t">규정 → 계산 규칙표</td><td class="d">코드보다 규칙표 먼저, 사람이 확정</td><td class="pg">88</td></tr>
+    <tr><td class="n">EP 10</td><td class="t">계산 프로그램</td><td class="d">가짜 데이터로 만들고 실제 데이터는 내 PC에서</td><td class="pg">93</td></tr>
+    <tr><td class="n">EP 11</td><td class="t">검산이 핵심</td><td class="d">손계산 정답표와 자동 비교, 경계 사례</td><td class="pg">99</td></tr>
     <tr class="part"><td colspan="4">4부 · 기술 수업: 사이트·캔바·3D 프린팅</td></tr>
-    <tr><td class="n">EP 12</td><td class="t">기술 교과서 자료로 사이트</td><td class="d">차시별 페이지, 저작권, Firebase에 올리기</td><td class="pg">103</td></tr>
-    <tr><td class="n">EP 13</td><td class="t">캔바 연결(MCP)</td><td class="d">클로드가 캔바에서 슬라이드·포스터 만들기</td><td class="pg">110</td></tr>
-    <tr><td class="n">EP 14</td><td class="t">3D 프린팅 모델링</td><td class="d">말로 설계 → OpenSCAD → STL → 출력, 치수 고치기</td><td class="pg">115</td></tr>
+    <tr><td class="n">EP 12</td><td class="t">기술 교과서 자료로 사이트</td><td class="d">차시별 페이지, 저작권, Firebase에 올리기</td><td class="pg">105</td></tr>
+    <tr><td class="n">EP 13</td><td class="t">캔바 연결(MCP)</td><td class="d">클로드가 캔바에서 슬라이드·포스터 만들기</td><td class="pg">112</td></tr>
+    <tr><td class="n">EP 14</td><td class="t">3D 프린팅 모델링</td><td class="d">말로 설계 → OpenSCAD → STL → 출력, 치수 고치기</td><td class="pg">117</td></tr>
     <tr class="part"><td colspan="4">5부 · 점검하고 고치기</td></tr>
-    <tr><td class="n">EP 15</td><td class="t">점검하고 고치기</td><td class="d">문제 목록, 문제 알리기 양식, 되돌리기</td><td class="pg">121</td></tr>
-    <tr><td class="n">EP 16</td><td class="t">발표자 사례와 지킬 것</td><td class="d">손목 컨트롤러 10일, 성적·개인정보 원칙</td><td class="pg">127</td></tr>
-    <tr><td class="n">부록</td><td class="t">30분 실습 · 한 장 요약</td><td class="d">체크리스트, 자주 쓰는 말 10개</td><td class="pg">131</td></tr>
-    <tr><td class="n">끝</td><td class="t">이 자료는 이렇게 만들었습니다</td><td class="d">요청과 제작 과정</td><td class="pg">134</td></tr>
+    <tr><td class="n">EP 15</td><td class="t">점검하고 고치기</td><td class="d">문제 목록, 문제 알리기 양식, 되돌리기</td><td class="pg">123</td></tr>
+    <tr><td class="n">EP 16</td><td class="t">발표자 사례와 지킬 것</td><td class="d">손목 컨트롤러 10일, 성적·개인정보 원칙</td><td class="pg">129</td></tr>
+    <tr><td class="n">부록</td><td class="t">30분 실습 · 한 장 요약</td><td class="d">체크리스트, 자주 쓰는 말 10개</td><td class="pg">133</td></tr>
+    <tr><td class="n">끝</td><td class="t">이 자료는 이렇게 만들었습니다</td><td class="d">요청과 제작 과정</td><td class="pg">136</td></tr>
   </table>
   <div class="legend">
     <div class="prompt"><p class="lbl">이렇게 말하세요</p>복사해서 [대괄호]만 바꿔 보냅니다. [ ] 안은 내 상황으로 바꾸는 자리이고, [진짜시간표.html]처럼 파일 이름이 든 것은 내 파일 이름이 같으면 그대로 둡니다.</div>
@@ -345,6 +350,27 @@ td:first-child,th:first-child{word-break:keep-all}
     <p>이 책은 기본 모드(파일을 고치거나 명령을 실행하기 전에 허락을 묻는 모드) 기준입니다. '자동 수락' 계열로 바꾸면 이 책의 '계획만 받기', '허락 질문 읽기' 안전장치가 작동하지 않으니 바꾸지 마세요. 폴더 안 파일을 읽기만 할 때는 묻지 않고 진행할 수 있습니다. 지금 어느 모드인지는 입력창 아래 표시에서 봅니다. 실수로 바꿨다면 같은 자리에서 기본 모드 이름을 다시 고르면 됩니다.</p>
     <p>Cowork의 권한 모드는 '직접 허락 / 자동 / 건너뛰기'이며, 이 책은 직접 허락 기준입니다. 영구 삭제는 어느 모드에서도 허락을 묻습니다.</p>
   </div>
+
+  <h3>자주 쓰는 단축키</h3>
+  <p>단축키는 알아 두면 편하지만 몰라도 메뉴로 다 할 수 있습니다. 아래는 확인된 것만 모았습니다. 본문에서도 해당하는 곳에 노란 키 모양으로 표시했습니다.</p>
+  <table class="tbl">
+    <thead><tr><th>키</th><th>하는 일</th><th>어디서</th></tr></thead>
+    <tbody>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>,</kbd></td><td>설정 열기</td><td>Claude 데스크톱 앱(Windows)</td></tr>
+      <tr><td><kbd>Enter</kbd></td><td>보내기</td><td>앱 입력창</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>Enter</kbd></td><td>대기열에 넣었다가 지금 일이 끝나면 보내기</td><td>앱 Code 입력창</td></tr>
+      <tr><td><kbd>Esc</kbd></td><td>클로드 멈추기(응답·작업 중단)</td><td>클로드 코드</td></tr>
+      <tr><td><kbd>Esc</kbd> 두 번</td><td>입력 지우기 / 비어 있으면 되돌리기(/rewind) 메뉴</td><td>클로드 코드</td></tr>
+      <tr><td><kbd>Shift</kbd>+<kbd>Tab</kbd></td><td>권한 모드 바꾸기</td><td>클로드 코드</td></tr>
+      <tr><td><kbd>Shift</kbd>+<kbd>Enter</kbd></td><td>줄 바꾸기(보내지 않음)</td><td>클로드 코드</td></tr>
+      <tr><td><kbd>↑</kbd> / <kbd>↓</kbd></td><td>앞에 보낸 말 다시 불러오기</td><td>클로드 코드</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd></td><td>하던 일 중단, 아무것도 안 하면 입력 지우기</td><td>클로드 코드(터미널)</td></tr>
+      <tr><td><kbd>Alt</kbd>+<kbd>V</kbd></td><td>복사한 그림(캡처) 붙여 넣기</td><td>클로드 코드(Windows)</td></tr>
+      <tr><td><kbd>Alt</kbd>+<kbd>P</kbd></td><td>모델 바꾸기</td><td>클로드 코드(Windows)</td></tr>
+      <tr><td><kbd>/</kbd> 맨 앞</td><td>명령 목록(/usage, /clear, /rewind 등)</td><td>클로드 코드</td></tr>
+    </tbody>
+  </table>
+  <p>클로드 코드 단축키는 터미널판 공식 문서(code.claude.com, 2026년 11월) 기준이고, 앱 단축키는 발표자의 Windows 앱 화면 기준입니다. 맥은 Ctrl 대신 ⌘(Command)인 경우가 많습니다.</p>
 
   <figure class="fig mock"><svg viewBox="0 0 690 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="설정"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1F5F57"/></marker></defs><rect x="2" y="2" width="686" height="466" rx="10" fill="#1E1F1E" stroke="#444" stroke-width="1.4"/><text x="20" y="28.0" font-size="15.7" font-weight="700" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">설정</text><text x="666" y="28.0" font-size="15.7" font-weight="500" fill="#A3A6A2" text-anchor="end" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">✕</text><line x1="2" y1="42" x2="688" y2="42" stroke="#3a3a3a"/><rect x="12" y="52" width="170" height="408" rx="6" fill="#1E1F1E" stroke="#333" stroke-width="1.2"/><rect x="22" y="60" width="150" height="24" rx="6" fill="#2A2B2A" stroke="#3a3a3a" stroke-width="1.2"/><text x="34" y="77.0" font-size="12.3" font-weight="500" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">검색</text><text x="26" y="104.0" font-size="11.8" font-weight="600" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">환경설정</text><text x="34" y="124.0" font-size="12.9" font-weight="500" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">일반</text><text x="34" y="145.0" font-size="12.9" font-weight="500" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">계정</text><text x="34" y="166.0" font-size="12.9" font-weight="500" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">개인정보보호</text><text x="34" y="187.0" font-size="12.9" font-weight="500" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">사용량</text><text x="34" y="208.0" font-size="12.9" font-weight="500" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">기능</text><text x="34" y="229.0" font-size="12.9" font-weight="500" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">메모리</text><text x="34" y="250.0" font-size="12.9" font-weight="500" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">디자인 시스템</text><text x="34" y="271.0" font-size="12.9" font-weight="500" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">Claude Code</text><text x="34" y="292.0" font-size="12.9" font-weight="500" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">Cowork</text><text x="26" y="313.0" font-size="11.8" font-weight="600" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">이 컴퓨터</text><text x="34" y="333.0" font-size="12.9" font-weight="500" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">시스템</text><text x="34" y="354.0" font-size="12.9" font-weight="500" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">확장 프로그램</text><text x="34" y="375.0" font-size="12.9" font-weight="500" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">개발자</text><text x="26" y="396.0" font-size="11.8" font-weight="600" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">사용자 지정</text><text x="34" y="416.0" font-size="12.9" font-weight="500" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">Skills</text><rect x="20" y="422" width="156" height="22" rx="6" fill="#33363a" stroke="#3B82F6" stroke-width="1.4"/><text x="34" y="437.0" font-size="12.9" font-weight="600" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">커넥터</text><text x="34" y="458.0" font-size="12.9" font-weight="500" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">플러그인</text><text x="200" y="80.0" font-size="19.0" font-weight="800" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">커넥터</text><rect x="272" y="62" width="112" height="26" rx="6" fill="#2A2B2A" stroke="#444" stroke-width="1.2"/><text x="282" y="80.0" font-size="12.9" font-weight="700" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">내 항목</text><text x="336" y="80.0" font-size="12.9" font-weight="500" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">탐색</text><rect x="600" y="62" width="76" height="26" rx="6" fill="#F4F4F2" stroke="#F4F4F2" stroke-width="1.2"/><text x="638" y="80.0" font-size="12.9" font-weight="700" fill="#1E1F1E" text-anchor="middle" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">+ 추가 ▾</text><text x="200" y="112.0" font-size="11.8" font-weight="600" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">커넥터</text><text x="400" y="112.0" font-size="11.8" font-weight="600" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">유형</text><text x="490" y="112.0" font-size="11.8" font-weight="600" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">인증</text><text x="600" y="112.0" font-size="11.8" font-weight="600" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">상태</text><rect x="194" y="120" width="486" height="32" rx="6" fill="#2f3a2f" stroke="#F3D34A" stroke-width="1.4"/><line x1="194" y1="154" x2="680" y2="154" stroke="#333"/><text x="200" y="140.0" font-size="13.4" font-weight="600" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">Canva</text><text x="400" y="140.0" font-size="12.3" font-weight="500" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">웹</text><text x="490" y="140.0" font-size="12.3" font-weight="500" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">개인별</text><text x="606" y="140.0" font-size="12.3" font-weight="500" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">✓</text><line x1="194" y1="190" x2="680" y2="190" stroke="#333"/><text x="200" y="176.0" font-size="13.4" font-weight="600" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">Claude in Chrome</text><text x="400" y="176.0" font-size="12.3" font-weight="500" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">데스크톱</text><text x="490" y="176.0" font-size="12.3" font-weight="500" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">—</text><text x="606" y="176.0" font-size="12.3" font-weight="500" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">✓</text><line x1="194" y1="226" x2="680" y2="226" stroke="#333"/><text x="200" y="212.0" font-size="13.4" font-weight="600" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">GitHub 통합</text><text x="400" y="212.0" font-size="12.3" font-weight="500" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">웹</text><text x="490" y="212.0" font-size="12.3" font-weight="500" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">개인별</text><text x="606" y="212.0" font-size="12.3" font-weight="500" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">✓</text><line x1="194" y1="262" x2="680" y2="262" stroke="#333"/><text x="200" y="248.0" font-size="13.4" font-weight="600" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">Gmail</text><text x="400" y="248.0" font-size="12.3" font-weight="500" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">웹</text><text x="490" y="248.0" font-size="12.3" font-weight="500" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">개인별</text><text x="606" y="248.0" font-size="12.3" font-weight="500" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">✓</text><line x1="194" y1="298" x2="680" y2="298" stroke="#333"/><text x="200" y="284.0" font-size="13.4" font-weight="600" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">Google Calendar</text><text x="400" y="284.0" font-size="12.3" font-weight="500" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">웹</text><text x="490" y="284.0" font-size="12.3" font-weight="500" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">개인별</text><text x="606" y="284.0" font-size="12.3" font-weight="500" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">✓</text><line x1="194" y1="334" x2="680" y2="334" stroke="#333"/><text x="200" y="320.0" font-size="13.4" font-weight="600" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">Notion</text><text x="400" y="320.0" font-size="12.3" font-weight="500" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">웹</text><text x="490" y="320.0" font-size="12.3" font-weight="500" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">개인별</text><text x="606" y="320.0" font-size="12.3" font-weight="500" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">✓</text><line x1="194" y1="370" x2="680" y2="370" stroke="#333"/><text x="200" y="356.0" font-size="13.4" font-weight="600" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">Adobe</text><text x="400" y="356.0" font-size="12.3" font-weight="500" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">웹</text><text x="490" y="356.0" font-size="12.3" font-weight="500" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">—</text><rect x="596" y="342" width="46" height="22" rx="5" fill="#3a3a3a" stroke="#3a3a3a" stroke-width="1.2"/><text x="619" y="357.0" font-size="12.3" font-weight="600" fill="#ECECEA" text-anchor="middle" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">연결</text><line x1="194" y1="406" x2="680" y2="406" stroke="#333"/><text x="200" y="392.0" font-size="13.4" font-weight="600" fill="#ECECEA" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">Microsoft 365</text><text x="400" y="392.0" font-size="12.3" font-weight="500" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">웹</text><text x="490" y="392.0" font-size="12.3" font-weight="500" fill="#A3A6A2" text-anchor="start" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">—</text><rect x="596" y="378" width="46" height="22" rx="5" fill="#3a3a3a" stroke="#3a3a3a" stroke-width="1.2"/><text x="619" y="393.0" font-size="12.3" font-weight="600" fill="#ECECEA" text-anchor="middle" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">연결</text><circle cx="96" cy="401" r="11" fill="#9A3B1D"/><text x="96" y="405.5" font-size="13.4" font-weight="700" fill="#fff" text-anchor="middle" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">1</text><circle cx="254" cy="75" r="11" fill="#9A3B1D"/><text x="254" y="79.5" font-size="13.4" font-weight="700" fill="#fff" text-anchor="middle" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">2</text><circle cx="670" cy="56" r="11" fill="#9A3B1D"/><text x="670" y="60.5" font-size="13.4" font-weight="700" fill="#fff" text-anchor="middle" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">3</text><circle cx="186" cy="140" r="11" fill="#9A3B1D"/><text x="186" y="144.5" font-size="13.4" font-weight="700" fill="#fff" text-anchor="middle" font-family="'IBM Plex Sans KR','Gothic A1',sans-serif">4</text></svg><figcaption><b>개략도</b> 설정 창 개략도(실제 메뉴 이름). ① 사용자 지정 › 커넥터 ② 내 항목/탐색 ③ + 추가 ④ Canva가 &quot;개인별·✓&quot;면 연결된 것.</figcaption></figure>
 <h3>설정 창 지도</h3>
@@ -588,7 +614,7 @@ td:first-child,th:first-child{word-break:keep-all}
     <li><h4>다른 일은 새 대화에서</h4><p>대화가 길어질수록 클로드는 앞 내용을 계속 다시 읽어서 사용량이 늘어납니다. 가정통신문을 끝냈으면 시간표 앱은 새 대화로 시작합니다. 클로드 코드 입력창에 /clear를 글자 그대로 치고 Enter를 누르면 대화가 비워집니다. 이어서 해야 하면 "지금까지 한 일을 요약해 줘"를 받아 새 대화에 붙입니다.</p></li>
     <li><h4>파일은 콕 집어서</h4><p>"폴더 전부 읽어 봐"보다 "[메모.txt]와 [양식.hwpx]만 읽어"가 훨씬 적게 씁니다. 작업 폴더에 필요 없는 큰 파일(동영상, 사진 수백 장)을 두지 마세요.</p></li>
     <li><h4>짧은 답이면 짧게 달라고</h4><p>파일이 필요 없을 때는 "파일 만들지 말고 세 줄로만 답해 줘"라고 합니다. Cowork 공식 안내에도 있는 요령입니다.</p></li>
-    <li><h4>일에 맞는 모델을 고릅니다</h4><p>문서 정리·간단한 수정은 Sonnet이나 Haiku로 충분합니다. 문서 정리·간단한 수정은 가벼운 모델로 충분한 경우가 많습니다. 인정점 규칙처럼 틀리면 곤란한 판단이나 원인 모를 오류에만 Opus를 씁니다.</p></li>
+    <li><h4>일에 맞는 모델을 고릅니다</h4><p>문서 정리·간단한 수정은 Sonnet이나 Haiku로 충분합니다. 문서 정리·간단한 수정은 가벼운 모델로 충분한 경우가 많습니다. 인정점 규칙처럼 틀리면 곤란한 판단이나 원인 모를 오류에만 Opus를 씁니다.</p> <span class="key-tip">모델 바꾸기: 데스크톱 앱은 입력창 아래 모델 이름을 누르고, 터미널판 클로드 코드는 /model 또는 <kbd>Alt</kbd>+<kbd>P</kbd>(Windows).</span></li>
     <li><h4>자주 쓰는 자료는 프로젝트에</h4><p>학교 양식·규정처럼 매번 쓰는 자료는 채팅의 '프로젝트'에 넣어 두면, 매번 붙여 넣지 않아도 되어 편하고, 사용량을 아끼는 데도 도움이 됩니다.</p></li>
   </ol>
 
@@ -673,10 +699,13 @@ td:first-child,th:first-child{word-break:keep-all}
   <table class="tbl">
     <thead><tr><th>키</th><th>하는 일</th></tr></thead>
     <tbody>
-      <tr><td>Ctrl+C</td><td>복사</td></tr>
-      <tr><td>Ctrl+V</td><td>붙여넣기</td></tr>
-      <tr><td>Ctrl+A</td><td>전체 선택</td></tr>
-      <tr><td>F5</td><td>새로 고침</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd></td><td>복사 (터미널판 클로드 코드 안에서는 '멈추기·입력 지우기'로 동작)</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>V</kbd></td><td>붙여넣기</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>A</kbd></td><td>전체 선택</td></tr>
+      <tr><td><kbd>F5</kbd></td><td>새로 고침</td></tr>
+      <tr><td><kbd>Enter</kbd></td><td>Claude 앱 입력창: 보내기</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>Enter</kbd></td><td>Claude 앱 Code 입력창: 대기열에 넣었다가 나중에 보내기</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>,</kbd></td><td>Claude 앱 설정 열기</td></tr>
     </tbody>
   </table>
   <p>Ctrl 키는 키보드 왼쪽 아래에 있습니다.</p>
@@ -714,6 +743,15 @@ td:first-child,th:first-child{word-break:keep-all}
 아직 아무것도 고치거나 만들지 마.</pre></div>
 
   <div class="note"><p class="lbl">프롬프트의 [대괄호]</p><p>프롬프트 안의 [ ]는 내 상황으로 바꾸는 자리입니다. 파일 이름이 든 [진짜시간표.html] 같은 것은 그대로 써도 됩니다.</p></div>
+
+  <div class="note keys"><p class="lbl">단축키 · 클로드 코드</p>
+    <ul>
+      <li><kbd>Esc</kbd> 클로드를 멈춥니다(하던 응답·작업 중단). 엉뚱한 방향으로 가면 바로 누르세요.</li>
+      <li><kbd>Esc</kbd> 두 번: 입력창에 글이 있으면 지우고, 비어 있으면 되돌리기(/rewind) 메뉴를 엽니다.</li>
+      <li><kbd>Shift</kbd>+<kbd>Tab</kbd> 권한 모드를 바꿉니다(매번 묻기 ↔ 자동 등). 처음에는 매번 묻는 모드를 쓰세요.</li>
+      <li><kbd>Shift</kbd>+<kbd>Enter</kbd> 보내지 않고 줄만 바꿉니다. <kbd>↑</kbd> 앞에 보낸 말을 다시 불러옵니다.</li>
+    </ul>
+    <p>터미널판 클로드 코드 공식 문서 기준입니다. 데스크톱 앱 Code 화면은 입력창 아래 안내(<kbd>Enter</kbd> 보내기, <kbd>Ctrl</kbd>+<kbd>Enter</kbd> 대기열)를 따르세요.</p></div>
 
   <h3>허락 질문 읽는 법</h3>
   <p>두 도구 모두 파일을 바꾸기 전에 묻습니다. 무조건 누르지 말고 읽어 보세요. 세 가지만 보면 됩니다.</p>
@@ -2945,7 +2983,7 @@ OpenSCAD가 이 PC에 있으면 미리보기 그림을 만들어 모양을 확�
 방금 고친 뒤로 [손계산 검산이 3건 틀려].
 마지막 저장 지점으로 되돌려 줘. 되돌리기 전에 어느 지점으로 가는지와 그 뒤에 한 작업 중 무엇이 사라지는지 먼저 알려 줘.</pre></div>
   <p>“무엇이 사라지는지 먼저”가 핵심입니다. 되돌리면 그 지점 이후에 고친 내용은 사라집니다. 그래서 잘 될 때마다 저장 지점을 남깁니다. 사라질 목록을 읽어 보고 괜찮을 때만 허락합니다.</p>
-  <p>커밋 전 실수는 /rewind, 커밋 후는 저장 지점으로 되돌리기.</p>
+  <p>커밋 전 실수는 /rewind, 커밋 후는 저장 지점으로 되돌리기. <span class="key-tip">단축키: 입력창이 비었을 때 <kbd>Esc</kbd> 두 번 → 되돌리기 메뉴(터미널판 기준)</span></p>
 
   <div class="note">
     <p class="lbl">같은 문제가 두 번 안 풀릴 때</p>
